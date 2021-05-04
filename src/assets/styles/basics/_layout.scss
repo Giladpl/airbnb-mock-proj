@@ -1,5 +1,7 @@
-// .main-layout {
-// @include for-narrow-layout {
+.main-layout {
+    max-width: rem(1200px);
+    padding: 0 rem(80px);
+	// @include for-narrow-layout {
 
-// }
-// }
+	// }
+}
