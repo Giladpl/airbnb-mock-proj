@@ -1,13 +1,5 @@
-
-
-import './HomePage.scss'
+import './HomePage.scss';
 
 export const HomePage = (props) => {
-
-    return (
-        <section>
-            Home sweet home
-        </section>
-    )
-}
-
+	return <main className='home-page'>Home sweet home</main>;
+};
