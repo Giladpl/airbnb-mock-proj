@@ -3,17 +3,16 @@ import { utilService } from './utilService.js';
 import { storageService } from './storageService.js'
 // import { httpService } from './httpService.js';
 
-const KEY = 'stayDB';
+const KEY = 'orderDB';
 
-export const stayService = {
+export const orderService = {
 	query,
 	getById,
 	remove,
 	save,
-	getEmptyStay,
 };
 
-_createStays();
+_createOrders();
 
 function query() {
 	// return httpService.get(`/`);
@@ -30,56 +29,30 @@ function remove(id) {
 	return asyncStorageService.remove(KEY, id);
 }
 
-function save(stay) {
-	// if (stay.id) {
-	// 	return httpService.put(`/${stay.id}`, stay);
+function save(order) {
+	// if (order.id) {
+	// 	return httpService.put(`/${order.id}`, order);
 	// } else {
-	// 	return httpService.post(`/`, stay);
+	// 	return httpService.post(`/`, order);
 	// }
-	const savedStream = stay._id
-		? asyncStorageService.put(KEY, stay)
-		: asyncStorageService.post(KEY, stay);
+	const savedOrder = order._id
+		? asyncStorageService.put(KEY, order)
+		: asyncStorageService.post(KEY, order);
 
-	return savedStream;
+	return savedOrder;
 }
 
-function getEmptyTrip() {
-	return {
-		'startDate': '',
-		'endDate': '',
-		'guests': {
-			'adults': null,
-			'kids': null
-		},
-		'loc': {
-			'country': '',
-			'countryCode': '',
-			'address': '',
-			'lat': null,
-			'lng': null
-		}
-	}
-}
-
-function getEmptyStay(title = '', description = '') {
-	return {
-		title,
-		description,
-		createdAt: Date.now(),
-	};
-}
-
-function _createStays() {
-	let stays = storageService.load(KEY);
-	if (!stays || !stays.length) {
-		stays = [
-			_createStay('Ribeira Charming Duplex'),
-			_createStay('stay2'),
-			_createStay('stay3'),
+function _createOrders() {
+	let orders = storageService.load(KEY);
+	if (!orders || !orders.length) {
+		orders = [
+			_createOrder('Ribeira Charming Duplex'),
+			_createOrder('order2'),
+			_createOrder('order3'),
 		];
-		storageService.store(KEY, stays);
+		storageService.store(KEY, orders);
 	}
-	return stays;
+	return orders;
 }
 
 function _createOrder() {
@@ -97,35 +70,11 @@ function _createOrder() {
 			"adults": 2,
 			"kids": 1
 		},
-		"stay": {
+		"order": {
 			"_id": "h102",
 			"name": "House Of Uncle My",
 			"price": 80.00
 		},
-		"status": "pending"
-		// 	  }    
+		"status": "pending"  
 	}
-
-	// 	"order": [
-	// 	  {
-	// 		"_id": "o1225",
-	// 		"createdAt": 9898989,
-	// 		"buyer": {
-	// 		  "_id": "u101",
-	// 		  "fullname": "User 1"
-	// 		},
-	// 		"totalPrice": 160,
-	// 		"startDate": "2025/10/15",
-	// 		"endDate": "2025/10/17",
-	// 		"guests": {
-	// 		  "adults": 2,
-	// 		  "kids": 1
-	// 		},
-	// 		"stay": {
-	// 		  "_id": "h102",
-	// 		  "name": "House Of Uncle My",
-	// 		  "price": 80.00
-	// 		},
-	// 		"status": "pending"
-	// 	  }    
-	// 	] 
+} 

@@ -36,11 +36,11 @@ function save(stay) {
 	// } else {
 	// 	return httpService.post(`/`, stay);
 	// }
-	const savedStream = stay._id
+	const savedStay = stay._id
 		? asyncStorageService.put(KEY, stay)
 		: asyncStorageService.post(KEY, stay);
 
-	return savedStream;
+	return savedStay;
 }
 
 function getEmptyTrip() {
