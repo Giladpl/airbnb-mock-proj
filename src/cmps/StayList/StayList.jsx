@@ -2,15 +2,14 @@ import { StayPreview } from '../StayPreview';
 import './StayList.scss';
 
 export const StayList = ({ stays }) => {
-    console.log(stays);
 	return (
-		<ul>
+		<ul className="stay-list clean-list">
 			{stays &&
 				stays.map((stay) => (
 					<StayPreview
 						key={stay._id}
-						location={stay.location}
-						summery={stay.summery}
+						location={stay.loc}
+						summary={stay.summary}
 						price={stay.price}
 						reviews={stay.reviews}
 						imgs={stay.imgUrls}

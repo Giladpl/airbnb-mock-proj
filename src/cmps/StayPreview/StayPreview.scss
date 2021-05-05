@@ -1,1 +1,13 @@
-.stayPreview {}
+.stay-preview {
+	grid-column: span 3;
+
+	img {
+		border-radius: 12px;
+	}
+
+	svg {
+		height: 14px;
+		width: 14px;
+    // fill: '#FF385C';
+	}
+}
