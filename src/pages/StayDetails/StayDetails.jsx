@@ -13,24 +13,30 @@ export const StayDetails = ({ match }) => {
 		(async () => setCurrStay(await dispatch(getStayById(match.params.id))))();
 	}, [match.params.id, dispatch]);
 
+    function propertyFormatted(property, content) {
+        if (!property) return
+        content = property === 1 ? content : content + 's'
+        return property + ' ' + content
+    }
+
 	return (
 		currStay && (
-			<section className='stay-details'>
+			<section className='stay-details main-layout'>
 				<h1>{currStay.name}</h1>
-				<div className='img-container'>
-					{currStay.imgUrls.map((imgUrl) => (
-						<img src={imgUrl} alt='' />
+				<div className='img-container grid'>
+					{currStay.imgUrls.map((imgUrl, idx) => (
+						<img className={'img' + idx} key={idx} src={imgUrl} alt='' />
 					))}
 				</div>
 				<div className='host-container'>
 					<h3>Hosted by {currStay.host.fullname}</h3>
 					<img src={currStay.host.imgUrl} alt='' />
 				</div>
-				<div>
-					{currStay.properties.accommodates} guest
-					{currStay.properties.type}
-					{currStay.properties.bed} bed
-					{currStay.properties.bath} bath
+				<div className="property-container flex">
+                    <div>{propertyFormatted(currStay.properties.accommodates, 'guest')} ∙</div>
+                    <div>{currStay.properties.type} ∙</div>
+                    <div>{propertyFormatted(currStay.properties.bad, 'bad')} ∙</div>
+                    <div>{propertyFormatted(currStay.properties.bath, 'bath')}</div>
 				</div>
 				<p className='summary'>{currStay.summary}</p>
                 <AmenityList amenities={currStay.amenities} />

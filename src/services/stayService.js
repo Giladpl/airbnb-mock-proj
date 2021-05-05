@@ -86,13 +86,19 @@ function _createStay(name) {
 	return {
 		"_id": utilService.makeId(),
 		"name": name,
-		"imgUrls": ["https://a0.muscache.com/im/pictures/e83e702f-ef49-40fb-8fa0-6512d7e26e9b.jpg?aki_policy=large", "otherImg.jpg"],
+		"imgUrls": [
+			"https://a0.muscache.com/im/pictures/e83e702f-ef49-40fb-8fa0-6512d7e26e9b.jpg?aki_policy=large",
+			"https://a0.muscache.com/im/pictures/e83e702f-ef49-40fb-8fa0-6512d7e26e9b.jpg?aki_policy=large",
+			"https://a0.muscache.com/im/pictures/e83e702f-ef49-40fb-8fa0-6512d7e26e9b.jpg?aki_policy=large",
+			"https://a0.muscache.com/im/pictures/e83e702f-ef49-40fb-8fa0-6512d7e26e9b.jpg?aki_policy=large",
+			"https://a0.muscache.com/im/pictures/e83e702f-ef49-40fb-8fa0-6512d7e26e9b.jpg?aki_policy=large"
+		],
 		"price": 80.00,
 		"summary": "Fantastic duplex apartment with three bedrooms, located in the historic area of Porto, Ribeira (Cube)...",
 		"properties": {
 			"accommodates": 8,
 			"type": "1 bedroom",
-			"bed": 1,
+			"bad": 1,
 			"bath": 3,
 		},
 		"amenities": [
@@ -106,7 +112,7 @@ function _createStay(name) {
 		"host": {
 			"_id": "51399391",
 			"fullname": "Davit Pok",
-			"imgUrl": "https://a0.muscache.com/im/pictures/fab79f25-2e10-4f0f-9711-663cb69dc7d8.jpg?aki_policy=profile_small",
+			"imgUrl": "https://randomuser.me/api/portraits/men/21.jpg",
 		},
 		"loc": {
 			"country": "Portugal",
@@ -124,7 +130,7 @@ function _createStay(name) {
 				"by": {
 					"_id": "u102",
 					"fullname": "user2",
-					"imgUrl": "/img/img2.jpg"
+					"imgUrl": "https://randomuser.me/api/portraits/men/21.jpg"
 				}
 			}
 		]
