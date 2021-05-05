@@ -117,9 +117,10 @@ function _createStay(name) {
 		},
 		"reviews": [
 			{
-				"id": "madeId",
+				"id": utilService.makeId(),
 				"txt": "Very helpful hosts. Cooked traditional...",
 				"rate": 4,
+				"createAt": 1620210973856,
 				"by": {
 					"_id": "u102",
 					"fullname": "user2",
