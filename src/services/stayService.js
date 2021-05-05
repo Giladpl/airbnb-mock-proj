@@ -54,11 +54,22 @@ function getTotalAvgRate(stay) {
 }
 
 // function getListAvgRate(stay) {
-// 	return stay.reviews.reduce((acc, review) => {
-// 		review.reduce((acc, rate) => {
-
-// 		}, 0)
-// 	}, 0)
+// 	let avgRate = [
+// 		{ "property": "Cleanliness", "val": null },
+// 		{ "property": "Communication", "val": null },
+// 		{ "property": "Check-in", "val": null },
+// 		{ "property": "Accuracy", "val": null },
+// 		{ "property": "Location", "val": null },
+// 		{ "property": "Value", "val": null }
+// 	]
+	
+// 	stay.reviews.forEach(review => {
+// 		review.rate.forEach(rate => {
+// 			avgRate.forEach(newRate => {
+// 				if(rate.property === newRate.property) newRate.avl += rate.val;
+// 			})
+// 		})
+// 	});
 // }
 
 function getEmptyTrip() {
@@ -144,12 +155,12 @@ function _createStay(name) {
 				"id": utilService.makeId(),
 				"txt": "Very helpful hosts. Cooked traditional...",
 				"rate": [
-					{"property": "Cleanliness", "val": 4.8},
-					{"property": "Communication", "val": 5.0},
-					{"property": "Check-in", "val": 5.0},
-					{"property": "Accuracy", "val": 5.0},
-					{"property": "Location", "val": 4.9},
-					{"property": "Value", "val": 5.0},
+					{ "property": "Cleanliness", "val": 4.8 },
+					{ "property": "Communication", "val": 5.0 },
+					{ "property": "Check-in", "val": 5.0 },
+					{ "property": "Accuracy", "val": 5.0 },
+					{ "property": "Location", "val": 4.9 },
+					{ "property": "Value", "val": 5.0 },
 				],
 				"createAt": 1620210973856,
 				"by": {
@@ -162,12 +173,12 @@ function _createStay(name) {
 				"id": utilService.makeId(),
 				"txt": "Very helpful hosts. Cooked traditional!!",
 				"rate": [
-					{"property": "Cleanliness", "val": 4.8},
-					{"property": "Communication", "val": 5.0},
-					{"property": "Check-in", "val": 5.0},
-					{"property": "Accuracy", "val": 5.0},
-					{"property": "Location", "val": 4.9},
-					{"property": "Value", "val": 5.0},
+					{ "property": "Cleanliness", "val": 4.8 },
+					{ "property": "Communication", "val": 5.0 },
+					{ "property": "Check-in", "val": 5.0 },
+					{ "property": "Accuracy", "val": 5.0 },
+					{ "property": "Location", "val": 4.9 },
+					{ "property": "Value", "val": 5.0 },
 				],
 				"createAt": 1620210973856,
 				"by": {
