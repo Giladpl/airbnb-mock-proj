@@ -1,11 +1,17 @@
+<<<<<<< HEAD
+import { useSelector } from 'react-redux';
+import { StayList } from '../../cmps/StayList';
+import './StayApp.scss';
+=======
 import './StayApp.scss'
+>>>>>>> bd15600e35fe51c8d2b9ad4a513138868ef4925a
 
 export const StayApp = (props) => {
-
-    return (
-        <section>
-        
-        </section>
-    )
-}
-
+	const stays = useSelector((state) => state.stayReducer.stays);
+	return (
+		<section>
+			<h1>In StayApp</h1>
+			<StayList stays={stays} />
+		</section>
+	);
+};
