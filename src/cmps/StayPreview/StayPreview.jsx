@@ -6,13 +6,8 @@ import './StayPreview.scss';
 // import starSvg from '../../assets/svgs/star.svg'
 
 export const StayPreview = ({ stay }) => {
-<<<<<<< HEAD
-	const avrgRate = stay.reviews.reduce((acc, review) => {
-		return (acc += review.rate / stay.reviews.length).toFixed(2);
-	}, 0);
-=======
+
 	const avrgRate = stayService.getTotalAvgRate(stay)
->>>>>>> a4cd9cae83d9ae79f04bb0e6e1afc9b50963e95d
 
 	return (
 		<li className='stay-preview'>
