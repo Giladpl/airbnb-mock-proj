@@ -3,33 +3,11 @@ import { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { ReviewList } from '../../cmps/ReviewList/ReviewList';
 import { getStayById } from '../../store/actions/stayActions';
-import cutlerySvg from '../../assets/img/cutlery.svg';
-import fireplaceSvg from '../../assets/img/fireplace.svg';
-import hangerSvg from '../../assets/img/hanger.svg';
-import heatSvg from '../../assets/img/heat.svg';
-import parkingSvg from '../../assets/img/parking.svg';
-import snowflakeSvg from '../../assets/img/snowflake.svg';
-import tvSvg from '../../assets/img/television.svg';
-import wifiSvg from '../../assets/img/wifi.svg';
+import { AmenityList } from '../../cmps/AmenityList/AmenityList';
 
 export const StayDetails = ({ match }) => {
 	const dispatch = useDispatch();
 	const [currStay, setCurrStay] = useState(null);
-
-	const allAmenities = {
-		TV: tvSvg,
-		Wifi: wifiSvg,
-		Kitchen: cutlerySvg,
-		Hangers: hangerSvg,
-		'Smoking allowed': '',
-		'Pets allowed': '',
-		'Cooking basics': '',
-		'Free parking on premises': parkingSvg,
-		'Indoor fireplace': fireplaceSvg,
-		Essentials: '',
-		Heating: heatSvg,
-		'Air conditioning': snowflakeSvg,
-	};
 
 	useEffect(() => {
 		(async () => setCurrStay(await dispatch(getStayById(match.params.id))))();
@@ -55,19 +33,7 @@ export const StayDetails = ({ match }) => {
 					{currStay.properties.bath} bath
 				</div>
 				<p className='summary'>{currStay.summary}</p>
-				<div className='amenities'>
-					<h3>Amenities</h3>
-					<div>
-						{currStay.amenities.map((amenity, idx) => {
-							return (
-								<div key={idx}>
-									<img src={allAmenities[amenity]} alt='' />
-									<p>{amenity}</p>
-								</div>
-							);
-						})}
-					</div>
-				</div>
+                <AmenityList amenities={currStay.amenities} />
 				<div className='reviews'>
 					<h3>Rate</h3>
 					<div className='rate-list'></div>
