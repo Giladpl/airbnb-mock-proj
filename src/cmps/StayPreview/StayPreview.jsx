@@ -6,7 +6,7 @@ import './StayPreview.scss';
 
 export const StayPreview = ({ stay }) => {
 	const avrgRate = stay.reviews.reduce((acc, review) => {
-		return (acc += review.rate / stay.reviews.length);
+		return (acc += review.rate / stay.reviews.length).toFixed(2);
 	}, 0);
 
 	return (

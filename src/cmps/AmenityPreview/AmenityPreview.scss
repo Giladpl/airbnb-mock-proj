@@ -1,1 +1,9 @@
-.amenity-preview {}
+.amenity-preview {
+    margin-bottom: 16px;
+    
+    img {
+        width: 22px;
+        object-fit: contain;
+        margin-right: 16px;
+    }
+}

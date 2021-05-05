@@ -25,7 +25,7 @@ export const AmenityPreview = ({ amenity }) => {
 	};
 
     return (
-        <article className="amenity-preview">
+        <article className="amenity-preview flex">
             <img src={allAmenities[amenity]} alt='' />
             <p>{amenity}</p>
         </article>
