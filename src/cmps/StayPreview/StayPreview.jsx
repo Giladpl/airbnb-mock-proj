@@ -1,13 +1,12 @@
 import { Link } from 'react-router-dom';
 import { ReactComponent as StarSvg } from '../../assets/svgs/star.svg';
+import { stayService } from '../../services/stayService';
 import './StayPreview.scss';
 
 // import starSvg from '../../assets/svgs/star.svg'
 
 export const StayPreview = ({ stay }) => {
-	const avrgRate = stay.reviews.reduce((acc, review) => {
-		return (acc += review.rate / stay.reviews.length);
-	}, 0);
+	const avrgRate = stayService.getTotalAvgRate(stay)
 
 	return (
 		<Link to={'/stay/' + stay._id}>
