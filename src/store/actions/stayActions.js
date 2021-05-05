@@ -15,6 +15,7 @@ export function getStayById(stayId) {
 	return async (dispatch) => {
 		const stay = await stayService.getById(stayId);
 		dispatch({ type: 'SET_STAY', stay });
+		return stay;
 	};
 }
 

@@ -1,24 +1,26 @@
-import './StayPreview.scss';
+import { Link } from 'react-router-dom';
 import { ReactComponent as StarSvg } from '../../assets/svgs/star.svg';
+import './StayPreview.scss';
 
 // import starSvg from '../../assets/svgs/star.svg'
 
-export const StayPreview = ({ location, summary, price, reviews, imgs }) => {
-	const avrgRate = reviews.reduce((acc, review) => {
-		return (acc += review.rate / reviews.length);
+export const StayPreview = ({ stay }) => {
+	const avrgRate = stay.reviews.reduce((acc, review) => {
+		return (acc += review.rate / stay.reviews.length);
 	}, 0);
 
 	return (
-		//
-		<li className='stay-preview'>
-			<img src={imgs[0]} alt='' />
-			<div>
-				<StarSvg fill='#FF385C' /> {avrgRate} ({reviews.length})
-			</div>
-			<p>{location.address}</p>
-			<p>{summary}</p>
-			<p>Price per night</p>
-		</li>
+		<Link to={'/stay/' + stay._id}>
+			<li className='stay-preview'>
+				<img src={stay.imgUrls[0]} alt='' />
+				<div>
+					<StarSvg fill='#FF385C' /> {avrgRate} ({stay.reviews.length})
+				</div>
+				<p>{stay.loc.address}</p>
+				<p>{stay.summary}</p>
+				<p>Price per night</p>
+			</li>
+		</Link>
 	);
 };
 
