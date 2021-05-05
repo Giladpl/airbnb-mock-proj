@@ -1,6 +1,6 @@
 
 
-export const storageService = {
+export const asyncStorageService = {
     query,
     get,
     post,
@@ -9,6 +9,7 @@ export const storageService = {
 }
 
 function query(entityType) {
+    console.log('here');
     var entities = JSON.parse(localStorage.getItem(entityType)) || []
     return Promise.resolve(entities)
 }
@@ -27,15 +28,15 @@ function post(entityType, newEntity) {
             return newEntity
         })
 }
-function postMany(entityType, newEntities) {
-    return query(entityType)
-        .then(entities => {
-            newEntities = newEntities.map(entity => ({...entity, _id: _makeId()}))
-            entities.push(...newEntities)
-            _save(entityType, entities)
-            return newEntity
-        })
-}
+// function postMany(entityType, newEntities) {
+//     return query(entityType)
+//         .then(entities => {
+//             newEntities = newEntities.map(entity => ({...entity, _id: _makeId()}))
+//             entities.push(...newEntities)
+//             _save(entityType, entities)
+//             return newEntity
+//         })
+// }
 
 
 

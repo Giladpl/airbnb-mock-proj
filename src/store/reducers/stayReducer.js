@@ -1,6 +1,6 @@
 const INITIAL_STATE = {
 	stays: [],
-	currRobot: null,
+	currStay: null,
 };
 
 export function stayReducer(state = INITIAL_STATE, action) {
