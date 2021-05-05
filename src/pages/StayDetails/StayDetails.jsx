@@ -1,6 +1,7 @@
+import './StayDetails.scss'
 import { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
-import './StayDetails.scss'
+import { ReviewList } from '../../cmps/ReviewList/ReviewList';
 import cutlerySvg from '../../assets/img/cutlery.svg';
 import fireplaceSvg from '../../assets/img/fireplace.svg';
 import hangerSvg from '../../assets/img/hanger.svg';
@@ -64,7 +65,11 @@ export const StayDetails = ({match}) => {
                 </div>
             </div>
             <div className="reviews">
-                
+                <h3>Rate</h3>
+                <div className="rate-list">
+
+                </div>
+                <ReviewList reviews={currStay.reviews} />
             </div>
         </section>
     )
