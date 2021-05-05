@@ -1,5 +1,3 @@
-
-
 import './StayApp.scss'
 
 export const StayApp = (props) => {
