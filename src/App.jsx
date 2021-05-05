@@ -7,6 +7,7 @@ import { MainHeader } from './cmps/MainHeader';
 import { MainFooter } from './cmps/MainFooter';
 import { StayApp } from './pages/StayApp';
 import { StayDetails } from './pages/StayDetails';
+import { StayLocation } from './pages/StayLocation';
 import React from 'react';
 import './App.scss';
 
@@ -24,6 +25,7 @@ export function App() {
 			<div className='App'>
 				<MainHeader />
 				<Switch>
+					<Route path='/stay/explore/:location' component={StayLocation} />
 					<Route path='/stay/:id' component={StayDetails} />
 					<Route path='/stay' component={StayApp} />
 					<Route path='/' component={HomePage} />

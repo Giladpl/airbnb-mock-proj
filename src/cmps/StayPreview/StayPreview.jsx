@@ -6,21 +6,23 @@ import './StayPreview.scss';
 
 export const StayPreview = ({ stay }) => {
 	const avrgRate = stay.reviews.reduce((acc, review) => {
-		return (acc += review.rate / stay.reviews.length);
+		return (acc += review.rate / stay.reviews.length).toFixed(2);
 	}, 0);
 
 	return (
-		<Link to={'/stay/' + stay._id}>
-			<li className='stay-preview'>
+		<li className='stay-preview'>
+			<Link to={'/stay/' + stay._id}>
 				<img src={stay.imgUrls[0]} alt='' />
-				<div>
+				<div className='rate'>
 					<StarSvg fill='#FF385C' /> {avrgRate} ({stay.reviews.length})
 				</div>
 				<p>{stay.loc.address}</p>
-				<p>{stay.summary}</p>
-				<p>Price per night</p>
-			</li>
-		</Link>
+				<p className='summery'>{stay.summary}</p>
+				<p>
+					<span className='price'>${stay.price}</span> / night{' '}
+				</p>
+			</Link>
+		</li>
 	);
 };
 

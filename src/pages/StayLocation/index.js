@@ -1,0 +1,1 @@
+export { StayLocation } from './StayLocation'

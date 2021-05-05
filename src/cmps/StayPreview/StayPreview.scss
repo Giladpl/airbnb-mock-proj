@@ -1,5 +1,29 @@
 .stay-preview {
 	grid-column: span 3;
+	line-height: 20px;
+
+	.summery {
+		overflow: hidden;
+		text-overflow: ellipsis;
+		white-space: nowrap;
+	}
+	.rate {
+		font-size: 14px;
+		color: #777777;
+		// color: $clr2;
+	}
+	
+		.price {
+			font-weight: 800;
+			padding-right: 4px;
+		}
+
+	p {
+		margin: 0;
+		font-size: 16px;
+		color: #222222;
+		// color: $clr1;
+	}
 
 	img {
 		border-radius: 12px;
@@ -8,6 +32,5 @@
 	svg {
 		height: 14px;
 		width: 14px;
-    // fill: '#FF385C';
 	}
 }
