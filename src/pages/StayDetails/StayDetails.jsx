@@ -5,6 +5,7 @@ import { ReviewList } from '../../cmps/ReviewList/ReviewList';
 import { getStayById } from '../../store/actions/stayActions';
 import { AmenityList } from '../../cmps/AmenityList/AmenityList';
 import { ReactComponent as StarSvg } from '../../assets/svgs/star.svg';
+import { stayService } from '../../services/stayService';
 
 export const StayDetails = ({ match }) => {
     const dispatch = useDispatch();
@@ -14,9 +15,7 @@ export const StayDetails = ({ match }) => {
     useEffect(() => {
         (async () => {
             await setCurrStay(await dispatch(getStayById(match.params.id)))
-            // setAvrgRate(currStay.reviews.reduce((acc, review) => {
-            //     return (acc += review.rate / currStay.reviews.length).toFixed(2);
-            // }, 0))
+            // setAvrgRate(stayService.getTotalAvgRate(currStay))
         })();
     }, [match.params.id, dispatch]);
 

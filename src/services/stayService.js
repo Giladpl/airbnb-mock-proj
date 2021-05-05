@@ -11,6 +11,7 @@ export const stayService = {
 	remove,
 	save,
 	getEmptyStay,
+	getTotalAvgRate
 };
 
 _createStays();
@@ -42,6 +43,34 @@ function save(stay) {
 
 	return savedStay;
 }
+
+function getTotalAvgRate(stay) {
+	return stay.reviews.reduce((acc, review) => {
+		let rate = review.rate.reduce((acc, rate) => {
+			return acc += rate.val / review.rate.length
+		}, 0)
+		return acc += rate / stay.reviews.length
+	}, 0)
+}
+
+// function getListAvgRate(stay) {
+// 	let avgRate = [
+// 		{ "property": "Cleanliness", "val": null },
+// 		{ "property": "Communication", "val": null },
+// 		{ "property": "Check-in", "val": null },
+// 		{ "property": "Accuracy", "val": null },
+// 		{ "property": "Location", "val": null },
+// 		{ "property": "Value", "val": null }
+// 	]
+	
+// 	stay.reviews.forEach(review => {
+// 		review.rate.forEach(rate => {
+// 			avgRate.forEach(newRate => {
+// 				if(rate.property === newRate.property) newRate.avl += rate.val;
+// 			})
+// 		})
+// 	});
+// }
 
 function getEmptyTrip() {
 	return {
@@ -125,7 +154,14 @@ function _createStay(name) {
 			{
 				"id": utilService.makeId(),
 				"txt": "Very helpful hosts. Cooked traditional...",
-				"rate": 4,
+				"rate": [
+					{ "property": "Cleanliness", "val": 4.8 },
+					{ "property": "Communication", "val": 5.0 },
+					{ "property": "Check-in", "val": 5.0 },
+					{ "property": "Accuracy", "val": 5.0 },
+					{ "property": "Location", "val": 4.9 },
+					{ "property": "Value", "val": 5.0 },
+				],
 				"createAt": 1620210973856,
 				"by": {
 					"_id": "u102",
@@ -136,7 +172,14 @@ function _createStay(name) {
 			{
 				"id": utilService.makeId(),
 				"txt": "Very helpful hosts. Cooked traditional!!",
-				"rate": 3,
+				"rate": [
+					{ "property": "Cleanliness", "val": 4.8 },
+					{ "property": "Communication", "val": 5.0 },
+					{ "property": "Check-in", "val": 5.0 },
+					{ "property": "Accuracy", "val": 5.0 },
+					{ "property": "Location", "val": 4.9 },
+					{ "property": "Value", "val": 5.0 },
+				],
 				"createAt": 1620210973856,
 				"by": {
 					"_id": "u102",
