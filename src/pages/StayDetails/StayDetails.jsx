@@ -14,9 +14,9 @@ export const StayDetails = ({ match }) => {
     useEffect(() => {
         (async () => {
             await setCurrStay(await dispatch(getStayById(match.params.id)))
-            setAvrgRate(currStay.reviews.reduce((acc, review) => {
-                return (acc += review.rate / currStay.reviews.length).toFixed(2);
-            }, 0))
+            // setAvrgRate(currStay.reviews.reduce((acc, review) => {
+            //     return (acc += review.rate / currStay.reviews.length).toFixed(2);
+            // }, 0))
         })();
     }, [match.params.id, dispatch]);
 

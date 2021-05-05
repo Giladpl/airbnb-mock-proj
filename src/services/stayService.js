@@ -132,6 +132,17 @@ function _createStay(name) {
 					"fullname": "user2",
 					"imgUrl": "https://randomuser.me/api/portraits/men/21.jpg"
 				}
+			},
+			{
+				"id": utilService.makeId(),
+				"txt": "Very helpful hosts. Cooked traditional!!",
+				"rate": 3,
+				"createAt": 1620210973856,
+				"by": {
+					"_id": "u102",
+					"fullname": "user1",
+					"imgUrl": "https://randomuser.me/api/portraits/men/21.jpg"
+				}
 			}
 		]
 	}
