@@ -11,7 +11,8 @@ export const stayService = {
 	remove,
 	save,
 	getEmptyStay,
-	getTotalAvgRate
+	getTotalAvgRate,
+	getListAvgRate
 };
 
 _createStays();
@@ -53,24 +54,26 @@ function getTotalAvgRate(stay) {
 	}, 0)
 }
 
-// function getListAvgRate(stay) {
-// 	let avgRate = [
-// 		{ "property": "Cleanliness", "val": null },
-// 		{ "property": "Communication", "val": null },
-// 		{ "property": "Check-in", "val": null },
-// 		{ "property": "Accuracy", "val": null },
-// 		{ "property": "Location", "val": null },
-// 		{ "property": "Value", "val": null }
-// 	]
+function getListAvgRate(stay) {
+	let avgRate = [
+		{ "property": "Cleanliness", "val": null },
+		{ "property": "Communication", "val": null },
+		{ "property": "Check-in", "val": null },
+		{ "property": "Accuracy", "val": null },
+		{ "property": "Location", "val": null },
+		{ "property": "Value", "val": null }
+	]
 	
-// 	stay.reviews.forEach(review => {
-// 		review.rate.forEach(rate => {
-// 			avgRate.forEach(newRate => {
-// 				if(rate.property === newRate.property) newRate.avl += rate.val;
-// 			})
-// 		})
-// 	});
-// }
+	stay.reviews.forEach(review => {
+		review.rate.forEach(rate => {
+			avgRate.forEach(newRate => {
+				if(rate.property === newRate.property) newRate.val += rate.val / stay.reviews.length;
+			})
+		})
+	});
+	
+	return avgRate;
+}
 
 function getEmptyTrip() {
 	return {

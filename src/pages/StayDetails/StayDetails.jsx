@@ -2,6 +2,7 @@ import './StayDetails.scss';
 import { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { ReviewList } from '../../cmps/ReviewList/ReviewList';
+import { RateList } from '../../cmps/RateList/RateList';
 import { getStayById } from '../../store/actions/stayActions';
 import { AmenityList } from '../../cmps/AmenityList/AmenityList';
 import { ReactComponent as StarSvg } from '../../assets/svgs/star.svg';
@@ -10,13 +11,15 @@ import { stayService } from '../../services/stayService';
 export const StayDetails = ({ match }) => {
     const dispatch = useDispatch();
     const [currStay, setCurrStay] = useState(null);
-    const [avrgRate, setAvrgRate] = useState(null);
+    const [avgRate, setAvgRate] = useState(null);
+    const [listAvgRate, setListAvgRate] = useState(null);
 
     useEffect(() => {
         (async () => {
             const stay = await dispatch(getStayById(match.params.id));
             setCurrStay(stay);
-            setAvrgRate(stayService.getTotalAvgRate(stay))
+            setAvgRate(stayService.getTotalAvgRate(stay))
+            setListAvgRate(stayService.getListAvgRate(stay))
         })();
     }, [match.params.id, dispatch]);
 
@@ -50,10 +53,12 @@ export const StayDetails = ({ match }) => {
                 <div className='summary'>{currStay.summary}</div>
                 <AmenityList amenities={currStay.amenities} />
                 <div className='reviews'>
-                    <div>
-                        <StarSvg fill='#FF385C' /> {avrgRate} ({currStay.reviews.length} reviews)
+                    <div className='review-title'>
+                        <StarSvg fill='#FF385C' /> {avgRate} ({currStay.reviews.length} reviews)
 				    </div>
-                    <div className='rate-list'></div>
+                    <div className='rate-list'>
+                        <RateList rates={listAvgRate} />
+                    </div>
                     <ReviewList reviews={currStay.reviews} />
                 </div>
             </section>

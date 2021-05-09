@@ -1,5 +1,5 @@
 import './RateList.scss'
-import { RatePreview } from '../ReviewPreview';
+import { RatePreview } from '../RatePreview';
 export const RateList = ({ rates }) => {
 
     return (
