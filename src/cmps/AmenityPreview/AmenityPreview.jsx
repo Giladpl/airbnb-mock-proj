@@ -7,6 +7,9 @@ import parkingSvg from '../../assets/img/parking.svg';
 import snowflakeSvg from '../../assets/img/snowflake.svg';
 import tvSvg from '../../assets/img/television.svg';
 import wifiSvg from '../../assets/img/wifi.svg';
+import smokingSvg from '../../assets/img/cigarette.svg';
+import petSvg from '../../assets/img/pet.svg';
+import bakeSvg from '../../assets/img/bake.svg';
 
 export const AmenityPreview = ({ amenity }) => {
     const allAmenities = {
@@ -14,12 +17,11 @@ export const AmenityPreview = ({ amenity }) => {
 		Wifi: wifiSvg,
 		Kitchen: cutlerySvg,
 		Hangers: hangerSvg,
-		'Smoking allowed': '',
-		'Pets allowed': '',
-		'Cooking basics': '',
+		'Smoking allowed': smokingSvg,
+		'Pets allowed': petSvg,
+		'Cooking basics': bakeSvg,
 		'Free parking on premises': parkingSvg,
 		'Indoor fireplace': fireplaceSvg,
-		Essentials: '',
 		Heating: heatSvg,
 		'Air conditioning': snowflakeSvg,
 	};
