@@ -16,10 +16,10 @@
 
 	.swiper-button-prev:hover,
 	.swiper-button-next:hover {
-		
-    &{transform: scale(1.1);
-		// background-color: white;
-    }
+		& {
+			transform: scale(1.1);
+			// background-color: white;
+		}
 	}
 
 	&:hover {

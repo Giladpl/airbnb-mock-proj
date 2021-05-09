@@ -1,10 +1,15 @@
 import { StayPreview } from '../StayPreview';
 import './StayList.scss';
 
-export const StayList = ({ stays }) => {
+export const StayList = ({ stays, children }) => {
 	return (
 		<ul className='stay-list main-layout clean-list'>
-			{stays && stays.map((stay) => <StayPreview key={stay._id} stay={stay} />)}
+			{stays &&
+				stays.map((stay) => (
+					<StayPreview key={stay._id} stay={stay}>
+						{children}
+					</StayPreview>
+				))}
 		</ul>
 	);
 };

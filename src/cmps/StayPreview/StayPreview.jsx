@@ -1,12 +1,12 @@
 import { Link } from 'react-router-dom';
-import { ReactComponent as StarSvg } from '../../assets/svgs/star.svg';
 import { stayService } from '../../services/stayService';
 import { ImageSwiper } from '../../cmps/ImageSwiper';
+import { ReactComponent as StarSvg } from '../../assets/svgs/star.svg';
 import './StayPreview.scss';
 
 // import starSvg from '../../assets/svgs/star.svg'
 
-export const StayPreview = ({ stay }) => {
+export const StayPreview = ({ stay, children }) => {
 	const avrgRate = stayService.getTotalAvgRate(stay);
 
 	return (
@@ -17,11 +17,11 @@ export const StayPreview = ({ stay }) => {
 				<div className='rate'>
 					<StarSvg fill='#FF385C' /> {avrgRate} ({stay.reviews.length})
 				</div>
-				<p>{stay.loc.address}</p>
 				<p className='summery'>{stay.summary}</p>
-				<p>
-					<span className='price'>${stay.price}</span> / night{' '}
-				</p>
+				{children}
+						<p>
+							<span className='price'>${stay.price}</span> / night{' '}
+						</p>
 			</Link>
 		</li>
 	);
