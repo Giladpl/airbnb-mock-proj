@@ -1,1 +1,39 @@
-.homepage {}
+.home-page {
+    > * {
+        margin-bottom: 40px;
+    }
+
+    .live-anywhere {
+        gap: 15px;
+
+        img {
+            border-radius: 8px;
+        }
+    }
+
+    .become-host {
+        height: 360px;
+        border-radius: 8px;
+        background-image: url(../../assets/img/becomeHost.jpg);
+        background-size: cover;
+        color: #fff;
+        justify-content: center;
+        padding-left: 30px;
+
+        p {
+            width: 30ch;
+            margin-bottom: 20px;
+        }
+
+        button {
+            background-color: #fff;
+            color: black;
+            border: none;
+            border-radius: 8px;
+            text-align: center;
+            padding: 8px 12px;
+            width: 100px;
+            cursor: pointer;
+        }
+    }
+}
