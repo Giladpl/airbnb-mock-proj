@@ -7,6 +7,7 @@ import { getStayById } from '../../store/actions/stayActions';
 import { AmenityList } from '../../cmps/AmenityList/AmenityList';
 import { ReactComponent as StarSvg } from '../../assets/svgs/star.svg';
 import { stayService } from '../../services/stayService';
+import { CheckModal } from '../../cmps/CheckModal/CheckModal';
 
 export const StayDetails = ({ match }) => {
     const dispatch = useDispatch();
@@ -61,6 +62,7 @@ export const StayDetails = ({ match }) => {
                     </div>
                     <ReviewList reviews={currStay.reviews} />
                 </div>
+                <CheckModal stay={currStay} avgRate={avgRate} />
             </section>
         )
     );
