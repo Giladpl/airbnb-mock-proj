@@ -1,8 +1,9 @@
 .review-list {
 	padding-top: 32px;
 	flex-wrap: wrap;
+	justify-content: space-between;
 
     > * {
-		flex-basis: 50%;
+		flex-basis: 48%;
 	}
 }
