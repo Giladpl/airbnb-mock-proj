@@ -1,12 +1,16 @@
 .rate-preview {
-    align-items: center;
-    gap: 15px;
     margin-bottom: 8px;
 
-    .bar {
-        width: 100px;
-        height: 5px;
-        background-color:rgb(206, 205, 205);
-        border-radius: 50px;
+    .right-container {
+        align-items: center;
+        gap: 15px;
+        
+        .bar {
+            width: 100px;
+            height: 5px;
+            background-color:rgb(206, 205, 205);
+            border-radius: 50px;
+        }
     }
+
 }

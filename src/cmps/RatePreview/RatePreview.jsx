@@ -11,12 +11,14 @@ export const RatePreview = ({ rate }) => {
     };
 
     return (
-        <article className="rate-preview flex">
-            <div>{rate.property}</div>
-            <div className="bar">
-                <div style={barPercentStyle}></div>
+        <article className="rate-preview flex-between">
+            <div className="left-container">{rate.property}</div>
+            <div className="right-container flex">
+                <div className="bar">
+                    <div style={barPercentStyle}></div>
+                </div>
+                <div>{(rate.val).toFixed(1)}</div>
             </div>
-            <div>{rate.val}</div>
         </article>
     )
 }
