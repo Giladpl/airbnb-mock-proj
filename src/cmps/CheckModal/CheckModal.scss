@@ -4,6 +4,11 @@
     border: 1px solid rgb(221, 221, 221);
     border-radius: 12px;
     box-shadow: #dddddd 0px 6px 16px;
+    flex-basis: 35%;
+    height: fit-content;
+    position: sticky;
+    top: 25px;
+    margin-bottom: 25px;
 
     svg {
         width: 16px;
@@ -14,6 +19,7 @@
 
         .price {
             font-weight: bold;
+            font-size: 20px;
         }
     }
 

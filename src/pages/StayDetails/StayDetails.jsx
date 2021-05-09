@@ -39,20 +39,25 @@ export const StayDetails = ({ match }) => {
                         <img className={'img' + idx} key={idx} src={imgUrl} alt='' />
                     ))}
                 </div>
-                <div className='host-container flex-between'>
-                    <div>
-                        <h3>Hosted by {currStay.host.fullname}</h3>
-                        <div className="property-container flex">
-                            <div>{propertyFormatted(currStay.properties.accommodates, 'guest')} ∙</div>
-                            <div>{currStay.properties.type} ∙</div>
-                            <div>{propertyFormatted(currStay.properties.bad, 'bad')} ∙</div>
-                            <div>{propertyFormatted(currStay.properties.bath, 'bath')}</div>
+                <div className="main flex">
+                    <div className="main-content">
+                        <div className='host-container flex-between'>
+                            <div>
+                                <h3>Hosted by {currStay.host.fullname}</h3>
+                                <div className="property-container flex">
+                                    <div>{propertyFormatted(currStay.properties.accommodates, 'guest')} ∙</div>
+                                    <div>{currStay.properties.type} ∙</div>
+                                    <div>{propertyFormatted(currStay.properties.bad, 'bad')} ∙</div>
+                                    <div>{propertyFormatted(currStay.properties.bath, 'bath')}</div>
+                                </div>
+                            </div>
+                            <img src={currStay.host.imgUrl} alt='' />
                         </div>
+                        <div className='summary'>{currStay.summary}</div>
+                        <AmenityList amenities={currStay.amenities} />
                     </div>
-                    <img src={currStay.host.imgUrl} alt='' />
+                    <CheckModal stay={currStay} avgRate={avgRate} />
                 </div>
-                <div className='summary'>{currStay.summary}</div>
-                <AmenityList amenities={currStay.amenities} />
                 <div className='reviews'>
                     <div className='review-title'>
                         <StarSvg fill='#FF385C' /> {avgRate} ({currStay.reviews.length} reviews)
@@ -62,7 +67,6 @@ export const StayDetails = ({ match }) => {
                     </div>
                     <ReviewList reviews={currStay.reviews} />
                 </div>
-                <CheckModal stay={currStay} avgRate={avgRate} />
             </section>
         )
     );

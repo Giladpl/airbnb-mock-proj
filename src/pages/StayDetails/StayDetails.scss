@@ -25,6 +25,15 @@
         } 
 	}
 
+    .main {
+        gap: 70px;
+        border-bottom: 1px solid rgb(221, 221, 221);
+
+        .main-content {
+            flex-basis: 65%;
+        }
+    }
+
     .host-container {
         padding-bottom: 24px;
         border-bottom: 1px solid rgb(221, 221, 221);
