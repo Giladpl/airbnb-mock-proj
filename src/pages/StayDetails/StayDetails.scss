@@ -34,11 +34,9 @@
             border-radius: 50%;
         }
 
-        // .property-container {
-        //     * >:not(:first-child) {
-        //         margin-left: 20px;
-        //     }
-        // }
+        .property-container {
+            gap: 5px;
+        }
     }
 
     .summary {
