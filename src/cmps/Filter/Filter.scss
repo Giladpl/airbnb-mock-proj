@@ -14,11 +14,13 @@
 		flex-direction: column;
 		padding: 16px 24px;
 		height: 66px;
+		border-radius: 50px;
 
 		&:focus-within {
 			background-color: #ebebeb;
-			border-radius: 50px;
+			border-radius: inherit;
 		}
+
 
 		label {
 			font-size: 0.75rem;
@@ -32,15 +34,15 @@
 
 		&:hover {
 			background-color: #ebebeb;
-			border-radius: 50px;
+			border-radius: inherit;
 
 			input {
-				background-color: #ebebeb;
+				background-color: inherit;
 			}
 		}
 		input:focus {
 			outline: none;
-			background-color: #ebebeb;
+			background-color: inherit;
 		}
 
 		&:nth-child(1) {
