@@ -1,6 +1,11 @@
 .stay-details {
     img  {
+        height: 100%;
         object-fit: cover;
+    }
+
+    .desc {
+        margin-bottom: 24px;
     }
     
 	.img-container {
@@ -15,12 +20,26 @@
             border-bottom-left-radius: 10px;
             border-top-left-radius: 10px;
         }
+
+        .img1 {
+            grid-row: 1 / 2;
+            grid-column: 3 / 4;
+        }
     
         .img2 {
+            grid-row: 1 / 2;
+            grid-column: 4 / 5;
             border-top-right-radius: 10px;
         }
     
+        .img3 {
+            grid-row: 2 / 3;
+            grid-column: 3 / 4;
+        } 
+
         .img4 {
+            grid-row: 2 / 3;
+            grid-column: 4 / 5;
             border-bottom-right-radius: 10px;
         } 
 	}
@@ -60,8 +79,9 @@
             margin-bottom: 32px;
         }
 
-        svg {
-            width: 16px;
-        }
+    }
+
+    svg {
+        width: 16px;
     }
 }
