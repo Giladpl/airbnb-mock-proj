@@ -1,5 +1,5 @@
 .filter {
-	width: 75%;
+	width: 100%;
 	display: flex;
 	margin: 0 auto;
 	background-color: white;
@@ -9,11 +9,16 @@
 
 	.search-inputs {
 		// flex: 1 0 auto;
+		cursor: pointer;
 		display: flex;
 		flex-direction: column;
 		padding: 16px 24px;
-		cursor: pointer;
 		height: 66px;
+
+		&:focus-within {
+			background-color: #ebebeb;
+			border-radius: 50px;
+		}
 
 		label {
 			font-size: 0.75rem;
@@ -21,7 +26,20 @@
 			font-weight: bold;
 		}
 
+		& > * {
+			cursor: pointer;
+		}
+
 		&:hover {
+			background-color: #ebebeb;
+			border-radius: 50px;
+
+			input {
+				background-color: #ebebeb;
+			}
+		}
+		input:focus {
+			outline: none;
 			background-color: #ebebeb;
 		}
 
@@ -47,13 +65,9 @@
 			content: '';
 			border-right: 1px solid #dddddd;
 			height: 90%;
-      width: 1px;
+			width: 1px;
 		}
 	}
-
-	// content: 'dasf';
-	// border-right: 1px solid #dddddd;
-	// height: 90%;
 
 	.search-button {
 		flex: 0 0 auto;
