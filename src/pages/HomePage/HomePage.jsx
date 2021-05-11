@@ -58,10 +58,10 @@ export const HomePage = (props) => {
 					</p>
 					<button>Learn more</button>
 				</div>
-				<div>
+				<div className="discover-container">
 					<h1>Discover Experience</h1>
 					<p>Unique activities with local experts—in person or online.</p>
-					<div className="discover flex">
+					<div className="discover-content flex">
 						<div className="flex-column">
 							<img src={featuredCollection} alt='' />
 							<h3>Featured collection: Wanderlust</h3>

@@ -56,10 +56,29 @@
 
 }
 
-.discover {
-	gap: 15px;
+.discover-container {
+	h1 {
+		margin-bottom: 0;
+	}
 
-	img {
-		border-radius: 8px;
+	p {
+		margin-bottom: 20px;
+	}
+
+	.discover-content {
+		gap: 15px;
+	
+		h3 {
+			font-size: 18px;
+		}
+	
+		p {
+			font-size: 14px;
+		}
+	
+		img {
+			border-radius: 8px;
+		}
 	}
 }
+
