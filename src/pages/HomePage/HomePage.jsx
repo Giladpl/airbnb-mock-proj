@@ -1,7 +1,6 @@
 import React from 'react';
 import { Filter } from '../../cmps/Filter';
 import './HomePage.scss';
-import Hero from '../../assets/img/main-hero.jpg';
 import entire from '../../assets/img/entire.jpg';
 import unique from '../../assets/img/unique.jpg';
 import pets from '../../assets/img/pets.jpg';
@@ -26,8 +25,12 @@ export const HomePage = (props) => {
 	return (
 		<main className="home-page">
 			<div className="hero">
-				<img src={Hero} alt='' />
 				<Filter className='filter' />
+				<div className="hero-content">
+					<h1>The Greatest Outdoors</h1>
+					<p>Wishlists curated by Airbnb.</p>
+					<button>Get inspired</button>
+				</div>
 			</div>
 			<div className="main-layout">
 				<div>
