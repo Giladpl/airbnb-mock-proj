@@ -1,5 +1,6 @@
 .home-page {
 	.hero {
+		margin-bottom: 40px;
 		img {
 			position: relative;
 			width: 100%;
@@ -17,12 +18,10 @@
 		width: 850px;
 	}
 }
-> * {
-	margin-bottom: 40px;
-}
 
 .live-anywhere {
 	gap: 15px;
+	margin-bottom: 40px;
 
 	img {
 		border-radius: 8px;
@@ -37,6 +36,7 @@
 	color: #fff;
 	justify-content: center;
 	padding-left: 30px;
+	margin-bottom: 40px;
 
 	p {
 		width: 30ch;
@@ -52,5 +52,14 @@
 		padding: 8px 12px;
 		width: 100px;
 		cursor: pointer;
+	}
+
+}
+
+.discover {
+	gap: 15px;
+
+	img {
+		border-radius: 8px;
 	}
 }
