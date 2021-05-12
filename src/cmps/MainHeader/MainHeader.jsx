@@ -1,13 +1,12 @@
+import './MainHeader.scss';
 
+export const MainHeader = ({ isMainHeader }) => {
+	const covidHeader = <p>Get the latest on our COVID-19 response</p>;
+	// const mainHeader;
 
-import './MainHeader.scss'
-
-export const MainHeader = (props) => {
-
-    return (
-        <header>
-            I'm the Header
-        </header>
-    )
-}
-
+	return (
+		<header className= {isMainHeader ? 'main-header' : 'covid-header flex-center'}>
+			{isMainHeader ? 'Main Header' : covidHeader}
+		</header>
+	);
+};

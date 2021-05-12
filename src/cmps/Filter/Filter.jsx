@@ -1,11 +1,10 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { ReactComponent as MagnifyingGlass } from '../../assets/svgs/magnifying-glass.svg';
 
 import './Filter.scss';
 
-export const Filter = (props) => {
+export const Filter = ({ style }) => {
 	const [inputFocus, setInputFocus] = useState('');
-	// const filterWidth = useRef(null)
 
 	useEffect(() => {
 		setInputFocus(document.activeElement);
@@ -26,7 +25,13 @@ export const Filter = (props) => {
 
 	return (
 		<React.Fragment>
-			<form className='filter' style={{ width: inputFocus.name ? ' 900px' : '' }}>
+			<form
+				className='filter'
+				style={{
+					width: inputFocus.name ? ' 900px' : '',
+					opacity: style.opacity,
+				}}
+			>
 				<div className='search-inputs'>
 					<label htmlFor='location'> Location </label>
 					<input
@@ -58,9 +63,7 @@ export const Filter = (props) => {
 					/>
 				</div>
 
-				<div
-					className='search-inputs'
-				>
+				<div className='search-inputs'>
 					<label htmlFor='guests'>Guests</label>
 					<input
 						onFocus={onInputFocus}

@@ -86,10 +86,16 @@
 		}
 
 		&:nth-child(-n + 3)::after {
+			// box-shadow: 18px 0px 0px -17px #dddddd;
 			content: '';
-			border-right: 1px solid #dddddd;
-			height: 90%;
 			width: 1px;
+			height: 1005px;
+			border-right: black;
+			display: inline-block;
+			// position: absolute;
+			// top: 50%;
+			// left: 100%;
+			// transform: translate(0, -100%);
 		}
 	}
 }

@@ -1,5 +1,5 @@
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { loadStays } from './store/actions/stayActions';
 import { HomePage } from './pages/HomePage/HomePage';
@@ -14,21 +14,38 @@ import './App.scss';
 import './assets/styles/styles.scss';
 
 export function App() {
+	const [isMainHeader, setIsMainHeader] = useState(false);
 	const dispatch = useDispatch();
 
 	useEffect(() => {
 		dispatch(loadStays());
 	}, [dispatch]);
 
+	useEffect(() => {
+		const handleScroll = () => {
+			if (window.pageYOffset >= 64 && !isMainHeader) {
+				setIsMainHeader(true);
+			} else if (window.pageYOffset < 64 && isMainHeader) {
+				setIsMainHeader(false);
+			}
+		};
+		window.addEventListener('scroll', handleScroll);
+		return () => {
+			window.removeEventListener('scroll', handleScroll);
+		};
+	}, [isMainHeader]);
+
 	return (
 		<Router>
 			<div className='App'>
-				<MainHeader />
+				<MainHeader isMainHeader={isMainHeader} />
 				<Switch>
 					<Route path='/stay/explore/:location' component={StayLocation} />
 					<Route path='/stay/:id' component={StayDetails} />
 					<Route path='/stay' component={StayApp} />
-					<Route path='/' component={HomePage} />
+					<Route path='/'>
+						<HomePage isFilter={isMainHeader} />
+					</Route>
 				</Switch>
 				<MainFooter />
 			</div>

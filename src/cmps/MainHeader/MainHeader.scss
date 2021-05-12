@@ -1,1 +1,22 @@
-.mainHeader {}
+.main-header {
+  padding: 0 80px;
+  background-color: #fff;
+  height: 80px;
+  position: fixed;
+  width: 100%;
+}
+
+.covid-header{
+  padding: 0 80px;
+  background-color: #000;
+  height: 64px;
+  
+  p{
+    color: #a3a3a3;
+    font-size: 14px;
+    text-decoration: underline;
+    cursor: pointer;
+    width: fit-content;
+    margin: 0 auto;
+  }
+}

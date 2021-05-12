@@ -8,7 +8,7 @@ export const StayApp = (props) => {
 
 	return (
 		<section>
-			<StayList stays={stays} />
+			<StayList stays={stays}></StayList>
 		</section>
 	);
 };
