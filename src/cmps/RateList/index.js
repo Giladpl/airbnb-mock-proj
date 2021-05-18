@@ -1,1 +1,0 @@
-export { RateList } from './RateList'

@@ -1,1 +1,0 @@
-export { AmenityList } from './AmenityList'

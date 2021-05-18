@@ -11,7 +11,7 @@ import smokingSvg from '../../assets/img/cigarette.svg';
 import petSvg from '../../assets/img/pet.svg';
 import bakeSvg from '../../assets/img/bake.svg';
 
-export const AmenityPreview = ({ amenity }) => {
+export const AmenityPreview = ({ item }) => {
     const allAmenities = {
 		TV: tvSvg,
 		Wifi: wifiSvg,
@@ -28,8 +28,8 @@ export const AmenityPreview = ({ amenity }) => {
 
     return (
         <article className="amenity-preview flex">
-            <img src={allAmenities[amenity]} alt='' />
-            <p>{amenity}</p>
+            <img src={allAmenities[item]} alt='' />
+            <p>{item}</p>
         </article>
     )
 }
