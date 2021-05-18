@@ -14,7 +14,7 @@ export const HomePage = ({ isFilter }) => {
 		<main className='home-page'>
 			<div className='hero'>
 				<Filter className='filter' style={{ opacity: !isFilter ? 100 : 0 }} />
-				<div className='hero-content'>
+				<div className='hero-content main-layout'>
 					<h1>The Greatest Outdoors</h1>
 					<p>Wishlists curated by Airbnb.</p>
 					<button>Get inspired</button>
