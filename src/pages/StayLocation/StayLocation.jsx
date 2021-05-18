@@ -1,7 +1,8 @@
 import { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { picService } from '../../services/picService';
-import { StayList } from '../../cmps/StayList';
+import { GenericList } from '../../cmps/GenericList';
+import { StayPreview } from '../../cmps/StayPreview';
 import './StayLocation.scss';
 
 export const StayLocation = ({ match }) => {
@@ -22,7 +23,11 @@ export const StayLocation = ({ match }) => {
 			<section className='stay-location main-layout'>
 				<img src={heroPic} alt='' />
 				<h1 className='flex-center'>Explore {headerTitle()}</h1>
-				<StayList stays={stays}></StayList>
+				<GenericList
+					items={stays}
+					CmpToRender={StayPreview}
+					isExplore={true}
+				></GenericList>
 			</section>
 		)
 	);

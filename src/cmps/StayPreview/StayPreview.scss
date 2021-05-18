@@ -2,6 +2,9 @@
 	grid-column: span 3;
 	line-height: 20px;
 
+	ul {
+		padding: 0;
+	}
 	.summery {
 		overflow: hidden;
 		text-overflow: ellipsis;
@@ -12,11 +15,11 @@
 		color: #777777;
 		// color: $clr2;
 	}
-	
-		.price {
-			font-weight: 800;
-			padding-right: 4px;
-		}
+
+	.price {
+		font-weight: 800;
+		padding-right: 4px;
+	}
 
 	p {
 		margin: 0;
@@ -32,5 +35,69 @@
 	svg {
 		height: 14px;
 		width: 14px;
+	}
+	.properties,
+	.amenities {
+		color: rgb(113, 113, 113);
+		font-weight: 400;
+		min-height: 18px;
+		font-size: 14px;
+		line-height: 18px;
+		max-height: 18px;
+		overflow: hidden;
+		text-overflow: ellipsis;
+	}
+}
+
+.stay-preview-explore {
+	width: 792px;
+	height: 200px;
+	display: flex;
+	flex-direction: row;
+
+	ul {
+		padding: 0;
+	}
+	.summery {
+		overflow: hidden;
+		text-overflow: ellipsis;
+		white-space: nowrap;
+	}
+	.rate {
+		font-size: 14px;
+		color: #777777;
+		// color: $clr2;
+	}
+
+	.price {
+		font-weight: 800;
+		padding-right: 4px;
+	}
+
+	p {
+		margin: 0;
+		font-size: 16px;
+		color: #222222;
+		// color: $clr1;
+	}
+
+	img {
+		border-radius: 12px;
+	}
+
+	svg {
+		height: 14px;
+		width: 14px;
+	}
+	.properties,
+	.amenities {
+		color: rgb(113, 113, 113);
+		font-weight: 400;
+		min-height: 18px;
+		font-size: 14px;
+		line-height: 18px;
+		max-height: 18px;
+		overflow: hidden;
+		text-overflow: ellipsis;
 	}
 }

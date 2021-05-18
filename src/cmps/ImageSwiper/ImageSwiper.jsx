@@ -10,10 +10,11 @@ import SwiperCore, { Pagination, Navigation } from 'swiper/core';
 
 SwiperCore.use([Pagination, Navigation]);
 
-export const ImageSwiper = ({ imgUrls }) => {
+export const ImageSwiper = ({ imgUrls, style }) => {
 	return (
 		<>
-			<Swiper className="image-swiper"
+			<Swiper
+				className='image-swiper'
 				slidesPerView={1}
 				spaceBetween={30}
 				loop={true}
@@ -21,10 +22,11 @@ export const ImageSwiper = ({ imgUrls }) => {
 					clickable: true,
 				}}
 				navigation={true}
+				style={style}
 			>
 				{imgUrls.map((img, idx) => (
 					<SwiperSlide key={idx}>
-						<img src={img} alt='' />
+						<img src={img} alt='' style={style} />
 					</SwiperSlide>
 				))}
 			</Swiper>
