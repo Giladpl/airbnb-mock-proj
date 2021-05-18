@@ -23,11 +23,14 @@ export const StayLocation = ({ match }) => {
 			<section className='stay-location main-layout'>
 				<img src={heroPic} alt='' />
 				<h1 className='flex-center'>Explore {headerTitle()}</h1>
-				<GenericList
-					items={stays}
-					CmpToRender={StayPreview}
-					isExplore={true}
-				></GenericList>
+				<div className='list-map-container'>
+					<GenericList
+						items={stays}
+						CmpToRender={StayPreview}
+						isExplore={true}
+					></GenericList>
+					<div className='map'></div>
+				</div>
 			</section>
 		)
 	);
