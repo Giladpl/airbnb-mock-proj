@@ -1,10 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import { ReactComponent as MagnifyingGlass } from '../../assets/svgs/magnifying-glass.svg';
+import { GuestModal } from '../GuestModal/GuestModal'
 
 import './Filter.scss';
 
 export const Filter = ({ style }) => {
 	const [inputFocus, setInputFocus] = useState('');
+	let [isGuestModal, setIsGuestModal] = useState(false);
+    let [guestNum, setGuestNum] = useState({ Adults: 0, Children: 0, Infants: 0 });
 
 	useEffect(() => {
 		setInputFocus(document.activeElement);
@@ -22,6 +25,14 @@ export const Filter = ({ style }) => {
 		// 	return { background: '#ffff' };
 		// else return { background: '#ebebeb' };
 	};
+
+	function updateNumOfGuests(operator, type) {
+        console.log(guestNum);
+        if (operator === '-' && guestNum[type] === 0) return;
+        if (operator === '-') setGuestNum(--guestNum[type]);
+        else setGuestNum(++guestNum[type]);
+        console.log(guestNum);
+    }
 
 	return (
 		<React.Fragment>
@@ -68,6 +79,7 @@ export const Filter = ({ style }) => {
 					<input
 						onFocus={onInputFocus}
 						onBlur={onInputBlur}
+						onClick={() => setIsGuestModal(!isGuestModal)}
 						name='guests'
 						id='guests'
 						placeholder='Add guests'
@@ -83,6 +95,7 @@ export const Filter = ({ style }) => {
 					</div>
 				</div>
 			</form>
+			{isGuestModal && <GuestModal className="guests-modal" guestNum={guestNum} updateNumOfGuests={updateNumOfGuests} />}
 		</React.Fragment>
 	);
 };
