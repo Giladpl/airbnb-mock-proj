@@ -5,12 +5,16 @@ import { useDispatch } from 'react-redux';
 import downArrow from '../../assets/img/down-arrow.svg';
 import upArrow from '../../assets/img/up-arrow.svg';
 import { GuestModal } from '../GuestModal/GuestModal';
+import { DateRangePicker } from 'react-dates';
 
 
 export const CheckModal = ({ stay, avgRate }) => {
     const dispatch = useDispatch();
     let [isGuestModal, setIsGuestModal] = useState(false);
-    let [guestNum, setGuestNum] = useState({Adults: 0, Children: 0, Infants: 0});
+    let [guestNum, setGuestNum] = useState({ Adults: 0, Children: 0, Infants: 0 });
+    let [startDatePicker, setStartDate] = useState(null);
+    let [endDatePicker, setEndDate] = useState(null);
+    let [focusedInputPicker, setFocusedInput] = useState(null);
 
     function updateNumOfGuests(operator, type) {
         console.log(guestNum);
@@ -38,7 +42,7 @@ export const CheckModal = ({ stay, avgRate }) => {
                             <p>Add Date</p>
                         </div>
                     </div>
-                    <div className="low-container flex-between" onClick={()=> setIsGuestModal(!isGuestModal)}>
+                    <div className="low-container flex-between" onClick={() => setIsGuestModal(!isGuestModal)}>
                         <div className="flex-column">
                             GUESTS
                             <p>1 guest</p>
@@ -49,6 +53,15 @@ export const CheckModal = ({ stay, avgRate }) => {
                 <button>Check availability</button>
             </div>
             {isGuestModal && <GuestModal guestNum={guestNum} updateNumOfGuests={updateNumOfGuests} />}
+            {/* <DateRangePicker
+                startDate={startDatePicker} 
+                startDateId="startDate" 
+                endDate={endDatePicker} 
+                endDateId="endDate"
+                onDatesChange={({ startDate, endDate }) => setStartDate(startDate)}
+                focusedInput={focusedInputPicker} 
+                onFocusChange={focusedInput => setFocusedInput(focusedInput)} 
+            /> */}
         </section>
     )
 }
