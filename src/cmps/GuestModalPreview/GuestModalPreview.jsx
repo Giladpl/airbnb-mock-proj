@@ -1,15 +1,6 @@
-import { useState } from 'react';
 import './GuestModalPreview.scss'
 
-export const GuestModalPreview = ({title, desc, num = 0}) => {
-    let [currNum, setCurrNum] = useState(num);
-
-    function updateNum(operator) {
-        if (operator === '-' && currNum === 0) return;
-        if (operator === '-') setCurrNum(--currNum);
-        else setCurrNum(++currNum);
-    }
-
+export const GuestModalPreview = ({title, desc, num = 0, updateNumOfGuests}) => {
     return (
         <article className="guest-modal-preview flex-between">
             <div className="flex-column">
@@ -17,9 +8,9 @@ export const GuestModalPreview = ({title, desc, num = 0}) => {
                 <p>{desc}</p>
             </div>
             <div className="add-guest flex">
-                <div className="minus flex-center" onClick={()=> updateNum('-')}>-</div>
-                <div>{currNum}</div>
-                <div className="plus flex-center" onClick={()=> updateNum('+')}>+</div>
+                <div className="minus flex-center" onClick={()=> updateNumOfGuests('-', title)}>-</div>
+                <div>{num}</div>
+                <div className="plus flex-center" onClick={()=> updateNumOfGuests('+', title)}>+</div>
             </div>
         </article>
     )

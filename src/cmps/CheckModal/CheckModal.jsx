@@ -9,7 +9,16 @@ import { GuestModal } from '../GuestModal/GuestModal';
 
 export const CheckModal = ({ stay, avgRate }) => {
     const dispatch = useDispatch();
-    const [isGuestModal, setIsGuestModal] = useState(false);
+    let [isGuestModal, setIsGuestModal] = useState(false);
+    let [guestNum, setGuestNum] = useState({Adults: 0, Children: 0, Infants: 0});
+
+    function updateNumOfGuests(operator, type) {
+        console.log(guestNum);
+        if (operator === '-' && guestNum[type] === 0) return;
+        if (operator === '-') setGuestNum(--guestNum[type]);
+        else setGuestNum(++guestNum[type]);
+        console.log(guestNum);
+    }
 
     return (
         <section>
@@ -39,7 +48,7 @@ export const CheckModal = ({ stay, avgRate }) => {
                 </div>
                 <button>Check availability</button>
             </div>
-            {isGuestModal && <GuestModal />}
+            {isGuestModal && <GuestModal guestNum={guestNum} updateNumOfGuests={updateNumOfGuests} />}
         </section>
     )
 }
