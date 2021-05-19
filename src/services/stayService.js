@@ -5,203 +5,6 @@ import { storageService } from './storageService.js';
 
 const KEY = 'stayDB';
 
-export const stayService = {
-	query,
-	getById,
-	remove,
-	save,
-	getEmptyStay,
-	getTotalAvgRate,
-	getListAvgRate,
-};
-
-_createStays();
-
-function query() {
-	// return httpService.get("/");
-	return asyncStorageService.query(KEY);
-}
-
-function getById(id) {
-	// return httpService.get("/${id}");
-	return asyncStorageService.get(KEY, id);
-}
-
-function remove(id) {
-	// return httpService.delete("/${id}");
-	return asyncStorageService.remove(KEY, id);
-}
-
-function save(stay) {
-	// if (stay.id) {
-	// 	return httpService.put("/${stay.id}", stay);
-	// } else {
-	// 	return httpService.post("/", stay);
-	// }
-	const savedStay = stay._id
-		? asyncStorageService.put(KEY, stay)
-		: asyncStorageService.post(KEY, stay);
-
-	return savedStay;
-}
-
-function getTotalAvgRate(stay) {
-	return stay.reviews.reduce((acc, review) => {
-		let rate = review.rate.reduce((acc, rate) => {
-			return (acc += rate.val / review.rate.length);
-		}, 0);
-		return (acc += rate / stay.reviews.length);
-	}, 0);
-}
-
-function getListAvgRate(stay) {
-	let avgRate = [
-		{ property: 'Cleanliness', val: null },
-		{ property: 'Communication', val: null },
-		{ property: 'Check-in', val: null },
-		{ property: 'Accuracy', val: null },
-		{ property: 'Location', val: null },
-		{ property: 'Value', val: null },
-	];
-
-	stay.reviews.forEach((review) => {
-		review.rate.forEach((rate) => {
-			avgRate.forEach((newRate) => {
-				if (rate.property === newRate.property)
-					newRate.val += rate.val / stay.reviews.length;
-			});
-		});
-	});
-
-	return avgRate;
-}
-
-function getEmptyTrip() {
-	return {
-		startDate: '',
-		endDate: '',
-		guests: {
-			adults: null,
-			kids: null,
-		},
-		loc: {
-			country: '',
-			countryCode: '',
-			address: '',
-			lat: null,
-			lng: null,
-		},
-	};
-}
-
-function getEmptyStay(title = '', description = '') {
-	return {
-		title,
-		description,
-		createdAt: Date.now(),
-	};
-}
-
-function _createStays() {
-	let stays = storageService.load(KEY);
-	if (!stays || !stays.length) {
-		stays = [
-			_createStay('Ribeira Charming Duplex'),
-			_createStay('stay2'),
-			_createStay('stay3'),
-			_createStay('stay2342'),
-			_createStay('stay2346'),
-			_createStay('stay23465'),
-			_createStay('stay1213'),
-			_createStay('stay66'),
-			_createStay('stay5'),
-		];
-		storageService.store(KEY, stays);
-	}
-	return stays;
-}
-
-function _createStay(name) {
-	return {
-		_id: utilService.makeId(),
-		name: name,
-		imgUrls: [
-			'https://a0.muscache.com/im/pictures/e83e702f-ef49-40fb-8fa0-6512d7e26e9b.jpg?aki_policy=large',
-			'https://a0.muscache.com/im/pictures/e83e702f-ef49-40fb-8fa0-6512d7e26e9b.jpg?aki_policy=large',
-			'https://a0.muscache.com/im/pictures/e83e702f-ef49-40fb-8fa0-6512d7e26e9b.jpg?aki_policy=large',
-			'https://a0.muscache.com/im/pictures/e83e702f-ef49-40fb-8fa0-6512d7e26e9b.jpg?aki_policy=large',
-			'https://a0.muscache.com/im/pictures/e83e702f-ef49-40fb-8fa0-6512d7e26e9b.jpg?aki_policy=large',
-		],
-		price: 80.0,
-		summary:
-			'Fantastic duplex apartment with three bedrooms, located in the historic area of Porto, Ribeira (Cube)',
-		properties: {
-			accommodates: 8,
-			type: '1 bedroom',
-			bad: 1,
-			bath: 3,
-		},
-		amenities: [
-			'TV',
-			'Wifi',
-			'Kitchen',
-			'Smoking allowed',
-			'Pets allowed',
-			'Cooking basics',
-		],
-		host: {
-			_id: '51399391',
-			fullname: 'Davit Pok',
-			imgUrl: 'https://randomuser.me/api/portraits/men/21.jpg',
-		},
-		loc: {
-			country: 'Portugal',
-			countryCode: 'PT',
-			address: 'Porto, Portugal',
-			lat: 41.1413,
-			lng: -8.61308,
-		},
-		reviews: [
-			{
-				id: utilService.makeId(),
-				txt: 'Very helpful hosts. Cooked traditional...',
-				rate: [
-					{ property: 'Cleanliness', val: 4.8 },
-					{ property: 'Communication', val: 5.0 },
-					{ property: 'Check-in', val: 5.0 },
-					{ property: 'Accuracy', val: 5.0 },
-					{ property: 'Location', val: 4.9 },
-					{ property: 'Value', val: 5.0 },
-				],
-				createAt: 1620210973856,
-				by: {
-					_id: 'u102',
-					fullname: 'user2',
-					imgUrl: 'https://randomuser.me/api/portraits/men/21.jpg',
-				},
-			},
-			{
-				id: utilService.makeId(),
-				txt: 'Very helpful hosts. Cooked traditional!!',
-				rate: [
-					{ property: 'Cleanliness', val: 4.8 },
-					{ property: 'Communication', val: 5.0 },
-					{ property: 'Check-in', val: 5.0 },
-					{ property: 'Accuracy', val: 5.0 },
-					{ property: 'Location', val: 4.9 },
-					{ property: 'Value', val: 5.0 },
-				],
-				createAt: 1620210973856,
-				by: {
-					_id: 'u102',
-					fullname: 'user1',
-					imgUrl: 'https://randomuser.me/api/portraits/men/21.jpg',
-				},
-			},
-		],
-	};
-}
-
 const staysDB = [
 	{
 		_id: utilService.makeId(),
@@ -984,11 +787,11 @@ const staysDB = [
 		_id: utilService.makeId(),
 		name: "Studio Eilot 89",
 		imgUrls: [
-			"https://a0.muscache.com/im/pictures/2498bce2-44ec-4289-ad04-2cd516bd822f.jpg",
-			"https://a0.muscache.com/im/pictures/b8ac1177-bff3-4710-897c-87341e4c720e.jpg",
-			"https://a0.muscache.com/im/pictures/2b357dba-5259-4a6b-b78e-4117b3d24e35.jpg",
-			"https://a0.muscache.com/im/pictures/miso/Hosting-33925715/original/6c31dcb2-ebf4-40d9-8512-ba282e359fa7.jpeg",
-			"https://a0.muscache.com/im/pictures/miso/Hosting-33925715/original/90702fe8-e752-4181-8a36-3385af552b91.jpeg",
+			"https://a0.muscache.com/im/pictures/90749553/f7179131_original.jpg?im_w=1200",
+			"https://a0.muscache.com/im/pictures/90749125/837e9bff_original.jpg?im_w=720",
+			"https://a0.muscache.com/im/pictures/78084810/cc51066b_original.jpg?im_w=720",
+			"https://a0.muscache.com/im/pictures/90749799/be11216d_original.jpg?im_w=720",
+			"https://a0.muscache.com/im/pictures/90749198/54a53844_original.jpg?im_w=720",
 		],
 		price: 35.0,
 		summary: "Hawaii Luxury Suites is a large variety of high-class holiday apartments. Our apartments offer unparalleled service. Most of the luxury apartments at the Hawaii Luxury Suites come with a garden or balcony with a seating area. All apartments are equipped with a huge 65' flat-screen TV with satellite, Free wifi, air conditioners, bed linen, towels, and a kitchen equipped with Espresso machine, Microwave, Toaster Oven, Toaster and cooking utensils.",
@@ -1169,7 +972,7 @@ const staysDB = [
 		loc: {
 			country: "Israel",
 			countryCode: "IL",
-			address: "Eilat, South District, Israel",
+			address: "Arad, South District, Israel",
 			lat: 31.271717940521086,
 			lng: 35.211149873892595,
 		},
@@ -1325,7 +1128,7 @@ const staysDB = [
 		loc: {
 			country: "Israel",
 			countryCode: "IL",
-			address: "Eilat, South District, Israel",
+			address: "Arad, South District, Israel",
 			lat: 31.261996504814885,
 			lng: 35.20384913548613,
 		},
@@ -1446,4 +1249,518 @@ const staysDB = [
 			},
 		],
 	},
+	{
+		_id: utilService.makeId(),
+		name: "Perfect apartment - just 20 minutes from Tel Aviv",
+		imgUrls: [
+			"https://a0.muscache.com/im/pictures/d3281d29-b277-4fab-b9cb-c640dca8b73f.jpg",
+			"https://a0.muscache.com/im/pictures/25801128-515a-40b1-9fc8-ec9e7e0e3c5b.jpg",
+			"https://a0.muscache.com/im/pictures/e3abf642-114e-4560-a9e0-7d3b3b9acb9b.jpg",
+			"https://a0.muscache.com/im/pictures/954db1de-f9ba-4868-8acd-9f8e6c0581d4.jpg",
+			"https://a0.muscache.com/im/pictures/bd038315-527d-4510-908a-7834db903a94.jpg",
+		],
+		price: 45.0,
+		summary: "Private beautiful and stylish room, fully equipped, with kitchenette and bathroom, in a large villa in a quiet area on the outskirts of Arad. Separate entrance, personal veranda with garden furniture, beautiful garden with pleasant evening lighting, lots of greenery and flowers, landscaped yard. If you are looking for cleanliness, style, silence, beauty and peace after a hard day of traveling - our place is for you.Possibility of washing. Fast Wi-Fi, digital TV.",
+		properties: {
+			accommodates: 4,
+			type: "Apartment",
+			bad: 1,
+			bath: 1,
+		},
+		amenities: [
+			"TV",
+			"Kitchen",
+			"Cooking basics",
+			"Free parking on premises",
+			'Smoking allowed',
+			'Air conditioning',
+			'Pets allowed'
+		],
+		host: {
+			_id: utilService.makeId(),
+			fullname: "Shimi Tavori",
+			imgUrl:
+				"https://a0.muscache.com/im/pictures/user/b141ecd4-4c35-40e4-a37b-5c4d005f1a9a.jpg?im_w=240",
+		},
+		loc: {
+			country: "Israel",
+			countryCode: "IL",
+			address: "Rishon LeTsiyon, Center District, Israel",
+			lat: 31.953721905283263,
+			lng: 34.820950871713464,
+		},
+		reviews: [
+			{
+				id: utilService.makeId(),
+				txt: "Very good location Very nice host",
+				rate: [
+					{ property: "Cleanliness", val: 4.2 },
+					{ property: "Communication", val: 3.3 },
+					{ property: "Check-in", val: 3.7 },
+					{ property: "Accuracy", val: 4.4 },
+					{ property: "Location", val: 4.1 },
+					{ property: "Value", val: 4.2 },
+				],
+				createAt: 1620210913444,
+				by: {
+					_id: utilService.makeId(),
+					fullname: "Kevin Burton",
+					imgUrl:
+						"https://a0.muscache.com/im/pictures/user/3b9e19ee-9bfc-47ce-8c45-80ec7bb7dc37.jpg?im_w=240",
+				},
+			},
+			{
+				id: utilService.makeId(),
+				txt: "Communication was great from start to finish. The place is clean and comfortable. Made the stay in Rishon very pleasant.",
+				rate: [
+					{ property: "Cleanliness", val: 3.7 },
+					{ property: "Communication", val: 4.9},
+					{ property: "Check-in", val: 4.2 },
+					{ property: "Accuracy", val: 4.1 },
+					{ property: "Location", val: 4.1 },
+					{ property: "Value", val: 4.6 },
+				],
+				createAt: 1620210971555,
+				by: {
+					_id: utilService.makeId(),
+					fullname: "Avva Horn",
+					imgUrl:
+						"https://a0.muscache.com/im/pictures/user/b0e79b25-2206-4c0d-b402-260df663f79e.jpg?im_w=240",
+				},
+			},
+			{
+				id: utilService.makeId(),
+				txt: "We had some difficulty communicating with the host to get the details of the check-in, but once we got there we were pleased with the apartment.",
+				rate: [
+					{ property: "Cleanliness", val: 4.2 },
+					{ property: "Communication", val: 2.5 },
+					{ property: "Check-in", val: 3.1 },
+					{ property: "Accuracy", val: 4.1 },
+					{ property: "Location", val: 4.1 },
+					{ property: "Value", val: 4.2 },
+				],
+				createAt: 1620210971476,
+				by: {
+					_id: utilService.makeId(),
+					fullname: "Samuel Ortega",
+					imgUrl:
+						"https://a0.muscache.com/im/pictures/user/d6a3dd1a-8af5-4211-a5f8-b84c5a7f267e.jpg?im_w=240",
+				},
+			},
+			{
+				id: utilService.makeId(),
+				txt: "Great apartment, nearby everything you'll need, very tastefully designed and accessorized",
+				rate: [
+					{ property: "Cleanliness", val: 4.1 },
+					{ property: "Communication", val: 4.1 },
+					{ property: "Check-in", val: 4.1 },
+					{ property: "Accuracy", val: 4.5 },
+					{ property: "Location", val: 4.1 },
+					{ property: "Value", val: 4.2 },
+				],
+				createAt: 1620210923456,
+				by: {
+					_id: utilService.makeId(),
+					fullname: "Leanna Wang",
+					imgUrl:
+						"https://a0.muscache.com/im/pictures/user/d0dd6b68-496e-47f5-adfc-d6d7d6c2dd1c.jpg?im_w=240",
+				},
+			},
+			{
+				id: utilService.makeId(),
+				txt: "Very communicative host. The apartment has everything you need. In case you are staying in Rishon Le zion this is the place to stay!!",
+				rate: [
+					{ property: "Cleanliness", val: 4.1 },
+					{ property: "Communication", val: 4.7 },
+					{ property: "Check-in", val: 4.3 },
+					{ property: "Accuracy", val: 4.1 },
+					{ property: "Location", val: 4.3 },
+					{ property: "Value", val: 4.1 },
+				],
+				createAt: 1620210961122,
+				by: {
+					_id: utilService.makeId(),
+					fullname: "Boris Litvak",
+					imgUrl:
+						"https://a0.muscache.com/im/pictures/user/bb060a32-8d8c-4b84-9eef-b0d813fe43a3.jpg?im_w=240",
+				},
+			},
+			{
+				id: utilService.makeId(),
+				txt: "Wonderful place and very nice host.",
+				rate: [
+					{ property: "Cleanliness", val: 4.1 },
+					{ property: "Communication", val: 4.1 },
+					{ property: "Check-in", val: 4.3 },
+					{ property: "Accuracy", val: 4.1 },
+					{ property: "Location", val: 4.2 },
+					{ property: "Value", val: 4.7 },
+				],
+				createAt: 1620210921222,
+				by: {
+					_id: utilService.makeId(),
+					fullname: "Dominika Gonzalez",
+					imgUrl:
+						"https://a0.muscache.com/im/pictures/user/5d89ba88-9d8b-430d-b530-164ceb5f0e06.jpg?im_w=240",
+				},
+			},
+		],
+	},
+	{
+		_id: utilService.makeId(),
+		name: "<-- XXL Studio --- Brand NEW! --- City Center -->",
+		imgUrls: [
+			"https://a0.muscache.com/im/pictures/344d9a0e-c0b9-4112-826a-ef09fe0b283e.jpg",
+			"https://a0.muscache.com/im/pictures/aa407c28-f719-4153-87ec-77e1cabf36e7.jpg",
+			"https://a0.muscache.com/im/pictures/4b19093c-2d36-4865-bd61-c0aba3744341.jpg",
+			"https://a0.muscache.com/im/pictures/9de7cb9c-f150-49a6-8214-8eba0c389d19.jpg",
+			"https://a0.muscache.com/im/pictures/4ff1b534-bada-4c4e-8e73-474548d93ac5.jpg",
+		],
+		price: 45.0,
+		summary: "⭐ A hip and modern little place, PERFECTLY LOCATED ⭐ 1 min from the best cafes, restaurants, and bars ⭐ BRAND NEW! Renovated from scratch at Oct 2019	⭐ Excellent location - quiet street a few steps walk from Tourist's Kingdom	⭐ Supermarkets, shops, ATM - 3 min walk away",
+		properties: {
+			accommodates: 2,
+			type: "Studio",
+			bad: 1,
+			bath: 1,
+		},
+		amenities: [
+			"TV",
+			"Kitchen",
+			"Cooking basics",
+			"Free parking on premises",
+			"Smoking allowed",
+			"Air conditioning",
+			"Hangers",
+			"Wifi"
+		],
+		host: {
+			_id: utilService.makeId(),
+			fullname: "Shimi Tavori",
+			imgUrl:
+				"https://a0.muscache.com/im/pictures/user/f89d0840-1acb-428e-944f-0811d3c3ad31.jpg?im_w=240",
+		},
+		loc: {
+			country: "Israel",
+			countryCode: "IL",
+			address: "Rishon LeTsiyon, Center District, Israel",
+			lat: 31.959774349756522,
+			lng: 34.78975946872728,
+		},
+		reviews: [
+			{
+				id: utilService.makeId(),
+				txt: "The room is a bit small but it's very clean, and the location can't be beat (even better post Corona of course). I had a few requests during my stay and the hosts always answered me within 10 minutes or so. Highly recommended!",
+				rate: [
+					{ property: "Cleanliness", val: 4.5 },
+					{ property: "Communication", val: 4.3 },
+					{ property: "Check-in", val: 3.7 },
+					{ property: "Accuracy", val: 4.1 },
+					{ property: "Location", val: 4.5 },
+					{ property: "Value", val: 4.2 },
+				],
+				createAt: 1620210913113,
+				by: {
+					_id: utilService.makeId(),
+					fullname: "Jordan Spears",
+					imgUrl:
+						"https://a0.muscache.com/im/pictures/user/b9b12fc6-9254-452d-a32b-7be5c43cffe5.jpg?im_w=240",
+				},
+			},
+			{
+				id: utilService.makeId(),
+				txt: "I stayed at the apartment for 3 days, it was very clean and comfortable, and I must say the service was exceptional, the hosts were very kind and helpful in moving me to a different unit. self check in and check out went smoothly.",
+				rate: [
+					{ property: "Cleanliness", val: 4.7 },
+					{ property: "Communication", val: 4.2},
+					{ property: "Check-in", val: 4.1 },
+					{ property: "Accuracy", val: 4.3 },
+					{ property: "Location", val: 4.5 },
+					{ property: "Value", val: 4.2 },
+				],
+				createAt: 1620210972155,
+				by: {
+					_id: utilService.makeId(),
+					fullname: "Aviv Haimer",
+					imgUrl:
+						"https://a0.muscache.com/im/pictures/user/ce658a2e-7cd3-4cd3-9230-a509ab52886d.jpg?im_w=240",
+				},
+			},
+			{
+				id: utilService.makeId(),
+				txt: "A great appartement in a great location. Highly recommended.",
+				rate: [
+					{ property: "Cleanliness", val: 4.2 },
+					{ property: "Communication", val: 3.5 },
+					{ property: "Check-in", val: 4.2 },
+					{ property: "Accuracy", val: 4.2 },
+					{ property: "Location", val: 4.3 },
+					{ property: "Value", val: 4.6 },
+				],
+				createAt: 1620210971126,
+				by: {
+					_id: utilService.makeId(),
+					fullname: "Eliran Berko",
+					imgUrl:
+						"https://a0.muscache.com/im/users/11650919/profile_pic/1390748808/original.jpg?im_w=240",
+				},
+			},
+			{
+				id: utilService.makeId(),
+				txt: "The place is well organized. With a wonderful location. The silver ware was not as clean.. overall it’s a comfortable choice for a couple of nights stay.",
+				rate: [
+					{ property: "Cleanliness", val: 4.1 },
+					{ property: "Communication", val: 4.1 },
+					{ property: "Check-in", val: 4.2 },
+					{ property: "Accuracy", val: 4.1 },
+					{ property: "Location", val: 4.2 },
+					{ property: "Value", val: 4.5 },
+				],
+				createAt: 1620210923432,
+				by: {
+					_id: utilService.makeId(),
+					fullname: "Yoram Gaon",
+					imgUrl:
+						"https://a0.muscache.com/im/pictures/user/fe8454a7-5614-4f75-a28c-129ea29bc2a4.jpg?im_w=240",
+				},
+			},
+			{
+				id: utilService.makeId(),
+				txt: "The place is small, but real nice and stylish. The bathroom is new and neat. The building is relatively new and the location is just perfect. Strongly recommended!!",
+				rate: [
+					{ property: "Cleanliness", val: 4.1 },
+					{ property: "Communication", val: 4.7 },
+					{ property: "Check-in", val: 4.2 },
+					{ property: "Accuracy", val: 4.5 },
+					{ property: "Location", val: 4.1 },
+					{ property: "Value", val: 3.7 },
+				],
+				createAt: 1620210961132,
+				by: {
+					_id: utilService.makeId(),
+					fullname: "Anna Levine",
+					imgUrl:
+						"https://a0.muscache.com/im/pictures/user/553c591f-304b-4ed3-987d-73a127c97c59.jpg?im_w=240",
+				},
+			},
+			{
+				id: utilService.makeId(),
+				txt: "Thanks for the great service, highly recommend the apartment. The only thing that was problematic was the old bedding and the smell of urine in the toilet ... besides it was amazing!",
+				rate: [
+					{ property: "Cleanliness", val: 3.7 },
+					{ property: "Communication", val: 3.4 },
+					{ property: "Check-in", val: 4.1 },
+					{ property: "Accuracy", val: 3.1 },
+					{ property: "Location", val: 4.3 },
+					{ property: "Value", val: 4.1 },
+				],
+				createAt: 1620210924322,
+				by: {
+					_id: utilService.makeId(),
+					fullname: "Almog Shemtov",
+					imgUrl:
+						"https://a0.muscache.com/im/pictures/user/3b923e4a-5655-4f2c-baf5-d56db9c8b2c5.jpg?im_w=240",
+				},
+			},
+		],
+	},
 ];
+
+export const stayService = {
+	query,
+	getById,
+	remove,
+	save,
+	getEmptyStay,
+	getTotalAvgRate,
+	getListAvgRate,
+};
+
+_createStays();
+
+function query() {
+	// return httpService.get("/");
+	return asyncStorageService.query(KEY);
+}
+
+function getById(id) {
+	// return httpService.get("/${id}");
+	return asyncStorageService.get(KEY, id);
+}
+
+function remove(id) {
+	// return httpService.delete("/${id}");
+	return asyncStorageService.remove(KEY, id);
+}
+
+function save(stay) {
+	// if (stay.id) {
+	// 	return httpService.put("/${stay.id}", stay);
+	// } else {
+	// 	return httpService.post("/", stay);
+	// }
+	const savedStay = stay._id
+		? asyncStorageService.put(KEY, stay)
+		: asyncStorageService.post(KEY, stay);
+
+	return savedStay;
+}
+
+function getTotalAvgRate(stay) {
+	return stay.reviews.reduce((acc, review) => {
+		let rate = review.rate.reduce((acc, rate) => {
+			return (acc += rate.val / review.rate.length);
+		}, 0);
+		return (acc += rate / stay.reviews.length);
+	}, 0);
+}
+
+function getListAvgRate(stay) {
+	let avgRate = [
+		{ property: 'Cleanliness', val: null },
+		{ property: 'Communication', val: null },
+		{ property: 'Check-in', val: null },
+		{ property: 'Accuracy', val: null },
+		{ property: 'Location', val: null },
+		{ property: 'Value', val: null },
+	];
+
+	stay.reviews.forEach((review) => {
+		review.rate.forEach((rate) => {
+			avgRate.forEach((newRate) => {
+				if (rate.property === newRate.property)
+					newRate.val += rate.val / stay.reviews.length;
+			});
+		});
+	});
+
+	return avgRate;
+}
+
+function getEmptyTrip() {
+	return {
+		startDate: '',
+		endDate: '',
+		guests: {
+			adults: null,
+			kids: null,
+		},
+		loc: {
+			country: '',
+			countryCode: '',
+			address: '',
+			lat: null,
+			lng: null,
+		},
+	};
+}
+
+function getEmptyStay(title = '', description = '') {
+	return {
+		title,
+		description,
+		createdAt: Date.now(),
+	};
+}
+
+function _createStays() {
+	let stays = storageService.load(KEY);
+	if (!stays || !stays.length) {
+		// stays = [
+		// 	_createStay('Ribeira Charming Duplex'),
+		// 	_createStay('stay2'),
+		// 	_createStay('stay3'),
+		// 	_createStay('stay2342'),
+		// 	_createStay('stay2346'),
+		// 	_createStay('stay23465'),
+		// 	_createStay('stay1213'),
+		// 	_createStay('stay66'),
+		// 	_createStay('stay5'),
+		// ];
+		stays = staysDB
+		storageService.store(KEY, stays);
+	}
+	return stays;
+}
+
+function _createStay(name) {
+	return {
+		_id: utilService.makeId(),
+		name: name,
+		imgUrls: [
+			'https://a0.muscache.com/im/pictures/e83e702f-ef49-40fb-8fa0-6512d7e26e9b.jpg?aki_policy=large',
+			'https://a0.muscache.com/im/pictures/e83e702f-ef49-40fb-8fa0-6512d7e26e9b.jpg?aki_policy=large',
+			'https://a0.muscache.com/im/pictures/e83e702f-ef49-40fb-8fa0-6512d7e26e9b.jpg?aki_policy=large',
+			'https://a0.muscache.com/im/pictures/e83e702f-ef49-40fb-8fa0-6512d7e26e9b.jpg?aki_policy=large',
+			'https://a0.muscache.com/im/pictures/e83e702f-ef49-40fb-8fa0-6512d7e26e9b.jpg?aki_policy=large',
+		],
+		price: 80.0,
+		summary:
+			'Fantastic duplex apartment with three bedrooms, located in the historic area of Porto, Ribeira (Cube)',
+		properties: {
+			accommodates: 8,
+			type: '1 bedroom',
+			bad: 1,
+			bath: 3,
+		},
+		amenities: [
+			'TV',
+			'Wifi',
+			'Kitchen',
+			'Smoking allowed',
+			'Pets allowed',
+			'Cooking basics',
+		],
+		host: {
+			_id: '51399391',
+			fullname: 'Davit Pok',
+			imgUrl: 'https://randomuser.me/api/portraits/men/21.jpg',
+		},
+		loc: {
+			country: 'Portugal',
+			countryCode: 'PT',
+			address: 'Porto, Portugal',
+			lat: 41.1413,
+			lng: -8.61308,
+		},
+		reviews: [
+			{
+				id: utilService.makeId(),
+				txt: 'Very helpful hosts. Cooked traditional...',
+				rate: [
+					{ property: 'Cleanliness', val: 4.8 },
+					{ property: 'Communication', val: 5.0 },
+					{ property: 'Check-in', val: 5.0 },
+					{ property: 'Accuracy', val: 5.0 },
+					{ property: 'Location', val: 4.9 },
+					{ property: 'Value', val: 5.0 },
+				],
+				createAt: 1620210973856,
+				by: {
+					_id: 'u102',
+					fullname: 'user2',
+					imgUrl: 'https://randomuser.me/api/portraits/men/21.jpg',
+				},
+			},
+			{
+				id: utilService.makeId(),
+				txt: 'Very helpful hosts. Cooked traditional!!',
+				rate: [
+					{ property: 'Cleanliness', val: 4.8 },
+					{ property: 'Communication', val: 5.0 },
+					{ property: 'Check-in', val: 5.0 },
+					{ property: 'Accuracy', val: 5.0 },
+					{ property: 'Location', val: 4.9 },
+					{ property: 'Value', val: 5.0 },
+				],
+				createAt: 1620210973856,
+				by: {
+					_id: 'u102',
+					fullname: 'user1',
+					imgUrl: 'https://randomuser.me/api/portraits/men/21.jpg',
+				},
+			},
+		],
+	};
+}
+

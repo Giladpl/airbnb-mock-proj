@@ -30,6 +30,10 @@
 
 	img {
 		border-radius: 12px;
+		object-fit: cover;
+		// max-width: 100%;
+		width: 294px;
+		height: 196px; //verify why needed
 	}
 
 	svg {

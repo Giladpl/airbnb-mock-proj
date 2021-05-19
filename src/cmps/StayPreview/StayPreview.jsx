@@ -71,7 +71,7 @@ export const StayPreview = ({ item, isExplore = false }) => {
 	const divider = <div className='divider' key={'divider'}></div>;
 
 	return (
-		<li className={isExplore ? 'stay-preview-explore' : 'stay-preview'}>
+		<li className={isExplore ? 'stay-preview-explore clean-list' : 'stay-preview clean-list'}>
 			<Link to={'/stay/' + item._id}>
 				<ImageSwiper
 					imgUrls={item.imgUrls}
