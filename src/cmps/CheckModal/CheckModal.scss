@@ -30,13 +30,14 @@
 
         > * {
             height: 56px;
-            align-items: center;
             font-size: 10px;
             color: black;
             font-weight: bold;
+            cursor: pointer;
         }
-
+        
         .top-container {
+            align-items: center;
             border-bottom: 1px solid rgb(204, 204, 204);
 
             > * {
@@ -51,8 +52,12 @@
         }
         
         .low-container {
-            padding-left: 8px;
-            justify-content: center;
+            padding: 0 8px;
+
+            img {
+                width: 16px;
+                object-fit: contain;
+            }
         }
 
         p {

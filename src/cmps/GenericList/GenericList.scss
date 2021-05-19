@@ -3,3 +3,30 @@
 	grid-template-columns: repeat(12, 1fr);
 	gap: 24px 16px;
 }
+
+.amenity-list {
+    padding: 32px 0;
+
+    h3 {
+        padding-bottom: 24px;
+    }
+}
+
+.rate-list {
+	flex-wrap: wrap;
+  	justify-content: space-between;
+
+	> * {
+		flex-basis: 48%;
+	}
+}
+
+.review-list {
+	padding-top: 32px;
+	flex-wrap: wrap;
+	justify-content: space-between;
+
+    > * {
+		flex-basis: 48%;
+	}
+}
