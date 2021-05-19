@@ -1651,5 +1651,473 @@
                 }
             }
         ]
+    },
+    {
+        "_id": utilService.makeId(),
+        "name": "Sea of Galilee Tiberias Lake view 3 ",
+        "imgUrls": [
+            "https://a0.muscache.com/im/pictures/98038413-72dc-4e31-92af-98d2ba10b5f0.jpg",
+            "https://a0.muscache.com/im/pictures/5ce6fc09-093a-4d9d-9ca5-2f40bcf80d7c.jpg",
+            "https://a0.muscache.com/im/pictures/5fbc878b-95f3-47ef-9fa2-bc4730e9e17c.jpg",
+            "https://a0.muscache.com/im/pictures/57a6ca02-c096-4819-bb3c-84072e375dba.jpg",
+            "https://a0.muscache.com/im/pictures/bb1b1214-90db-4aba-8f39-023aa20c02b8.jpg"
+        ],
+        "price": 90.00,
+        "summary": "Amazing 3 rooms apartment with 2 bedrooms and living area, with balcony and sea view. the apartment located in a new building with 2 elevators, offers accommodations with all amenities needed for a comfortable, relaxing stay! the balcony also offers a BBQ grill. Perfect for couples, lone travelers, executives, friends, and families.",
+        "properties": {
+            "accommodates": 6,
+            "type": "2 bedrooms",
+            "bad": 3,
+            "bath": 1,
+        },
+        "amenities": [
+            "Wifi",
+            "Heating",
+            "Free parking on premises",
+            "Air conditioning",
+            "Cooking basics",
+            "Hangers",
+            "Kitchen"
+        ],
+        "host": {
+            "_id": "51394322",
+            "fullname": "Jordan Coffey",
+            "imgUrl": "https://randomuser.me/api/portraits/men/24.jpg",
+        },
+        "loc": {
+            "country": "Israel",
+            "countryCode": "IL",
+            "address": "Tiberias, North District, Israel",
+            "lat": 32.779339,
+            "lng": 35.521359
+        },
+        "reviews": [
+            {
+                "id": utilService.makeId(),
+                "txt": "Come alone, on a romantic getaway or a friends gathering....this place accommodates it all. Great vibe and chill space. Friendly owners that really care about making sure you feel at home.",
+                "rate": [
+                    { "property": "Cleanliness", "val": 4.9 },
+                    { "property": "Communication", "val": 5.0 },
+                    { "property": "Check-in", "val": 5.0 },
+                    { "property": "Accuracy", "val": 4.9 },
+                    { "property": "Location", "val": 4.7 },
+                    { "property": "Value", "val": 4.8 },
+                ],
+                "createAt": 1620210976656,
+                "by": {
+                    "_id": "u1022",
+                    "fullname": "Cortez Wilcox",
+                    "imgUrl": "https://randomuser.me/api/portraits/men/93.jpg"
+                }
+            },
+            {
+                "id": utilService.makeId(),
+                "txt": "Great stylish apartment in amazing location close to the lake.",
+                "rate": [
+                    { "property": "Cleanliness", "val": 4.9 },
+                    { "property": "Communication", "val": 4.8 },
+                    { "property": "Check-in", "val": 4.9 },
+                    { "property": "Accuracy", "val": 4.7 },
+                    { "property": "Location", "val": 4.8 },
+                    { "property": "Value", "val": 5.0 },
+                ],
+                "createAt": 1620210999956,
+                "by": {
+                    "_id": "u1023",
+                    "fullname": "Milagros Graham",
+                    "imgUrl": "https://randomuser.me/api/portraits/women/16.jpg"
+                }
+            },
+            {
+                "id": utilService.makeId(),
+                "txt": "A great appartement in a great location. Highly recommended.",
+                "rate": [
+                    { "property": "Cleanliness", "val": 4.8 },
+                    { "property": "Communication", "val": 4.7 },
+                    { "property": "Check-in", "val": 4.8 },
+                    { "property": "Accuracy", "val": 4.8 },
+                    { "property": "Location", "val": 4.9 },
+                    { "property": "Value", "val": 4.7 },
+                ],
+                "createAt": 1620218976656,
+                "by": {
+                    "_id": "u1020",
+                    "fullname": "Charlee Garcia",
+                    "imgUrl": "https://randomuser.me/api/portraits/women/22.jpg"
+                }
+            },
+            {
+                "id": utilService.makeId(),
+                "txt": "I really enjoyed my staying and for sure it will not be the last time of me there, thank you very much for everything !! Grate hospitality :)",
+                "rate": [
+                    { "property": "Cleanliness", "val": 5.0 },
+                    { "property": "Communication", "val": 5.0 },
+                    { "property": "Check-in", "val": 5.0 },
+                    { "property": "Accuracy", "val": 4.8 },
+                    { "property": "Location", "val": 5.0 },
+                    { "property": "Value", "val": 4.9 },
+                ],
+                "createAt": 1620218956796,
+                "by": {
+                    "_id": "u1022",
+                    "fullname": "Alani Barker",
+                    "imgUrl": "https://randomuser.me/api/portraits/men/76.jpg"
+                }
+            },
+            {
+                "id": utilService.makeId(),
+                "txt": "A nice stay st this apartment, located perfectly. it was not perfect - the apartment was very dusty and I had a mini flood after first using the shower - but the team wss very responsive and the overall stay was pleasant.",
+                "rate": [
+                    { "property": "Cleanliness", "val": 4.9 },
+                    { "property": "Communication", "val": 4.9 },
+                    { "property": "Check-in", "val": 5.0 },
+                    { "property": "Accuracy", "val": 4.8 },
+                    { "property": "Location", "val": 5.0 },
+                    { "property": "Value", "val": 4.7 },
+                ],
+                "createAt": 1620218977896,
+                "by": {
+                    "_id": "u1024",
+                    "fullname": "Lukas Bird",
+                    "imgUrl": "https://randomuser.me/api/portraits/men/86.jpg"
+                }
+            },
+            {
+                "id": utilService.makeId(),
+                "txt": "The place is well organized. With a wonderful location. The silver ware was not as clean.. overall it’s a comfortable choice for a couple of nights stay.",
+                "rate": [
+                    { "property": "Cleanliness", "val": 4.9 },
+                    { "property": "Communication", "val": 4.9 },
+                    { "property": "Check-in", "val": 4.7 },
+                    { "property": "Accuracy", "val": 4.8 },
+                    { "property": "Location", "val": 4.8 },
+                    { "property": "Value", "val": 4.6 },
+                ],
+                "createAt": 1620218973216,
+                "by": {
+                    "_id": "u1025",
+                    "fullname": "Aleena Mclean",
+                    "imgUrl": "https://randomuser.me/api/portraits/women/68.jpg"
+                }
+            }
+        ]
+    },
+    {
+        "_id": utilService.makeId(),
+        "name": "Cozy apartment in center of Haifa",
+        "imgUrls": [
+            "https://a0.muscache.com/im/pictures/272fd108-b8ef-4024-b030-3afe86efcc3b.jpg",
+            "https://a0.muscache.com/im/pictures/d4164afc-4ffa-465e-a323-7ce38b72d954.jpg",
+            "https://a0.muscache.com/im/pictures/93ab542d-6fc7-48fb-a0b9-4b35e94824c6.jpg",
+            "https://a0.muscache.com/im/pictures/7b31e55c-ca5d-419d-a2fe-752be13f4ba6.jpg",
+            "https://a0.muscache.com/im/pictures/2d7cdd6b-1c51-4c87-a1ce-8a36b98c0729.jpg"
+        ],
+        "price": 95.00,
+        "summary": "Beatiful comfortable apartment in downtown Haifa. A fully equipped with all you might need and freshly renovated with a plenty of natural light.Perfect location for exploring Haifa's main touristic attractions! The house is located in close proximity from train station, bus stops, the entrance to the Baha'i gardens,the German Colony which is probably the best attraction in Haifa, plenty of bars,restorants, coffee shops..",
+        "properties": {
+            "accommodates": 3,
+            "type": "Studio",
+            "bad": 1,
+            "bath": 1,
+        },
+        "amenities": [
+            "Wifi",
+            "Hangers",
+            "Free parking on premises",
+            "Air conditioning",
+            "Pets allowed",
+            "Heating",
+            "Kitchen"
+        ],
+        "host": {
+            "_id": "51394322",
+            "fullname": "Krystal Khan",
+            "imgUrl": "https://randomuser.me/api/portraits/women/45.jpg",
+        },
+        "loc": {
+            "country": "Israel",
+            "countryCode": "IL",
+            "address": "Haifa, Haifa District, Israel",
+            "lat": 32.8091218,
+            "lng": 34.9883856
+        },
+        "reviews": [
+            {
+                "id": utilService.makeId(),
+                "txt": "This apartment is everything you need in Haifa. Located next to the train, bars, restaurants and only blocks away from the tourist area. Will stay there again!",
+                "rate": [
+                    { "property": "Cleanliness", "val": 5.0 },
+                    { "property": "Communication", "val": 5.0 },
+                    { "property": "Check-in", "val": 5.0 },
+                    { "property": "Accuracy", "val": 4.8 },
+                    { "property": "Location", "val": 5.0 },
+                    { "property": "Value", "val": 4.9 },
+                ],
+                "createAt": 1620218956796,
+                "by": {
+                    "_id": "u1022",
+                    "fullname": "Alani Barker",
+                    "imgUrl": "https://randomuser.me/api/portraits/men/76.jpg"
+                }
+            },
+            {
+                "id": utilService.makeId(),
+                "txt": "Krystal and Sergey were extremely helpful and allowed me to check in early. Everything was super smooth and easy. I would gladly stay their again. The bed was comfy, the water was hot and super strong, and the AC worked great. I loved the neighborhood and centrality of the location.",
+                "rate": [
+                    { "property": "Cleanliness", "val": 4.9 },
+                    { "property": "Communication", "val": 5.0 },
+                    { "property": "Check-in", "val": 5.0 },
+                    { "property": "Accuracy", "val": 4.9 },
+                    { "property": "Location", "val": 4.7 },
+                    { "property": "Value", "val": 4.8 },
+                ],
+                "createAt": 1620210976656,
+                "by": {
+                    "_id": "u1022",
+                    "fullname": "Cortez Wilcox",
+                    "imgUrl": "https://randomuser.me/api/portraits/men/93.jpg"
+                }
+            },
+            {
+                "id": utilService.makeId(),
+                "txt": "This was a great place to stay and it was very easy to communicate with the host!",
+                "rate": [
+                    { "property": "Cleanliness", "val": 4.9 },
+                    { "property": "Communication", "val": 4.8 },
+                    { "property": "Check-in", "val": 4.9 },
+                    { "property": "Accuracy", "val": 4.7 },
+                    { "property": "Location", "val": 4.8 },
+                    { "property": "Value", "val": 5.0 },
+                ],
+                "createAt": 1620210999956,
+                "by": {
+                    "_id": "u1023",
+                    "fullname": "Milagros Graham",
+                    "imgUrl": "https://randomuser.me/api/portraits/women/16.jpg"
+                }
+            },
+            {
+                "id": utilService.makeId(),
+                "txt": "Amazing stay in haifa! My wife and I really enjoyed our stay in this spotless and stylish apartment. Communication with Irena was excellent. Highly recommended. We would definitely stay here again.",
+                "rate": [
+                    { "property": "Cleanliness", "val": 4.8 },
+                    { "property": "Communication", "val": 4.7 },
+                    { "property": "Check-in", "val": 4.8 },
+                    { "property": "Accuracy", "val": 4.8 },
+                    { "property": "Location", "val": 4.9 },
+                    { "property": "Value", "val": 4.7 },
+                ],
+                "createAt": 1620218976656,
+                "by": {
+                    "_id": "u1020",
+                    "fullname": "Charlee Garcia",
+                    "imgUrl": "https://randomuser.me/api/portraits/women/22.jpg"
+                }
+            },
+            {
+                "id": utilService.makeId(),
+                "txt": "This was a great find! The apartment had everything we needed and more. 10/10 would recommend to a friend!",
+                "rate": [
+                    { "property": "Cleanliness", "val": 4.9 },
+                    { "property": "Communication", "val": 4.9 },
+                    { "property": "Check-in", "val": 5.0 },
+                    { "property": "Accuracy", "val": 4.8 },
+                    { "property": "Location", "val": 5.0 },
+                    { "property": "Value", "val": 4.7 },
+                ],
+                "createAt": 1620218977896,
+                "by": {
+                    "_id": "u1024",
+                    "fullname": "Lukas Bird",
+                    "imgUrl": "https://randomuser.me/api/portraits/men/86.jpg"
+                }
+            },
+            {
+                "id": utilService.makeId(),
+                "txt": "Krystal's place was immaculate! Probably the cleanest Airbnb that I’ve ever stayed in. They left coffee, tea, apples, and oranges. It was very comfortable and homey. I will definitely stay here again next time that I’m in Haifa!",
+                "rate": [
+                    { "property": "Cleanliness", "val": 4.9 },
+                    { "property": "Communication", "val": 4.9 },
+                    { "property": "Check-in", "val": 4.7 },
+                    { "property": "Accuracy", "val": 4.8 },
+                    { "property": "Location", "val": 4.8 },
+                    { "property": "Value", "val": 4.6 },
+                ],
+                "createAt": 1620218973216,
+                "by": {
+                    "_id": "u1025",
+                    "fullname": "Aleena Mclean",
+                    "imgUrl": "https://randomuser.me/api/portraits/women/68.jpg"
+                }
+            }
+        ]
+    },
+    {
+        "_id": utilService.makeId(),
+        "name": "Rahash Hagalim - Tal Family Cabin",
+        "imgUrls": [
+            "https://a0.muscache.com/im/pictures/4ce5004c-f3c6-4787-a117-0afe1e74a1f8.jpg",
+            "https://a0.muscache.com/im/pictures/7a00a5ba-157d-4f5e-992e-d9943cfb5d8c.jpg",
+            "https://a0.muscache.com/im/pictures/079a266d-45b4-46be-b1d7-c0cf6770d424.jpg",
+            "https://a0.muscache.com/im/pictures/234c5673-ca41-4860-a913-1cc2cf52aced.jpg",
+            "https://a0.muscache.com/im/pictures/47aec5fd-ab00-4baf-bd7c-67ae3a2e5e99.jpg"
+        ],
+        "price": 150.00,
+        "summary": "Boasting a garden and a terrace, rahash hagalim is set in Dor , 300 m (5 min walk) from Dor Beach. A hot tub is available for guests. Free WiFi & private parking are accessible at this property.All units are equipped with a flat-screen TV. All rooms are fitted with a private bathroom with a bath. A continental breakfast is available with exra charge. Ask the host at the property. The nearest airport is Ben Gurion Airport, 68 km from the property.",
+        "properties": {
+            "accommodates": 5,
+            "type": "2 bedrooms",
+            "bad": 4,
+            "bath": 1,
+        },
+        "amenities": [
+            "Wifi",
+            "Hangers",
+            "Free parking on premises",
+            "Air conditioning",
+            "Heating",
+            "Kitchen",
+            "Smoking allowed"
+        ],
+        "host": {
+            "_id": "51394322",
+            "fullname": "Frankie Walter",
+            "imgUrl": "https://randomuser.me/api/portraits/men/27.jpg",
+        },
+        "loc": {
+            "country": "Israel",
+            "countryCode": "IL",
+            "address": "Dor, Haifa District, Israel",
+            "lat": 32.6075668,
+            "lng": 34.9230461
+        },
+        "reviews": [
+            {
+                "id": utilService.makeId(),
+                "txt": "What a lovely place. Everything was as described and we also used a local service for breakfast to door that added to the experience. Do note that in summer months the area is not as green as in pictures (but with lovey olive trees). Also recommend to bring anti-repellent as there were many flies/mosquitos",
+                "rate": [
+                    { "property": "Cleanliness", "val": 5.0 },
+                    { "property": "Communication", "val": 5.0 },
+                    { "property": "Check-in", "val": 5.0 },
+                    { "property": "Accuracy", "val": 4.8 },
+                    { "property": "Location", "val": 5.0 },
+                    { "property": "Value", "val": 5.0 },
+                ],
+                "createAt": 1620218977896,
+                "by": {
+                    "_id": "u101",
+                    "fullname": "Yoav Dickson",
+                    "imgUrl": "https://randomuser.me/api/portraits/men/35.jpg"
+                }
+            },
+            {
+                "id": utilService.makeId(),
+                "txt": "This apartment is everything you need in Dor. Will stay there again!",
+                "rate": [
+                    { "property": "Cleanliness", "val": 5.0 },
+                    { "property": "Communication", "val": 5.0 },
+                    { "property": "Check-in", "val": 5.0 },
+                    { "property": "Accuracy", "val": 4.8 },
+                    { "property": "Location", "val": 5.0 },
+                    { "property": "Value", "val": 4.9 },
+                ],
+                "createAt": 1620218956796,
+                "by": {
+                    "_id": "u1022",
+                    "fullname": "Alani Barker",
+                    "imgUrl": "https://randomuser.me/api/portraits/men/76.jpg"
+                }
+            },
+            {
+                "id": utilService.makeId(),
+                "txt": "Frankie were extremely helpful and allowed me to check in early. Everything was super smooth and easy. I would gladly stay their again. The bed was comfy, the water was hot and super strong, and the AC worked great. I loved the neighborhood and centrality of the location.",
+                "rate": [
+                    { "property": "Cleanliness", "val": 4.9 },
+                    { "property": "Communication", "val": 5.0 },
+                    { "property": "Check-in", "val": 5.0 },
+                    { "property": "Accuracy", "val": 4.9 },
+                    { "property": "Location", "val": 4.7 },
+                    { "property": "Value", "val": 4.8 },
+                ],
+                "createAt": 1620210976656,
+                "by": {
+                    "_id": "u1022",
+                    "fullname": "Cortez Wilcox",
+                    "imgUrl": "https://randomuser.me/api/portraits/men/93.jpg"
+                }
+            },
+            {
+                "id": utilService.makeId(),
+                "txt": "Had a great time at Frankie's place. Quiet, peacefull, great view, full privacy, the place was spotless clean, and had everything we could want. Cosy, spacious and welcoming, and the hosts were very responsive. Also not very far from the beach, great restaurants nearby.",
+                "rate": [
+                    { "property": "Cleanliness", "val": 5.0 },
+                    { "property": "Communication", "val": 4.8 },
+                    { "property": "Check-in", "val": 5.0 },
+                    { "property": "Accuracy", "val": 4.9 },
+                    { "property": "Location", "val": 5.0 },
+                    { "property": "Value", "val": 5.0 },
+                ],
+                "createAt": 1620218973216,
+                "by": {
+                    "_id": "u108",
+                    "fullname": "Cassandra Hester",
+                    "imgUrl": "https://randomuser.me/api/portraits/women/84.jpg"
+                }
+            },
+            {
+                "id": utilService.makeId(),
+                "txt": "This was a great place to stay and it was very easy to communicate with the host!",
+                "rate": [
+                    { "property": "Cleanliness", "val": 4.9 },
+                    { "property": "Communication", "val": 4.8 },
+                    { "property": "Check-in", "val": 4.9 },
+                    { "property": "Accuracy", "val": 4.7 },
+                    { "property": "Location", "val": 4.8 },
+                    { "property": "Value", "val": 5.0 },
+                ],
+                "createAt": 1620210999956,
+                "by": {
+                    "_id": "u1023",
+                    "fullname": "Milagros Graham",
+                    "imgUrl": "https://randomuser.me/api/portraits/women/16.jpg"
+                }
+            },
+            {
+                "id": utilService.makeId(),
+                "txt": "If you love nature and quiet you have come to the right place. We spent a whole weekend with our three children. The yurt is equipped to a high standard, very clean and special. The hosts made sure to guide us regarding hiking trails in the area and were available for any of our requests. The only hard thing about the vacation was leaving! We will definitely be back again!",
+                "rate": [
+                    { "property": "Cleanliness", "val": 5.0 },
+                    { "property": "Communication", "val": 5.0 },
+                    { "property": "Check-in", "val": 5.0 },
+                    { "property": "Accuracy", "val": 4.8 },
+                    { "property": "Location", "val": 4.9 },
+                    { "property": "Value", "val": 5.0 },
+                ],
+                "createAt": 1620218976656,
+                "by": {
+                    "_id": "u102",
+                    "fullname": "Odin Black",
+                    "imgUrl": "https://randomuser.me/api/portraits/men/9.jpg"
+                }
+            },
+            {
+                "id": utilService.makeId(),
+                "txt": "The vaction was amazing, it's brand new, and has everything you might need. It's located perfectly, isolated enough to have privacy, and also with an amazing view in the middle of nature. We had a rainy stay, but the fireplace made it the perfect winter getaway, staying warm and cozy inside, while looking at the rain hit the field outside. were super communicative, making sure we've arrived safely and having a good stay. All in all, highly recommended.",
+                "rate": [
+                    { "property": "Cleanliness", "val": 5.0 },
+                    { "property": "Communication", "val": 5.0 },
+                    { "property": "Check-in", "val": 5.0 },
+                    { "property": "Accuracy", "val": 4.8 },
+                    { "property": "Location", "val": 5.0 },
+                    { "property": "Value", "val": 5.0 },
+                ],
+                "createAt": 1620218956796,
+                "by": {
+                    "_id": "u1010",
+                    "fullname": "Uri Dickson",
+                    "imgUrl": "https://randomuser.me/api/portraits/men/64.jpg"
+                }
+            }
+        ]
     }
 ]
