@@ -51,33 +51,59 @@
 
 .stay-preview-explore {
 	width: 792px;
-	height: 200px;
+	height: 250px;
+	border-bottom: 1px solid rgb(235, 235, 235);
 	display: flex;
 	flex-direction: row;
+	justify-content: flex-start;
+	padding: 25px 20px;
+	gap: 20px;
 
 	ul {
 		padding: 0;
 	}
+
+	.name {
+		margin-bottom: 10px;
+	}
+
 	.summery {
 		overflow: hidden;
 		text-overflow: ellipsis;
 		white-space: nowrap;
 	}
+
 	.rate {
 		font-size: 14px;
 		color: #777777;
-		// color: $clr2;
+		// position: relative;
+		// bottom: 75%;
+	}
+
+	.divider {
+		margin-bottom: 10px;
+		border-top: 1px solid rgb(221, 221, 221);
+		margin-top: 11px;
+		width: 32px;
 	}
 
 	.price {
-		font-weight: 800;
 		padding-right: 4px;
+		// position: relative;
+		// bottom: -38%;
+		// left: 125%;
+
+		span {
+			font-weight: 800;
+		}
 	}
 
-	p {
+	.price-rate-container {
 		margin: 0;
 		font-size: 16px;
 		color: #222222;
+		position: relative;
+		top: 44%;
 		// color: $clr1;
 	}
 
@@ -89,6 +115,11 @@
 		height: 14px;
 		width: 14px;
 	}
+
+	.content-container {
+		width: 100%;
+	}
+
 	.properties,
 	.amenities {
 		color: rgb(113, 113, 113);
@@ -99,5 +130,13 @@
 		max-height: 18px;
 		overflow: hidden;
 		text-overflow: ellipsis;
+		margin-bottom: 5px;
 	}
+
+	// .property-container::before {
+	// 	content: '';
+	// 	width: 32px;
+	// 	border-top: 1px solid rgb(221, 221, 221);
+	//   position: absolute;
+	// }
 }

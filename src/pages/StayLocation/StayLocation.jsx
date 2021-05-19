@@ -3,6 +3,7 @@ import { useSelector } from 'react-redux';
 import { picService } from '../../services/picService';
 import { GenericList } from '../../cmps/GenericList';
 import { StayPreview } from '../../cmps/StayPreview';
+import { StayMap } from '../../cmps/StayMap';
 import './StayLocation.scss';
 
 export const StayLocation = ({ match }) => {
@@ -18,9 +19,13 @@ export const StayLocation = ({ match }) => {
 		picService.getPicture(match.params.location).then((url) => setHeroPic(url));
 	}, [match.params.location]);
 
+	const staysForMap = stays.map((stay) => {
+		return { lat: stay.loc.lat, lng: stay.loc.lng, price: stay.price };
+	});
+
 	return (
 		heroPic && (
-			<section className='stay-location main-layout'>
+			<section className='stay-location'>
 				<img src={heroPic} alt='' />
 				<h1 className='flex-center'>Explore {headerTitle()}</h1>
 				<div className='list-map-container'>
@@ -29,7 +34,7 @@ export const StayLocation = ({ match }) => {
 						CmpToRender={StayPreview}
 						isExplore={true}
 					></GenericList>
-					<div className='map'></div>
+					<StayMap staysForMap={staysForMap}></StayMap>
 				</div>
 			</section>
 		)

@@ -12,7 +12,7 @@ export const GenericList = ({
 	const H = `h${headingLevel}`;
 	return (
 		<React.Fragment>
-			<H>{headingText}</H>
+			{headingText && <H>{headingText}</H>}
 			<ul className={classNames}>
 				{items &&
 					items.map((item) => (

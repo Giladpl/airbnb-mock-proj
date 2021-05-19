@@ -1,1 +1,0 @@
-export { StaysMap } from './StaysMap'

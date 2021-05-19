@@ -5,7 +5,19 @@
 		height: 100%;
 		object-fit: cover;
 		border-radius: 8px;
-    display: block;
-    margin: 0 auto;
+		display: block;
+		margin: 0 auto;
+	}
+
+	.list-map-container {
+		display: flex;
+
+		// :nth-child(1) {
+		// 	padding: 0;
+		// }
+
+		// :nth-child(2) {
+		// 	padding: 0;
+		// }
 	}
 }

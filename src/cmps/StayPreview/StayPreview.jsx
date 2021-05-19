@@ -15,12 +15,6 @@ export const StayPreview = ({ item, isExplore = false }) => {
 
 	const avrgRate = stayService.getTotalAvgRate(item);
 
-	const rate = (
-		<div className='rate' key='rate'>
-			<StarSvg fill='#FF385C' /> {avrgRate} ({item.reviews.length})
-		</div>
-	);
-
 	const location = <p key='location'>{item.loc.address}</p>;
 
 	const summery = (
@@ -28,11 +22,23 @@ export const StayPreview = ({ item, isExplore = false }) => {
 			{item.summary}
 		</p>
 	);
+	const rate = (
+		<div className='rate' key='rate'>
+			<StarSvg fill='#FF385C' /> {avrgRate} ({item.reviews.length})
+		</div>
+	);
 
 	const price = (
-		<p key='price'>
-			<span className='price'>${item.price}</span> / night{' '}
+		<p className='price' key='price'>
+			<span>${item.price}</span> / night{' '}
 		</p>
+	);
+
+	const priceRateContainer = (
+		<div className='price-rate-container flex-between' key='priceRateContainer'>
+			{rate}
+			{price}
+		</div>
 	);
 
 	const name = (
@@ -43,11 +49,13 @@ export const StayPreview = ({ item, isExplore = false }) => {
 
 	const amenities = (
 		<ul className='flex amenities' key='amenities'>
-			{item.amenities.map((amenity, idx) => (
-				<li className='clean-list' key={idx}>
-					{idx !== item.amenities.length - 1 ? amenity + ' ∙ ' : amenity}
-				</li>
-			))}
+			{item.amenities
+				.map((amenity, idx) => (
+					<li className='clean-list' key={idx}>
+						{idx !== item.amenities.length - 3 ? amenity + ' ∙ ' : amenity}
+					</li>
+				))
+				.splice(0, 4)}
 		</ul>
 	);
 
@@ -60,12 +68,10 @@ export const StayPreview = ({ item, isExplore = false }) => {
 		</div>
 	);
 
+	const divider = <div className='divider' key={'divider'}></div>;
+
 	return (
-		// <li className='stay-preview clean-list'>
-		<li
-			className={isExplore ? 'stay-preview-explore' : 'stay-preview'}
-			clean-list
-		>
+		<li className={isExplore ? 'stay-preview-explore' : 'stay-preview'}>
 			<Link to={'/stay/' + item._id}>
 				<ImageSwiper
 					imgUrls={item.imgUrls}
@@ -74,7 +80,7 @@ export const StayPreview = ({ item, isExplore = false }) => {
 			</Link>
 			<div className='content-container'>
 				{isExplore
-					? [name, properties, amenities, rate, price]
+					? [name, divider, properties, amenities, priceRateContainer]
 					: [rate, location, price, summery]}
 			</div>
 		</li>
