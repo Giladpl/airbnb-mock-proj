@@ -13,7 +13,7 @@ export const StayPreview = ({ item, isExplore = false }) => {
 		return property + ' ' + content;
 	}
 
-	const avrgRate = stayService.getTotalAvgRate(item);
+	const avrgRate = stayService.getTotalAvgRate(item).toFixed(1);
 
 	const location = <p key='location'>{item.loc.address}</p>;
 
@@ -52,10 +52,10 @@ export const StayPreview = ({ item, isExplore = false }) => {
 			{item.amenities
 				.map((amenity, idx) => (
 					<li className='clean-list' key={idx}>
-						{idx !== item.amenities.length - 3 ? amenity + ' ∙ ' : amenity}
+						{idx < 3 ? amenity + ' ∙ ' : amenity}
 					</li>
 				))
-				.splice(0, 4)}
+				.slice(0, 4)}
 		</ul>
 	);
 
@@ -71,7 +71,13 @@ export const StayPreview = ({ item, isExplore = false }) => {
 	const divider = <div className='divider' key={'divider'}></div>;
 
 	return (
-		<li className={isExplore ? 'stay-preview-explore clean-list' : 'stay-preview clean-list'}>
+		<li
+			className={
+				isExplore
+					? 'stay-preview-explore clean-list'
+					: 'stay-preview clean-list'
+			}
+		>
 			<Link to={'/stay/' + item._id}>
 				<ImageSwiper
 					imgUrls={item.imgUrls}
