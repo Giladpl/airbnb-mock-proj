@@ -9,8 +9,7 @@ export const StayApp = (props) => {
 
 	return (
 		<section>
-			<GenericList items={stays} CmpToRender = {StayPreview} classNames={'stay-list'}>
-			</GenericList>
+			<GenericList items={stays} CmpToRender={StayPreview} classNames="stay-list clean-list" sectionClassName="main-layout" />
 		</section>
 	);
 };

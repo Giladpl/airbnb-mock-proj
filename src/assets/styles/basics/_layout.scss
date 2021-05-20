@@ -1,8 +1,15 @@
 .main-layout {
-    max-width: rem(1200px);
+    max-width: rem(1210px);
     padding: 0 rem(80px);
     margin: 0 auto;
-	// @include for-narrow-layout {
 
-	// }
+	@include for-normal-layout {
+        padding: 0 rem(80px);
+        
+	}
+    
+    @include for-mobile-layout {
+        padding: 0 rem(20px);
+
+    }
 }

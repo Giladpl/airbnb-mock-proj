@@ -1,19 +1,18 @@
 .stay-preview {
-	grid-column: span 3;
-	line-height: 20px;
+	cursor: pointer;
+    height: 100%;
+    width: 100%;
+	// line-height: 20px;
 
-	ul {
-		padding: 0;
-	}
 	.summery {
 		overflow: hidden;
 		text-overflow: ellipsis;
 		white-space: nowrap;
 	}
+
 	.rate {
 		font-size: 14px;
 		color: #777777;
-		// color: $clr2;
 	}
 
 	.price {
@@ -25,21 +24,19 @@
 		margin: 0;
 		font-size: 16px;
 		color: #222222;
-		// color: $clr1;
 	}
 
 	img {
 		border-radius: 12px;
 		object-fit: cover;
-		// max-width: 100%;
-		width: 294px;
-		height: 196px; //verify why needed
+		height: 196px; 
 	}
 
 	svg {
 		height: 14px;
 		width: 14px;
 	}
+
 	.properties,
 	.amenities {
 		color: rgb(113, 113, 113);
@@ -90,8 +87,6 @@
 	.rate {
 		font-size: 14px;
 		color: #777777;
-		// position: relative;
-		// bottom: 75%;
 	}
 
 	.divider {
@@ -103,9 +98,6 @@
 
 	.price {
 		padding-right: 4px;
-		// position: relative;
-		// bottom: -38%;
-		// left: 125%;
 
 		span {
 			font-weight: 800;
@@ -118,7 +110,6 @@
 		color: #222222;
 		position: relative;
 		top: 35%;
-		// color: $clr1;
 	}
 
 	img {
