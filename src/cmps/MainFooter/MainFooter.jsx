@@ -3,7 +3,7 @@ import facebook from '../../assets/img/facebook.svg';
 import instagram from '../../assets/img/instagram.svg';
 import twitter from '../../assets/img/twitter.svg';
 
-export const MainFooter = (props) => {
+export const MainFooter = () => {
 
     return (
         <footer className="footer">
