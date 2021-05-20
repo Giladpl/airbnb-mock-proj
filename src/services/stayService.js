@@ -3787,17 +3787,6 @@ function getEmptyStay(title = '', description = '') {
 function _createStays() {
 	let stays = storageService.load(KEY);
 	if (!stays || !stays.length) {
-		// stays = [
-		// 	_createStay('Ribeira Charming Duplex'),
-		// 	_createStay('stay2'),
-		// 	_createStay('stay3'),
-		// 	_createStay('stay2342'),
-		// 	_createStay('stay2346'),
-		// 	_createStay('stay23465'),
-		// 	_createStay('stay1213'),
-		// 	_createStay('stay66'),
-		// 	_createStay('stay5'),
-		// ];
 		stays = staysDB
 		storageService.store(KEY, stays);
 	}

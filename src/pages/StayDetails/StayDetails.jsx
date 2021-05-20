@@ -20,7 +20,7 @@ export const StayDetails = ({ match }) => {
         (async () => {
             const stay = await dispatch(getStayById(match.params.id));
             setCurrStay(stay);
-            setAvgRate(stayService.getTotalAvgRate(stay))
+            setAvgRate(stayService.getTotalAvgRate(stay).toFixed(2))
             setListAvgRate(stayService.getListAvgRate(stay))
         })();
     }, [match.params.id, dispatch]);

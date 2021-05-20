@@ -13,7 +13,7 @@ export const StayPreview = ({ item, isExplore = false }) => {
 		return property + ' ' + content;
 	}
 
-	const avrgRate = stayService.getTotalAvgRate(item).toFixed(1);
+	const avrgRate = stayService.getTotalAvgRate(item).toFixed(2);
 
 	const location = <p key='location'>{item.loc.address}</p>;
 
