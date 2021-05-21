@@ -3726,8 +3726,9 @@ async function query(filterBy) {
 	// const stays = httpService.get("/");
 	let staysToReturn = await asyncStorageService.query(KEY);
 	if (filterBy?.location) {
-		 staysToReturn = staysToReturn.filter((stay) => {
-			return stay.loc.address.includes(filterBy.location);
+		// const regex = new RegExp(filterBy.location, 'i');
+		staysToReturn = staysToReturn.filter((stay) => {
+			return stay.loc.address.toLowerCase().includes(filterBy.location.toLowerCase());
 		});
 		return staysToReturn;
 	}
