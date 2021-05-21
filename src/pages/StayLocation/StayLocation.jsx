@@ -33,6 +33,7 @@ export const StayLocation = ({ match }) => {
 						items={stays}
 						CmpToRender={StayPreview}
 						isExplore={true}
+						classNames={'explore-ul'}
 					></GenericList>
 					<StayMap staysForMap={staysForMap}></StayMap>
 				</div>

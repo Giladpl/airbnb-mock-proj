@@ -3,6 +3,8 @@
 	margin: 0 auto;
 	background-color: white;
 	border-radius: 50px;
+	// position: relative;
+	// z-index: 10;
 	// transition: .5s;
 
 	// overflow: hidden;
@@ -14,6 +16,7 @@
 		padding: 16px 24px;
 		height: 66px;
 		border-radius: 50px;
+		
 
 		&:focus-within {
 			background-color: #ebebeb;
