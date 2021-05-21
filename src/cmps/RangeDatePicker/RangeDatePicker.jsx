@@ -1,5 +1,5 @@
 import React from 'react';
-
+// import moment from 'moment';
 import 'react-dates/initialize';
 import 'react-dates/lib/css/_datepicker.css';
 import './RangeDatePicker.scss';
@@ -11,9 +11,7 @@ export const RangeDatePicker = ({
 	handleFocusChange,
 	focusedInput,
 	endDate,
-	setEndDate,
 	startDate,
-	setStartDate,
 	handleDatesChange,
 }) => {
 	const BLOCKED_DATES = [
@@ -43,9 +41,8 @@ export const RangeDatePicker = ({
 	const handleIsDayBlocked = (day) => {
 		return BLOCKED_DATES.filter((d) => d.isSame(day, 'day')).length > 0;
 	};
-
 	return (
-		<DateRangePicker
+		focusedInput && <DateRangePicker
 			startDate={startDate}
 			startDateId='unique_start_date_id'
 			endDate={endDate}

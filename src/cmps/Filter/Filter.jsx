@@ -1,16 +1,24 @@
 import React, { useEffect, useState } from 'react';
-import moment from 'moment';
+// import moment from 'moment';
 import { ReactComponent as MagnifyingGlass } from '../../assets/svgs/magnifying-glass.svg';
 import { GuestModal } from '../GuestModal/GuestModal';
 import { RangeDatePicker } from '../../cmps/RangeDatePicker';
+import { loadStays } from '../../store/actions/stayActions';
+import { useHistory } from "react-router-dom";
+import { useDispatch } from 'react-redux';
+
 
 import './Filter.scss';
 
-export const Filter = ({ style }) => {
+export const Filter = ({ style}) => {
+	const history = useHistory();
 	const [inputFocus, setInputFocus] = useState('');
 	const [focusedInput, setFocusedInput] = useState(null);
 	const [startDate, setStartDate] = useState(null);
 	const [endDate, setEndDate] = useState(null);
+	const [filterBy, setFilterBy] = useState({ location: '' });
+
+	const dispatch = useDispatch();
 
 	let [isGuestModal, setIsGuestModal] = useState(false);
 	let [guestNum, setGuestNum] = useState({
@@ -53,18 +61,29 @@ export const Filter = ({ style }) => {
 		setEndDate(endDate);
 	};
 
+	const handleChange = ({ target }) => {
+		const field = target.name;
+		let value = target.value;
+		setFilterBy({ ...filterBy, [field]: value });
+	};
+
+	const onSubmit = async (ev) => {
+		ev.preventDefault();
+		await	dispatch(loadStays(filterBy));
+		history.push('/stay')
+	};
+
 	return (
 		<React.Fragment>
 			<RangeDatePicker
 				handleFocusChange={handleFocusChange}
 				focusedInput={focusedInput}
 				handleDatesChange={handleDatesChange}
-				setEndDate={setEndDate}
-				setStartDate={setStartDate}
 				endDate={endDate}
 				startDate={startDate}
 			/>
 			<form
+				onSubmit={onSubmit}
 				className='filter'
 				style={{
 					width: inputFocus.name ? ' 900px' : '',
@@ -79,6 +98,8 @@ export const Filter = ({ style }) => {
 						name='location'
 						id='location'
 						placeholder='Where are you going?'
+						value={filterBy.location}
+						onChange={handleChange}
 					/>
 				</div>
 				<div
