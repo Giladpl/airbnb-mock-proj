@@ -1,7 +1,13 @@
-.DateRangePicker {
+.date-picker-filter {
   position: absolute;
   top: 15%;
   left: 43%;
+}
+
+.date-picker-modal {
+  position: relative;
+  // top: -14%;
+  // z-index: -2;
 }
 
 .DateInput_1{

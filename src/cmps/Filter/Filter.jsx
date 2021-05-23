@@ -10,6 +10,9 @@ import { useDispatch } from 'react-redux';
 import './Filter.scss';
 
 export const Filter = ({ style }) => {
+	const history = useHistory();
+	const dispatch = useDispatch();
+
 	const [inputFocus, setInputFocus] = useState('');
 	const [focusedInput, setFocusedInput] = useState(null);
 	const [startDate, setStartDate] = useState(null);
@@ -20,9 +23,6 @@ export const Filter = ({ style }) => {
 		'check-out': null,
 		guests: null
 	});
-	const history = useHistory();
-	const dispatch = useDispatch();
-
 	let [isGuestModal, setIsGuestModal] = useState(false);
 	let [guestNum, setGuestNum] = useState({
 		Adults: 0,
@@ -42,11 +42,9 @@ export const Filter = ({ style }) => {
 	};
 
 	function updateNumOfGuests(operator, type) {
-		console.log(guestNum);
 		if (operator === '-' && guestNum[type] === 0) return;
 		if (operator === '-') setGuestNum(--guestNum[type]);
 		else setGuestNum(++guestNum[type]);
-		console.log(guestNum);
 	}
 
 	const handleFocusChange = (focusedInput) => {
@@ -80,6 +78,7 @@ export const Filter = ({ style }) => {
 	return (
 		<React.Fragment>
 			<RangeDatePicker
+				classNames='date-picker-filter'
 				handleFocusChange={handleFocusChange}
 				focusedInput={focusedInput}
 				handleDatesChange={handleDatesChange}
