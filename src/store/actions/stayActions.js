@@ -2,8 +2,9 @@ import { stayService } from '../../services/stayService';
 
 export function loadStays(filterBy) {
 	return async (dispatch) => {
+		console.log(filterBy);
 		const stays = await stayService.query(filterBy);
-		console.log(stays);
+		// console.log(stays);
 		const action = {
 			type: 'SET_STAYS',
 			stays,

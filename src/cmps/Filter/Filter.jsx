@@ -4,20 +4,23 @@ import { ReactComponent as MagnifyingGlass } from '../../assets/svgs/magnifying-
 import { GuestModal } from '../GuestModal/GuestModal';
 import { RangeDatePicker } from '../../cmps/RangeDatePicker';
 import { loadStays } from '../../store/actions/stayActions';
-import { useHistory } from "react-router-dom";
+import { useHistory } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-
 
 import './Filter.scss';
 
-export const Filter = ({ style}) => {
-	const history = useHistory();
+export const Filter = ({ style }) => {
 	const [inputFocus, setInputFocus] = useState('');
 	const [focusedInput, setFocusedInput] = useState(null);
 	const [startDate, setStartDate] = useState(null);
 	const [endDate, setEndDate] = useState(null);
-	const [filterBy, setFilterBy] = useState({ location: '' });
-
+	const [filterBy, setFilterBy] = useState({
+		location: '',
+		'check-in': null,
+		'check-out': null,
+		guests: null
+	});
+	const history = useHistory();
 	const dispatch = useDispatch();
 
 	let [isGuestModal, setIsGuestModal] = useState(false);
@@ -38,12 +41,6 @@ export const Filter = ({ style}) => {
 		setInputFocus('');
 	};
 
-	const setStyleOnFocus = () => {
-		// if (document.activeElement !== inputFocus)
-		// 	return { background: '#ffff' };
-		// else return { background: '#ebebeb' };
-	};
-
 	function updateNumOfGuests(operator, type) {
 		console.log(guestNum);
 		if (operator === '-' && guestNum[type] === 0) return;
@@ -59,6 +56,11 @@ export const Filter = ({ style}) => {
 	const handleDatesChange = ({ startDate, endDate }) => {
 		setStartDate(startDate);
 		setEndDate(endDate);
+		setFilterBy({
+			...filterBy,
+			'check-in': startDate._d.getTime(),
+			'check-out': startDate._d.getTime(),
+		});
 	};
 
 	const handleChange = ({ target }) => {
@@ -69,8 +71,10 @@ export const Filter = ({ style}) => {
 
 	const onSubmit = async (ev) => {
 		ev.preventDefault();
-		await	dispatch(loadStays(filterBy));
-		history.push('/stay')
+		if(!filterBy.location) return
+		await dispatch(loadStays(filterBy));
+		history.push('/stay/explore/' + filterBy.location);
+		// history.push('/stay')
 	};
 
 	return (
