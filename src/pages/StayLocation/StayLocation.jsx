@@ -25,23 +25,22 @@ export const StayLocation = ({ match }) => {
 	const staysForMap = stays.map((stay) => {
 		return { lat: stay.loc.lat, lng: stay.loc.lng, price: stay.price };
 	});
+
 	return (
-		heroPic && (
-			<section className='stay-location'>
-				<img src={heroPic} alt='' />
-				<h1 className='flex-center'>Explore {headerTitle()}</h1>
-				{stays && (
-					<div className='list-map-container'>
-						<GenericList
-							items={stays}
-							CmpToRender={StayPreview}
-							isExplore={true}
-							classNames={'explore-ul'}
-						></GenericList>
-						<StayMap staysForMap={staysForMap}></StayMap>
-					</div>
-				)}
-			</section>
-		)
+		<section className='stay-location'>
+			{heroPic && <img src={heroPic} alt='' />}
+			<h1 className='flex-center'>Explore {headerTitle()}</h1>
+			{stays && (
+				<div className='list-map-container'>
+					<GenericList
+						items={stays}
+						CmpToRender={StayPreview}
+						isExplore={true}
+						classNames={'explore-ul'}
+					></GenericList>
+					<StayMap staysForMap={staysForMap}></StayMap>
+				</div>
+			)}
+		</section>
 	);
 };

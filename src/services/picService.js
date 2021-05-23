@@ -8,5 +8,6 @@ export const picService = {
 
 async function getPicture(term) {
 	const { data } = await axios.get(API + term);
+	if (!data.results.length) return null;
 	return data.results[0].urls.regular;
 }
