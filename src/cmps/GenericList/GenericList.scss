@@ -20,6 +20,16 @@
 	> * {
 		flex-basis: 48%;
 	}
+
+	@media (max-width: 790px) {
+		flex-direction: column;
+		flex-wrap: nowrap;
+		width: 300px;
+
+		> * {
+			flex-basis: 100%;
+		}
+	}
 }
 
 .review-list {
@@ -30,8 +40,24 @@
     > * {
 		flex-basis: 48%;
 	}
+
+	@media (max-width: 790px) {
+		flex-direction: column;
+		flex-wrap: nowrap;
+		width: 500px;
+		
+		> * {
+			flex-basis: 100%;
+		}
+	}
+
+	@media (max-width: 460px) {
+		width: 300px;
+	}
 }
 
 .explore-ul{
 	padding: 0 30px
 }
+
+
