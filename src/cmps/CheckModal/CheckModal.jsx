@@ -5,7 +5,6 @@ import { useDispatch } from 'react-redux';
 import downArrow from '../../assets/img/down-arrow.svg';
 import upArrow from '../../assets/img/up-arrow.svg';
 import { GuestModal } from '../GuestModal/GuestModal';
-// import { DateRangePicker } from 'react-dates';
 
 export const CheckModal = ({ stay, avgRate }) => {
 	const dispatch = useDispatch();
@@ -54,7 +53,7 @@ export const CheckModal = ({ stay, avgRate }) => {
 					>
 						<div className='flex-column'>
 							GUESTS
-							<p>1 guest</p>
+							<p>{guestNum.Adults + guestNum.Children + guestNum.Infants} guest</p>
 						</div>
 						<img src={isGuestModal ? upArrow : downArrow} alt='' />
 					</div>
@@ -64,15 +63,6 @@ export const CheckModal = ({ stay, avgRate }) => {
 			{isGuestModal && (
 				<GuestModal guestNum={guestNum} updateNumOfGuests={updateNumOfGuests} />
 			)}
-			{/* <DateRangePicker
-                startDate={startDatePicker} 
-                startDateId="startDate" 
-                endDate={endDatePicker} 
-                endDateId="endDate"
-                onDatesChange={({ startDate, endDate }) => setStartDate(startDate)}
-                focusedInput={focusedInputPicker} 
-                onFocusChange={focusedInput => setFocusedInput(focusedInput)} 
-            /> */}
 		</section>
 	);
 };
