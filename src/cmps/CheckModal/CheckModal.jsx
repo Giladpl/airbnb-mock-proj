@@ -4,6 +4,8 @@ import { useState } from 'react';
 import downArrow from '../../assets/img/down-arrow.svg';
 import upArrow from '../../assets/img/up-arrow.svg';
 import { GuestModal } from '../GuestModal/GuestModal';
+import { ButtonGradientTracking } from '../ButtonGradientTracking';
+// import { DateRangePicker } from 'react-dates';
 import { RangeDatePicker } from '../../cmps/RangeDatePicker';
 
 export const CheckModal = ({ stay, avgRate }) => {
@@ -66,7 +68,7 @@ export const CheckModal = ({ stay, avgRate }) => {
                         <img src={isGuestModal ? upArrow : downArrow} alt='' />
                     </div>
                 </div>
-                <button>Check availability</button>
+                <ButtonGradientTracking/>
             </div>
             {isGuestModal && (
                 <GuestModal guestNum={guestNum} updateNumOfGuests={updateNumOfGuests} />
