@@ -4,12 +4,9 @@ import { useState } from 'react';
 import downArrow from '../../assets/img/down-arrow.svg';
 import upArrow from '../../assets/img/up-arrow.svg';
 import { GuestModal } from '../GuestModal/GuestModal';
-<<<<<<< HEAD
 import { ButtonGradientTracking } from '../ButtonGradientTracking';
 // import { DateRangePicker } from 'react-dates';
-=======
 import { RangeDatePicker } from '../../cmps/RangeDatePicker';
->>>>>>> 2f4ae9e57f0d93d1cf068c4e52976ac131de7bff
 
 export const CheckModal = ({ stay, avgRate }) => {
     let [isGuestModal, setIsGuestModal] = useState(false);
@@ -45,36 +42,6 @@ export const CheckModal = ({ stay, avgRate }) => {
                     <div>
                         <span className='price'>${stay.price}</span> / night
 					</div>
-<<<<<<< HEAD
-					<div
-						className='low-container flex-between'
-						onClick={() => setIsGuestModal(!isGuestModal)}
-					>
-						<div className='flex-column'>
-							GUESTS
-							<p>{guestNum.Adults + guestNum.Children + guestNum.Infants}</p>
-						</div>
-						<img src={isGuestModal ? upArrow : downArrow} alt='' />
-					</div>
-				</div>
-				{/* <button>Check availability</button> */}
-				<ButtonGradientTracking/>
-			</div>
-			{isGuestModal && (
-				<GuestModal guestNum={guestNum} updateNumOfGuests={updateNumOfGuests} />
-			)}
-			{/* <DateRangePicker
-                startDate={startDatePicker} 
-                startDateId="startDate" 
-                endDate={endDatePicker} 
-                endDateId="endDate"
-                onDatesChange={({ startDate, endDate }) => setStartDate(startDate)}
-                focusedInput={focusedInputPicker} 
-                onFocusChange={focusedInput => setFocusedInput(focusedInput)} 
-            /> */}
-		</section>
-	);
-=======
                     <div className='flex'>
                         <StarSvg fill='#FF385C' /> {avgRate} ({stay.reviews.length} reviews)
 					</div>
@@ -101,7 +68,7 @@ export const CheckModal = ({ stay, avgRate }) => {
                         <img src={isGuestModal ? upArrow : downArrow} alt='' />
                     </div>
                 </div>
-                <button>Check availability</button>
+                <ButtonGradientTracking/>
             </div>
             {isGuestModal && (
                 <GuestModal guestNum={guestNum} updateNumOfGuests={updateNumOfGuests} />
@@ -116,5 +83,4 @@ export const CheckModal = ({ stay, avgRate }) => {
             />
         </section>
     );
->>>>>>> 2f4ae9e57f0d93d1cf068c4e52976ac131de7bff
 };
