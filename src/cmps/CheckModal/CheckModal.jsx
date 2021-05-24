@@ -5,6 +5,7 @@ import { useDispatch } from 'react-redux';
 import downArrow from '../../assets/img/down-arrow.svg';
 import upArrow from '../../assets/img/up-arrow.svg';
 import { GuestModal } from '../GuestModal/GuestModal';
+import { ButtonGradientTracking } from '../ButtonGradientTracking';
 // import { DateRangePicker } from 'react-dates';
 
 export const CheckModal = ({ stay, avgRate }) => {
@@ -54,12 +55,13 @@ export const CheckModal = ({ stay, avgRate }) => {
 					>
 						<div className='flex-column'>
 							GUESTS
-							<p>1 guest</p>
+							<p>{guestNum.Adults + guestNum.Children + guestNum.Infants}</p>
 						</div>
 						<img src={isGuestModal ? upArrow : downArrow} alt='' />
 					</div>
 				</div>
-				<button>Check availability</button>
+				{/* <button>Check availability</button> */}
+				<ButtonGradientTracking/>
 			</div>
 			{isGuestModal && (
 				<GuestModal guestNum={guestNum} updateNumOfGuests={updateNumOfGuests} />

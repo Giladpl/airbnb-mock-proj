@@ -1,0 +1,47 @@
+.button-cursor-gradient-tracking {
+	position: relative;
+	background-image: linear-gradient(
+		to right,
+		rgb(230, 30, 77) 0%,
+		rgb(227, 28, 95) 50%,
+		rgb(215, 4, 102) 100%
+	);
+	cursor: pointer;
+	outline: none;
+	overflow: hidden;
+	color: rgb(255, 255, 255);
+	transition: opacity 1.25s ease 0s;
+	text-align: center;
+	width: 100%;
+	padding: 14px 0;
+	border: none;
+	border-radius: 10px;
+	font-size: 16px;
+	font-weight: 600;
+	// background-position: calc((100 - var(--x, 0)) * 1%) calc((100 - var(--y, 0)) * 1%);
+}
+.button-cursor-gradient-tracking span {
+	position: relative;
+}
+.button-cursor-gradient-tracking::before {
+	--size: 0;
+	content: '';
+	position: absolute;
+	left: var(--x);
+	top: var(--y);
+	width: var(--size);
+	height: var(--size);
+
+	background-image: radial-gradient(
+		circle at center,
+		#ff385c 0%,
+		#e61e4d 50%,
+		#e31c5f 100%,
+	);
+
+	transform: translate(-50%, -50%);
+	transition: width 0.2s ease, height 0.2s ease;
+}
+.button-cursor-gradient-tracking:hover::before {
+	--size: 500px;
+}
