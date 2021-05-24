@@ -1,5 +1,5 @@
 .stay-list {
-	padding-top: 50px !important;
+	padding: 50px 0 !important;
 	display: grid;
 	grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
 	gap: 25px 16px;
@@ -20,6 +20,16 @@
 	> * {
 		flex-basis: 48%;
 	}
+
+	@media (max-width: 790px) {
+		flex-direction: column;
+		flex-wrap: nowrap;
+		width: 300px;
+
+		> * {
+			flex-basis: 100%;
+		}
+	}
 }
 
 .review-list {
@@ -30,8 +40,24 @@
     > * {
 		flex-basis: 48%;
 	}
+
+	@media (max-width: 790px) {
+		flex-direction: column;
+		flex-wrap: nowrap;
+		width: 500px;
+		
+		> * {
+			flex-basis: 100%;
+		}
+	}
+
+	@media (max-width: 460px) {
+		width: 300px;
+	}
 }
 
 .explore-ul{
 	padding: 0 30px
 }
+
+

@@ -13,6 +13,7 @@ export const RangeDatePicker = ({
 	endDate,
 	startDate,
 	handleDatesChange,
+	classNames
 }) => {
 	const BLOCKED_DATES = [
 		// moment().add(10, 'days'),
@@ -41,20 +42,23 @@ export const RangeDatePicker = ({
 	const handleIsDayBlocked = (day) => {
 		return BLOCKED_DATES.filter((d) => d.isSame(day, 'day')).length > 0;
 	};
+	
 	return (
-		focusedInput && <DateRangePicker
-			startDate={startDate}
-			startDateId='unique_start_date_id'
-			endDate={endDate}
-			endDateId='unique_end_date_id'
-			onDatesChange={handleDatesChange}
-			focusedInput={focusedInput}
-			onFocusChange={handleFocusChange}
-			displayFormat={dateFormat}
-			hideKeyboardShortcutsPanel={true}
-			numberOfMonths={numMonths || 2}
-			minimumNights={minimumNights}
-			isDayBlocked={handleIsDayBlocked}
-		/>
+		<div className={classNames}>
+			<DateRangePicker
+				startDate={startDate}
+				startDateId='unique_start_date_id'
+				endDate={endDate}
+				endDateId='unique_end_date_id'
+				onDatesChange={handleDatesChange}
+				focusedInput={focusedInput}
+				onFocusChange={handleFocusChange}
+				displayFormat={dateFormat}
+				hideKeyboardShortcutsPanel={true}
+				numberOfMonths={numMonths || 2}
+				minimumNights={minimumNights}
+				isDayBlocked={handleIsDayBlocked}
+			/>
+		</div>
 	);
 };

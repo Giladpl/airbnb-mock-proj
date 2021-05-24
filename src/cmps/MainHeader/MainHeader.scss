@@ -81,3 +81,14 @@
 		margin: 0 auto;
 	}
 }
+
+
+.filter-header {
+	height: 200px;
+	align-items: center;
+	padding-top: 30px;
+
+	> * {
+		margin-bottom: 20px;
+	}
+}

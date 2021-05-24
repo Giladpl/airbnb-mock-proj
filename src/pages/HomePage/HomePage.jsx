@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { Filter } from '../../cmps/Filter';
 import './HomePage.scss';
 import entire from '../../assets/img/entire.jpg';
@@ -24,22 +25,30 @@ export const HomePage = ({ isFilter }) => {
 				<div>
 					<h1>Live anywhere</h1>
 					<div className='live-anywhere flex'>
-						<div className='flex-column'>
-							<img src={outdoor} alt='' />
-							<h3>Outdoor getaways</h3>
-						</div>
-						<div className='flex-column'>
-							<img src={unique} alt='' />
-							<h3>Unique stays</h3>
-						</div>
-						<div className='flex-column'>
-							<img src={entire} alt='' />
-							<h3>Entire homes</h3>
-						</div>
-						<div className='flex-column'>
-							<img src={pets} alt='' />
-							<h3>Pets allowed</h3>
-						</div>
+						<Link to='/stay'>
+							<div className='flex-column'>
+								<img src={outdoor} alt='' />
+								<h3>Outdoor getaways</h3>
+							</div>
+						</Link>
+						<Link to='/stay'>
+							<div className='flex-column'>
+								<img src={unique} alt='' />
+								<h3>Unique stays</h3>
+							</div>
+						</Link>
+						<Link to='/stay'>
+							<div className='flex-column'>
+								<img src={entire} alt='' />
+								<h3>Entire homes</h3>
+							</div>
+						</Link>
+						<Link to='/stay'>
+							<div className='flex-column'>
+								<img src={pets} alt='' />
+								<h3>Pets allowed</h3>
+							</div>
+						</Link>
 					</div>
 				</div>
 				<div className='become-host flex-column'>
