@@ -23,14 +23,14 @@ export const CheckModal = ({ stay, avgRate }) => {
 	useEffect(() => {
 		const handleScroll = () => {
 			if (
-				window.pageYOffset >= 600 &&
-				window.pageYOffset < 933 &&
+				window.pageYOffset >= 520 &&
+				window.pageYOffset < 900 &&
 				!isGuestModalFixed
 			) {
 				setIsGuestModalFixed(true);
 			} else if (
-				(window.pageYOffset < 600 && isGuestModalFixed) ||
-				(window.pageYOffset > 933 && isGuestModalFixed)
+				(window.pageYOffset < 520 && isGuestModalFixed) ||
+				(window.pageYOffset > 900 && isGuestModalFixed)
 			) {
 				setIsGuestModalFixed(false);
 			}
