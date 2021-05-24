@@ -87,13 +87,13 @@ export const Filter = ({ style }) => {
 			/>
 			<form
 				onSubmit={onSubmit}
-				className='filter'
+				className="filter"
 				style={{
 					width: inputFocus.name ? ' 900px' : '',
 					opacity: style.opacity,
 				}}
 			>
-				<div className='search-inputs'>
+				<div className="search-inputs flex-column">
 					<label htmlFor='location'> Location </label>
 					<input
 						onFocus={onInputFocus}
@@ -104,9 +104,10 @@ export const Filter = ({ style }) => {
 						value={filterBy.location}
 						onChange={handleChange}
 					/>
+					{/* <div className="border-left"></div> */}
 				</div>
 				<div
-					className='search-inputs'
+					className="search-inputs flex-column"
 					onClick={() => setFocusedInput('startDate')}
 				>
 					<label htmlFor='check-in'>Check in</label>
@@ -120,7 +121,7 @@ export const Filter = ({ style }) => {
 					/>
 				</div>
 				<div
-					className='search-inputs'
+					className="search-inputs flex-column"
 					onClick={() => setFocusedInput('endDate')}
 				>
 					<label htmlFor='check-out'>Check out</label>
@@ -134,19 +135,21 @@ export const Filter = ({ style }) => {
 					/>
 				</div>
 
-				<div className='search-inputs'>
-					<label htmlFor='guests'>Guests</label>
-					<input
-						onFocus={onInputFocus}
-						onBlur={onInputBlur}
-						onClick={() => setIsGuestModal(!isGuestModal)}
-						name='guests'
-						id='guests'
-						placeholder='Add guests'
-					/>
-					<div className='search-button'>
+				<div className="search-inputs flex-between" style={{ width: inputFocus.name ? '270px' : '220px' }}>
+					<div className="flex-column">
+						<label htmlFor='guests'>Guests</label>
+						<input
+							onFocus={onInputFocus}
+							onBlur={onInputBlur}
+							onClick={() => setIsGuestModal(!isGuestModal)}
+							name='guests'
+							id='guests'
+							placeholder='Add guests'
+						/>
+					</div>
+					<div className="search-button">
 						<button
-							className='flex-center'
+							className="flex-center"
 							style={{ width: inputFocus.name ? '100px' : '' }}
 						>
 							<MagnifyingGlass fill='white' />
@@ -157,7 +160,7 @@ export const Filter = ({ style }) => {
 			</form>
 			{isGuestModal && (
 				<GuestModal
-					className='guests-modal'
+					className="guests-modal"
 					guestNum={guestNum}
 					updateNumOfGuests={updateNumOfGuests}
 				/>
