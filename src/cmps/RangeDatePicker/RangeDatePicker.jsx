@@ -2,6 +2,8 @@ import React from 'react';
 // import moment from 'moment';
 import 'react-dates/initialize';
 import 'react-dates/lib/css/_datepicker.css';
+// import styled from 'styled-components';
+
 import './RangeDatePicker.scss';
 
 import { DateRangePicker } from 'react-dates';
@@ -13,7 +15,7 @@ export const RangeDatePicker = ({
 	endDate,
 	startDate,
 	handleDatesChange,
-	classNames
+	classNames,
 }) => {
 	const BLOCKED_DATES = [
 		// moment().add(10, 'days'),
@@ -42,23 +44,62 @@ export const RangeDatePicker = ({
 	const handleIsDayBlocked = (day) => {
 		return BLOCKED_DATES.filter((d) => d.isSame(day, 'day')).length > 0;
 	};
-	
+
 	return (
 		<div className={classNames}>
-			<DateRangePicker
-				startDate={startDate}
-				startDateId='unique_start_date_id'
-				endDate={endDate}
-				endDateId='unique_end_date_id'
-				onDatesChange={handleDatesChange}
-				focusedInput={focusedInput}
-				onFocusChange={handleFocusChange}
-				displayFormat={dateFormat}
-				hideKeyboardShortcutsPanel={true}
-				numberOfMonths={numMonths || 2}
-				minimumNights={minimumNights}
-				isDayBlocked={handleIsDayBlocked}
-			/>
+				<DateRangePicker
+					startDate={startDate}
+					startDateId='unique_start_date_id'
+					endDate={endDate}
+					endDateId='unique_end_date_id'
+					onDatesChange={handleDatesChange}
+					focusedInput={focusedInput}
+					onFocusChange={handleFocusChange}
+					displayFormat={dateFormat}
+					hideKeyboardShortcutsPanel={true}
+					numberOfMonths={numMonths || 2}
+					minimumNights={minimumNights}
+					isDayBlocked={handleIsDayBlocked}
+				/>{' '}
 		</div>
 	);
 };
+
+// const StyledDatePickerWrapper = styled.div`
+// 	.DateRangePickerInput,
+// 	.DateRangePickerInput_1,
+// 	.DateRangePickerInput__withBorder,
+// 	.DateRangePickerInput__withBorder_2 {
+// 	}
+
+// 	.DateRangePickerInput_arrow_svg,
+// 	.DateRangePickerInput_arrow_svg_1 {
+// 		display: none;
+// 	}
+
+// 	.DateInput, .DateInput_1 {
+// 		width: 1px;
+// 		height: 1px;
+// 		overflow:hidden;
+// 	}
+
+// 	.DateRangePickerInput {
+// 		background-color:#fff0;
+// 	}
+
+// 	.DateRangePickerInput__withBorder{
+// 		border: none;
+// 	}
+
+// 	.DateInput_fang,
+// 	.DateInput_fang_1 {
+// 		display: none;
+// 	}
+// `;
+
+// .DateInput {
+// 	opacity: 0
+// }
+// .DateInput_1 {
+// 	opacity: 0
+// }

@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+
 // import moment from 'moment';
 import { ReactComponent as MagnifyingGlass } from '../../assets/svgs/magnifying-glass.svg';
 import { GuestModal } from '../GuestModal/GuestModal';
@@ -84,6 +85,7 @@ export const Filter = ({ style }) => {
 				handleDatesChange={handleDatesChange}
 				endDate={endDate}
 				startDate={startDate}
+				small={true}
 			/>
 			<form
 				onSubmit={onSubmit}

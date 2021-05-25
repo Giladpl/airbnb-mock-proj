@@ -1,21 +1,41 @@
 .date-picker-filter {
-  position: absolute;
-  top: 15%;
-  left: 43%;
+	position: absolute;
+	top: 15%;
+	left: 43%;
+}
+
+.DateRangePicker_picker,
+.DateRangePicker_picker_1 {
+	position: absolute;
+	top: 90px;
+	left: -50px;
 }
 
 .date-picker-modal {
-  position: relative;
-  // top: -14%;
-  // z-index: -2;
+	position: relative;
 }
 
-.DateInput_1{
-  // z-index: -1;
-  // display:none;
-  // opacity: 0.4;
+.DateRangePickerInput_arrow_svg,
+.DateRangePickerInput_arrow_svg_1 {
+	display: none;
 }
 
-.DateRangePicker_picker{
-// opacity: 1;
+.DateInput,
+.DateInput_1 {
+	width: 1px;
+	height: 1px;
+	overflow: hidden;
+}
+
+.DateRangePickerInput {
+	background-color: #fff0;
+}
+
+.DateRangePickerInput__withBorder {
+	border: none;
+}
+
+.DateInput_fang,
+.DateInput_fang_1 {
+	display: none;
 }
