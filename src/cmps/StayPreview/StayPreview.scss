@@ -77,6 +77,11 @@
 		margin-bottom: 10px;
 	}
 
+	.name-like-container {
+		display: flex;
+		justify-content: space-between;
+	}
+
 	.summery {
 		overflow: hidden;
 		text-overflow: ellipsis;
@@ -115,7 +120,7 @@
 		border-radius: 12px;
 	}
 
-	svg {
+	svg:nth-of-type(1) {
 		height: 14px;
 		width: 14px;
 	}
@@ -135,5 +140,12 @@
 		overflow: hidden;
 		text-overflow: ellipsis;
 		margin-bottom: 5px;
+	}
+
+	.name-like-container {
+		.like {
+			width: 24px;
+			height: 24px;
+		}
 	}
 }

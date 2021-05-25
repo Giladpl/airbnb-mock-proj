@@ -2,11 +2,15 @@ import { Link } from 'react-router-dom';
 import { ReactComponent as StarSvg } from '../../assets/svgs/star.svg';
 import { stayService } from '../../services/stayService';
 import { ImageSwiper } from '../../cmps/ImageSwiper';
+import { Like } from '../../cmps/Like';
 import React from 'react';
 
 import './StayPreview.scss';
+import { useState } from 'react';
 
 export const StayPreview = ({ item, isExplore = false }) => {
+	const [isLiked, setIsLiked] = useState(false);
+
 	function propertyFormatted(property, content) {
 		if (!property) return;
 		content = property === 1 ? content : content + 's';
@@ -47,6 +51,17 @@ export const StayPreview = ({ item, isExplore = false }) => {
 		</p>
 	);
 
+	const onClick = () => {
+		setIsLiked((isLiked) => !isLiked);
+	};
+
+	const nameLikeContainer = (
+		<div key='name-like-container' className='name-like-container'>
+			<p className='name'>{item.name}</p>{' '}
+			<Like isLiked={isLiked} onClick={onClick} />
+		</div>
+	);
+
 	const amenities = (
 		<ul className='flex amenities' key='amenities'>
 			{item.amenities
@@ -78,6 +93,7 @@ export const StayPreview = ({ item, isExplore = false }) => {
 					: 'stay-preview clean-list'
 			}
 		>
+			{' '}
 			<Link to={'/stay/' + item._id}>
 				<ImageSwiper
 					imgUrls={item.imgUrls}
@@ -86,7 +102,13 @@ export const StayPreview = ({ item, isExplore = false }) => {
 			</Link>
 			<div className='content-container'>
 				{isExplore
-					? [name, divider, properties, amenities, priceRateContainer]
+					? [
+							nameLikeContainer,
+							divider,
+							properties,
+							amenities,
+							priceRateContainer,
+					  ]
 					: [rate, location, price, summery]}
 			</div>
 		</li>
