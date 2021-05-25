@@ -13,7 +13,7 @@ export function stayReducer(state = INITIAL_STATE, action) {
 		case 'SET_STAY':
 			return {
 				...state,
-				currRobot: action.stay,
+				currStay: action.stay,
 			};
 		case 'ADD_STAY':
 			return {
