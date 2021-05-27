@@ -7,7 +7,7 @@ export const GuestModal = ({ guestNum, updateNumOfGuests, isFixed }) => {
 			className='guest-modal'
 			style={{
 				position: isFixed ? 'fixed' : 'relative',
-				top: isFixed ? '48%' : '-19%',
+				top: isFixed ? '29%' : '-19%',
 			}}
 		>
 			<GuestModalPreview

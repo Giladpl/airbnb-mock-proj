@@ -3,7 +3,6 @@ import { stayService } from '../../services/stayService';
 export function loadStays(filterBy) {
 	return async (dispatch) => {
 		const stays = await stayService.query(filterBy);
-		// console.log(stays);
 		const action = {
 			type: 'SET_STAYS',
 			stays,

@@ -71,7 +71,6 @@ export const Filter = ({ style }) => {
 	const onSubmit = async (ev) => {
 		ev.preventDefault();
 		if(!filterBy.location) return
-		await dispatch(loadStays(filterBy));
 		history.push('/stay/explore/' + filterBy.location);
 		// history.push('/stay')
 	};

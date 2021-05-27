@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Filter } from '../../cmps/Filter';
+import { loadStays } from '../../store/actions/stayActions';
 import './HomePage.scss';
 import entire from '../../assets/img/entire.jpg';
 import unique from '../../assets/img/unique.jpg';
@@ -9,8 +10,15 @@ import outdoor from '../../assets/img/outdoor.jpg';
 import experiences from '../../assets/img/Experiences.jpg';
 import featuredCollection from '../../assets/img/FeaturedCollection.jpg';
 import onlineExperiences from '../../assets/img/OnlineExperiences.jpg';
+import { useDispatch } from 'react-redux';
 
 export const HomePage = ({ isFilter }) => {
+	const dispatch = useDispatch()
+
+	useEffect(() => {
+		dispatch(loadStays());
+	}, [dispatch]);
+
 	return (
 		<main className='home-page'>
 			<div className='hero'>

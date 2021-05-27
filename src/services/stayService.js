@@ -3729,6 +3729,7 @@ async function query(filterBy) {
 		const regex = new RegExp(filterBy.location.trim(), 'i');
 		staysToReturn = staysToReturn.filter((stay) => regex.test(stay.loc.address))
 	}
+	console.log(staysToReturn);
 	return staysToReturn;
 }
 

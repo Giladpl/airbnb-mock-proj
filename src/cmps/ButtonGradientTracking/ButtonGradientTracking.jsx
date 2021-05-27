@@ -8,7 +8,7 @@ export const ButtonGradientTracking = (props) => {
 		if (btnRef) {
 			btnRef.current.addEventListener('mousemove', gradientChange);
 		}
-		return () => btnRef.removeEventListener('mousemove', gradientChange);
+		// return () => btnRef.current.removeEventListener('mousemove', gradientChange);
 	}, [btnRef]);
 
 	const gradientChange = (e) => {
