@@ -3723,7 +3723,7 @@ export const stayService = {
 // _createStays();
 
 async function query(filterBy) {
-	let staysToReturn = await httpService.get("stay/");
+	let staysToReturn = await httpService.get(`stay/`);
 	// let staysToReturn = await asyncStorageService.query(KEY);
 	if (filterBy?.location) {
 		const regex = new RegExp(filterBy.location.trim(), 'i');
@@ -3733,20 +3733,20 @@ async function query(filterBy) {
 }
 
 function getById(id) {
-	return httpService.get("stay/${id}");
+	return httpService.get(`stay/${id}`);
 	// return asyncStorageService.get(KEY, id);
 }
 
 function remove(id) {
-	return httpService.delete("stay/${id}");
+	return httpService.delete(`stay/${id}`);
 	// return asyncStorageService.remove(KEY, id);
 }
 
 function save(stay) {
 	if (stay.id) {
-		return httpService.put("stay/${stay.id}", stay);
+		return httpService.put(`stay/${stay.id}`, stay);
 	} else {
-		return httpService.post("stay/", stay);
+		return httpService.post(`stay/`, stay);
 	}
 	// const savedStay = stay._id
 	// 	? asyncStorageService.put(KEY, stay)
