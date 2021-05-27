@@ -1,7 +1,7 @@
-import { asyncStorageService } from './asyncStorageService.js';
+// import { asyncStorageService } from './asyncStorageService.js';
 import { utilService } from './utilService.js';
 import { storageService } from './storageService.js';
-// import { httpService } from './httpService.js';
+import { httpService } from './httpService.js';
 
 const KEY = 'stayDB';
 
@@ -3720,40 +3720,39 @@ export const stayService = {
 	getListAvgRate,
 };
 
-_createStays();
+// _createStays();
 
 async function query(filterBy) {
-	// const stays = httpService.get("/");
-	let staysToReturn = await asyncStorageService.query(KEY);
+	let staysToReturn = await httpService.get("stay/");
+	// let staysToReturn = await asyncStorageService.query(KEY);
 	if (filterBy?.location) {
 		const regex = new RegExp(filterBy.location.trim(), 'i');
 		staysToReturn = staysToReturn.filter((stay) => regex.test(stay.loc.address))
 	}
-	console.log(staysToReturn);
 	return staysToReturn;
 }
 
 function getById(id) {
-	// return httpService.get("/${id}");
-	return asyncStorageService.get(KEY, id);
+	return httpService.get("stay/${id}");
+	// return asyncStorageService.get(KEY, id);
 }
 
 function remove(id) {
-	// return httpService.delete("/${id}");
-	return asyncStorageService.remove(KEY, id);
+	return httpService.delete("stay/${id}");
+	// return asyncStorageService.remove(KEY, id);
 }
 
 function save(stay) {
-	// if (stay.id) {
-	// 	return httpService.put("/${stay.id}", stay);
-	// } else {
-	// 	return httpService.post("/", stay);
-	// }
-	const savedStay = stay._id
-		? asyncStorageService.put(KEY, stay)
-		: asyncStorageService.post(KEY, stay);
+	if (stay.id) {
+		return httpService.put("stay/${stay.id}", stay);
+	} else {
+		return httpService.post("stay/", stay);
+	}
+	// const savedStay = stay._id
+	// 	? asyncStorageService.put(KEY, stay)
+	// 	: asyncStorageService.post(KEY, stay);
 
-	return savedStay;
+	// return savedStay;
 }
 
 function getTotalAvgRate(stay) {
