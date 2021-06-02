@@ -10,10 +10,11 @@ import outdoor from '../../assets/img/outdoor.jpg';
 import experiences from '../../assets/img/Experiences.jpg';
 import featuredCollection from '../../assets/img/FeaturedCollection.jpg';
 import onlineExperiences from '../../assets/img/OnlineExperiences.jpg';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
 export const HomePage = ({ isFilter }) => {
-	const dispatch = useDispatch()
+	const dispatch = useDispatch();
+	const stays = useSelector((state) => state.stayReducer.stays);
 
 	useEffect(() => {
 		dispatch(loadStays());
@@ -22,7 +23,11 @@ export const HomePage = ({ isFilter }) => {
 	return (
 		<main className='home-page'>
 			<div className='hero'>
-				<Filter className='filter' style={{ opacity: !isFilter ? 100 : 0 }} />
+				<Filter
+					stays={stays}
+					className='filter'
+					style={{ opacity: !isFilter ? 100 : 0 }}
+				/>
 				<div className='hero-content main-layout'>
 					<h1>The Greatest Outdoors</h1>
 					<p>Wishlists curated by Airbnb.</p>

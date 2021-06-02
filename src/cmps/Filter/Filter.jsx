@@ -10,7 +10,7 @@ import { useDispatch } from 'react-redux';
 
 import './Filter.scss';
 
-export const Filter = ({ style }) => {
+export const Filter = ({ style, stays }) => {
 	const history = useHistory();
 	const dispatch = useDispatch();
 
@@ -22,7 +22,7 @@ export const Filter = ({ style }) => {
 		location: '',
 		'check-in': null,
 		'check-out': null,
-		guests: null
+		guests: null,
 	});
 	let [isGuestModal, setIsGuestModal] = useState(false);
 	let [guestNum, setGuestNum] = useState({
@@ -70,9 +70,26 @@ export const Filter = ({ style }) => {
 
 	const onSubmit = async (ev) => {
 		ev.preventDefault();
-		if(!filterBy.location) return
+		if (!filterBy.location) return;
 		history.push('/stay/explore/' + filterBy.location);
 		// history.push('/stay')
+	};
+
+	const getDataOptions = () => {
+		// const addressesMap = stays.reduce((addressesMap, stay, idx) => {
+		// 	if (!addressesMap[stay.loc.address]) addressesMap[stay.loc.address] = idx;
+		// 	return addressesMap;
+		// }, {});
+		// return Object.keys(addressesMap).map((address, idx) => (
+		// 	<option key={idx} value={address}>
+		// 		{' '}
+		// 	</option>
+		// ));
+		const addresses = stays.map((stay) => stay.loc.address);
+		const set = new Set(addresses);
+		return [...set].map((address) => (
+			<option key={address} value={address}></option>
+		));
 	};
 
 	return (
@@ -88,15 +105,16 @@ export const Filter = ({ style }) => {
 			/>
 			<form
 				onSubmit={onSubmit}
-				className="filter"
+				className='filter'
 				style={{
 					width: inputFocus.name ? ' 900px' : '',
 					opacity: style.opacity,
 				}}
 			>
-				<div className="search-inputs flex-column">
+				<div className='search-inputs flex-column'>
 					<label htmlFor='location'> Location </label>
 					<input
+						list='location-options'
 						onFocus={onInputFocus}
 						onBlur={onInputBlur}
 						name='location'
@@ -105,10 +123,11 @@ export const Filter = ({ style }) => {
 						value={filterBy.location}
 						onChange={handleChange}
 					/>
+					<datalist id='location-options'>{getDataOptions()}</datalist>
 					{/* <div className="border-left"></div> */}
 				</div>
 				<div
-					className="search-inputs flex-column"
+					className='search-inputs flex-column'
 					onClick={() => setFocusedInput('startDate')}
 				>
 					<label htmlFor='check-in'>Check in</label>
@@ -122,7 +141,7 @@ export const Filter = ({ style }) => {
 					/>
 				</div>
 				<div
-					className="search-inputs flex-column"
+					className='search-inputs flex-column'
 					onClick={() => setFocusedInput('endDate')}
 				>
 					<label htmlFor='check-out'>Check out</label>
@@ -136,8 +155,11 @@ export const Filter = ({ style }) => {
 					/>
 				</div>
 
-				<div className="search-inputs flex-between" style={{ width: inputFocus.name ? '270px' : '220px' }}>
-					<div className="flex-column">
+				<div
+					className='search-inputs flex-between'
+					style={{ width: inputFocus.name ? '270px' : '220px' }}
+				>
+					<div className='flex-column'>
 						<label htmlFor='guests'>Guests</label>
 						<input
 							onFocus={onInputFocus}
@@ -148,9 +170,9 @@ export const Filter = ({ style }) => {
 							placeholder='Add guests'
 						/>
 					</div>
-					<div className="search-button">
+					<div className='search-button'>
 						<button
-							className="flex-center"
+							className='flex-center'
 							style={{ width: inputFocus.name ? '100px' : '' }}
 						>
 							<MagnifyingGlass fill='white' />
@@ -161,7 +183,7 @@ export const Filter = ({ style }) => {
 			</form>
 			{isGuestModal && (
 				<GuestModal
-					className="guests-modal"
+					className='guests-modal'
 					guestNum={guestNum}
 					updateNumOfGuests={updateNumOfGuests}
 				/>

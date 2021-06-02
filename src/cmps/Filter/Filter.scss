@@ -40,6 +40,10 @@
 			background-color: inherit;
 		}
 
+		input::-webkit-calendar-picker-indicator {
+			display: none;
+		}
+
 		&:nth-child(1) {
 			width: 270px;
 		}
