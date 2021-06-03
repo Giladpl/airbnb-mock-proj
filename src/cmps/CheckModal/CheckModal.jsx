@@ -12,7 +12,7 @@ export const CheckModal = ({ stay, avgRate }) => {
 	let [isCheck, setIsCheck] = useState(false);
 	let [isGuestModalFixed, setIsGuestModalFixed] = useState(false);
 	let [guestNum, setGuestNum] = useState({
-		Adults: 0,
+		Adults: 1,
 		Children: 0,
 		Infants: 0,
 	});
@@ -57,10 +57,16 @@ export const CheckModal = ({ stay, avgRate }) => {
 		setIsCheck(!isCheck)
 	}
 
+	const calcPrice = () => {
+		if (guestNum.Adults > 1) const adultsPrice = guestNum.Adults ? (guestNum.Adults - 1) * 100 : 0;
+		const childrenPrice = guestNum.Children ? guestNum.Children * 50 : 0;
+		return diffInDays * stay.price + adultsPrice + childrenPrice;
+	}
+
 	function updateNumOfGuests(operator, type) {
 		if (operator === '-' && !guestNum[type]) return;
-		if (operator === '-')
-			setGuestNum({ ...guestNum, [type]: --guestNum[type] });
+		if (operator === '-' && type === 'Adults' && guestNum.Adults === 1) return;
+		if (operator === '-') setGuestNum({ ...guestNum, [type]: --guestNum[type] });
 		else setGuestNum({ ...guestNum, [type]: ++guestNum[type] });
 	}
 
@@ -110,7 +116,7 @@ export const CheckModal = ({ stay, avgRate }) => {
 					<div className='introduction'>You won't be charged yet</div>
 					<div className='flex-between'>
 						<div className='underline'>${stay.price} x {diffInDays} nights</div>
-						<div>${diffInDays * stay.price}</div>
+						<div>${calcPrice()}</div>
 					</div>
 					<div className='flex-between'>
 						<div className='underline'>Cleaning fee</div>
@@ -121,8 +127,8 @@ export const CheckModal = ({ stay, avgRate }) => {
 						<div>$30</div>
 					</div>
 					<div className='total-price flex-between'>
-						<div className='underline'>Total</div>
-						<div>${diffInDays * stay.price + 27 + 30}</div>
+						<div>Total</div>
+						<div>${calcPrice() + 27 + 30}</div>
 					</div>
 				</div>}
 			</div>
