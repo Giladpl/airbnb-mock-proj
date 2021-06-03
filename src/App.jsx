@@ -16,19 +16,19 @@ export function App() {
 	const [isMainHeader, setIsMainHeader] = useState(false);
 	const dispatch = useDispatch();
 
-	// useEffect(() => {
-	// 	const handleScroll = () => {
-	// 		if (window.pageYOffset >= 64 && !isMainHeader) {
-	// 			setIsMainHeader(true);
-	// 		} else if (window.pageYOffset < 64 && isMainHeader) {
-	// 			setIsMainHeader(false);
-	// 		}
-	// 	};
-	// 	window.addEventListener('scroll', handleScroll);
-	// 	return () => {
-	// 		window.removeEventListener('scroll', handleScroll);
-	// 	};
-	// }, [isMainHeader]);
+	useEffect(() => {
+		const handleScroll = () => {
+			if (window.pageYOffset >= 64 && !isMainHeader) {
+				setIsMainHeader(true);
+			} else if (window.pageYOffset < 64 && isMainHeader) {
+				setIsMainHeader(false);
+			}
+		};
+		window.addEventListener('scroll', handleScroll);
+		return () => {
+			window.removeEventListener('scroll', handleScroll);
+		};
+	}, [isMainHeader]);
 
 	return (
 		<Router>

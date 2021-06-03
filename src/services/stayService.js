@@ -3723,13 +3723,8 @@ export const stayService = {
 // _createStays();
 
 async function query(filterBy) {
-<<<<<<< HEAD
-	// let staysToReturn = await httpService.get("stay/");
+	// let staysToReturn = await httpService.get(`stay/`);
 	let staysToReturn = await asyncStorageService.query(KEY);
-=======
-	let staysToReturn = await httpService.get(`stay/`);
-	// let staysToReturn = await asyncStorageService.query(KEY);
->>>>>>> 860a4c1a267d6cfb095cbb314b48b7636964e797
 	if (filterBy?.location) {
 		const regex = new RegExp(filterBy.location.trim(), 'i');
 		staysToReturn = staysToReturn.filter((stay) =>
@@ -3740,45 +3735,24 @@ async function query(filterBy) {
 }
 
 function getById(id) {
-<<<<<<< HEAD
-	// return httpService.get("stay/${id}");
+	// return httpService.get(`stay/${id}`);
 	return asyncStorageService.get(KEY, id);
 }
 
 function remove(id) {
-	// return httpService.delete("stay/${id}");
+	// return httpService.delete(`stay/${id}`);
 	return asyncStorageService.remove(KEY, id);
 }
 
 function save(stay) {
 	// if (stay.id) {
-	// 	return httpService.put("stay/${stay.id}", stay);
+	// 	return httpService.put(`stay/${stay.id}`, stay);
 	// } else {
-	// 	return httpService.post("stay/", stay);
+	// 	return httpService.post(`stay/`, stay);
 	// }
 	const savedStay = stay._id
 		? asyncStorageService.put(KEY, stay)
 		: asyncStorageService.post(KEY, stay);
-=======
-	return httpService.get(`stay/${id}`);
-	// return asyncStorageService.get(KEY, id);
-}
-
-function remove(id) {
-	return httpService.delete(`stay/${id}`);
-	// return asyncStorageService.remove(KEY, id);
-}
-
-function save(stay) {
-	if (stay.id) {
-		return httpService.put(`stay/${stay.id}`, stay);
-	} else {
-		return httpService.post(`stay/`, stay);
-	}
-	// const savedStay = stay._id
-	// 	? asyncStorageService.put(KEY, stay)
-	// 	: asyncStorageService.post(KEY, stay);
->>>>>>> 860a4c1a267d6cfb095cbb314b48b7636964e797
 
 	return savedStay;
 }

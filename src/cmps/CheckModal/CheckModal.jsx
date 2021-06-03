@@ -5,11 +5,11 @@ import downArrow from '../../assets/img/down-arrow.svg';
 import upArrow from '../../assets/img/up-arrow.svg';
 import { GuestModal } from '../GuestModal/GuestModal';
 import { ButtonGradientTracking } from '../ButtonGradientTracking';
-// import { DateRangePicker } from 'react-dates';
 import { RangeDatePicker } from '../../cmps/RangeDatePicker';
 
 export const CheckModal = ({ stay, avgRate }) => {
 	let [isGuestModal, setIsGuestModal] = useState(false);
+	let [isCheck, setIsCheck] = useState(false);
 	let [isGuestModalFixed, setIsGuestModalFixed] = useState(false);
 	let [guestNum, setGuestNum] = useState({
 		Adults: 0,
@@ -19,6 +19,7 @@ export const CheckModal = ({ stay, avgRate }) => {
 	let [focusedInput, setFocusedInput] = useState(null);
 	let [startDate, setStartDate] = useState(null);
 	let [endDate, setEndDate] = useState(null);
+	let [diffInDays, setDiffInDays] = useState(null);
 
 	useEffect(() => {
 		const handleScroll = () => {
@@ -48,7 +49,13 @@ export const CheckModal = ({ stay, avgRate }) => {
 	const handleDatesChange = ({ startDate, endDate }) => {
 		setStartDate(startDate);
 		setEndDate(endDate);
+		if(!endDate || !startDate) return;
+		setDiffInDays((endDate._d.getTime() - startDate._d.getTime()) / (1000 * 3600 * 24));
 	};
+
+	const onCheckAvailability = () => {
+		setIsCheck(!isCheck)
+	}
 
 	function updateNumOfGuests(operator, type) {
 		if (operator === '-' && !guestNum[type]) return;
@@ -98,7 +105,26 @@ export const CheckModal = ({ stay, avgRate }) => {
 						<img src={isGuestModal ? upArrow : downArrow} alt='' />
 					</div>
 				</div>
-				<ButtonGradientTracking />
+				<ButtonGradientTracking isCheck={isCheck} onCheckAvailability={onCheckAvailability} />
+				{isCheck && <div className='check-availability'>
+					<div className='introduction'>You won't be charged yet</div>
+					<div className='flex-between'>
+						<div className='underline'>${stay.price} x {diffInDays} nights</div>
+						<div>${diffInDays * stay.price}</div>
+					</div>
+					<div className='flex-between'>
+						<div className='underline'>Cleaning fee</div>
+						<div>$27</div>
+					</div>
+					<div className='flex-between'>
+						<div className='underline'>Service fee</div>
+						<div>$30</div>
+					</div>
+					<div className='total-price flex-between'>
+						<div className='underline'>Total</div>
+						<div>${diffInDays * stay.price + 27 + 30}</div>
+					</div>
+				</div>}
 			</div>
 			{isGuestModal && (
 				<GuestModal
