@@ -58,7 +58,8 @@ export const CheckModal = ({ stay, avgRate }) => {
 	}
 
 	const calcPrice = () => {
-		if (guestNum.Adults > 1) const adultsPrice = guestNum.Adults ? (guestNum.Adults - 1) * 100 : 0;
+		let adultsPrice = 0;
+		if (guestNum.Adults > 1) adultsPrice = (guestNum.Adults - 1) * 100;
 		const childrenPrice = guestNum.Children ? guestNum.Children * 50 : 0;
 		return diffInDays * stay.price + adultsPrice + childrenPrice;
 	}
