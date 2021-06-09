@@ -13,7 +13,9 @@ export const userService = {
 }
 
 // window.userService = userService
-signup({ fullname: 'Puki Ben David', email: 'puki@gmail.com', password: '1234' })
+console.log('user service');
+localStorage.setItem('user', JSON.stringify({ fullname: 'Puki Ben David', email: 'puki@gmail.com', password: '1234' }))
+// signup({ fullname: 'Puki Ben David', email: 'puki@gmail.com', password: '1234' })
 
 function query() {
     // return httpService.get(`user`)
