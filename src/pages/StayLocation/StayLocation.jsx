@@ -35,7 +35,7 @@ export const StayLocation = ({ match }) => {
 			{heroPic && <img src={heroPic} alt='' />}
 			<h1 className='flex-center'>Explore {headerTitle()}</h1>
 			{stays.length ? (
-				<div className='list-map-container'>
+				<div className='list-map-container flex'>
 					<GenericList
 						items={stays}
 						CmpToRender={StayPreview}

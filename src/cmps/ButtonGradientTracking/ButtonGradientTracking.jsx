@@ -1,7 +1,7 @@
 import { useEffect, useRef } from 'react';
 import './ButtonGradientTracking.scss';
 
-export const ButtonGradientTracking = (props) => {
+export const ButtonGradientTracking = ({ isCheck, onCheckAvailability }) => {
 	const btnRef = useRef(null);
 
 	useEffect(() => {
@@ -26,8 +26,8 @@ export const ButtonGradientTracking = (props) => {
 	};
 
 	return (
-		<button ref={btnRef} className='button-cursor-gradient-tracking'>
-			<span>Check availability</span>
+		<button ref={btnRef} className='button-cursor-gradient-tracking' onClick={onCheckAvailability}>
+			<span>{isCheck ? 'Reserve' : 'Check availability'}</span>
 		</button>
 	);
 };

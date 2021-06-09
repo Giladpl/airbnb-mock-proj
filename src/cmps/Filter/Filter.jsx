@@ -59,7 +59,7 @@ export const Filter = ({ style, stays }) => {
 		setFilterBy({
 			...filterBy,
 			'check-in': startDate._d.getTime(),
-			'check-out': startDate._d.getTime(),
+			'check-out': endDate._d.getTime(),
 		});
 	};
 

@@ -67,17 +67,26 @@
         }
     }
 
-    // button {
-    //     background-image: radial-gradient(circle at center center, rgb(255, 56, 92) 0%, rgb(230, 30, 77) 27.5%, rgb(227, 28, 95) 40%, rgb(215, 4, 102) 57.5%, rgb(189, 30, 89) 75%, rgb(189, 30, 89) 100%);
-    //     // background-image: radial-gradient(at 320% 100%, rgb(255, 56, 92) 0%, rgb(230, 30, 77) 27.5%, rgb(227, 28, 95) 40%, rgb(215, 4, 102) 57.5%, rgb(189, 30, 89) 75%, rgb(189, 30, 89) 100%);
-    //     color: rgb(255, 255, 255);
-    //     transition: opacity 1.25s ease 0s;
-    //     text-align: center;
-    //     width: 100%;
-    //     padding: 14px 0;
-    //     border: none;
-    //     border-radius: 10px;
-    //     font-size: 16px;
-    //     font-weight: 600;
-    // }
+    .check-availability {
+        text-align: center;
+
+        > * {
+            margin-bottom: 5px;
+        }
+
+        .introduction {
+            font-size: 13px;
+            margin-bottom: 10px;
+        }
+
+        .total-price {
+            border-top: 0.5px solid rgb(204, 204, 204);
+            font-weight: bold;
+            padding-top: 8px;
+        }
+
+        .underline {
+            text-decoration: underline;
+        }
+    }
 }
