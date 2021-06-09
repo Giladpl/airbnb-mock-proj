@@ -1,0 +1,16 @@
+.options-list {
+	background-color: white;
+	width: fit-content;
+	position: relative;
+	top: 100%;
+
+	li {
+		width: max-content;
+		padding: 1em 0.5em;
+
+		&:hover {
+			background-color: #ebebeb;
+			width: 100%;
+		}
+	}
+}

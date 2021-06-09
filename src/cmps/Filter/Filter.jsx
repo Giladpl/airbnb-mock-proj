@@ -4,6 +4,7 @@ import React, { useEffect, useState } from 'react';
 import { ReactComponent as MagnifyingGlass } from '../../assets/svgs/magnifying-glass.svg';
 import { GuestModal } from '../GuestModal/GuestModal';
 import { RangeDatePicker } from '../../cmps/RangeDatePicker';
+import { FilterLocationsModal } from '../FilterLocationsModal/FilterLocationsModal';
 import { loadStays } from '../../store/actions/stayActions';
 import { useHistory } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
@@ -75,23 +76,11 @@ export const Filter = ({ style, stays }) => {
 		// history.push('/stay')
 	};
 
-	const getDataOptions = () => {
-		// const addressesMap = stays.reduce((addressesMap, stay, idx) => {
-		// 	if (!addressesMap[stay.loc.address]) addressesMap[stay.loc.address] = idx;
-		// 	return addressesMap;
-		// }, {});
-		// return Object.keys(addressesMap).map((address, idx) => (
-		// 	<option key={idx} value={address}>
-		// 		{' '}
-		// 	</option>
-		// ));
-		const addresses = stays.map((stay) => stay.loc.address);
-		const set = new Set(addresses);
-		return [...set].map((address) => (
-			<option key={address} value={address}></option>
-		));
+	const setLocation = (location) => {
+		setFilterBy({ ...filterBy, location });
+		console.log(filterBy);
 	};
-
+	// console.log(filterBy);
 	return (
 		<React.Fragment>
 			<RangeDatePicker
@@ -123,8 +112,14 @@ export const Filter = ({ style, stays }) => {
 						value={filterBy.location}
 						onChange={handleChange}
 					/>
-					<datalist id='location-options'>{getDataOptions()}</datalist>
-					{/* <div className="border-left"></div> */}
+					{/* <datalist id='location-options'>{getDataOptions()}</datalist> */}
+					{stays && (
+						<FilterLocationsModal
+							stays={stays}
+							location={filterBy.location}
+							setLocation={setLocation}
+						/>
+					)}
 				</div>
 				<div
 					className='search-inputs flex-column'
