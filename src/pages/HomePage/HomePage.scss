@@ -1,8 +1,9 @@
 @import '../../assets/styles/setup/variables';
+@import '../../assets/styles/setup/functions';
 
 .home-page {
 	.hero {
-		margin-bottom: 40px;
+		margin-bottom: rem(40px);
 		background-image: url(../../assets/img/main-hero.jpg);
 		background-size: cover;
 		height: 93vh;
@@ -16,24 +17,24 @@
 
 		.hero-content {
 			padding-top: 20%;
-			padding-left: 80px;
+			padding-left: rem(80px);
 
 			h1 {
-				font-size: 48px;
+				font-size: rem(48px);
 				width: 8ch;
 				line-height: normal;
 			}
 
 			p {
-				margin-bottom: 10px;	
+				margin-bottom: rem(10px);	
 			}
 
 			button {
-				background-color: black;
-				color: $clr5;
+				background-color: $clr2;
+				color: $clr1;
 				border: none;
 				border-radius: 8px;
-				padding: 10px 15px;
+				padding: rem(10px) rem(15px);
 				font-weight: bold;
 				cursor: pointer;
 			}
@@ -41,8 +42,8 @@
 	}
 
 	.live-anywhere {
-		gap: 15px;
-		margin-bottom: 40px;
+		gap: rem(15px);
+		margin-bottom: rem(40px);
 	
 		img {
 			border-radius: 8px;
@@ -51,28 +52,28 @@
 	}
 	
 	.become-host {
-		height: 360px;
+		height: rem(360px);
 		border-radius: 8px;
 		background-image: url(../../assets/img/becomeHost.jpg);
 		background-size: cover;
-		color: #fff;
+		color: $clr1;
 		justify-content: center;
-		padding-left: 30px;
-		margin-bottom: 40px;
+		padding-left: rem(30px);
+		margin-bottom: rem(40px);
 	
 		p {
 			width: 30ch;
-			margin-bottom: 20px;
+			margin-bottom: rem(20px);
 		}
 	
 		button {
-			background-color: #fff;
-			color: black;
+			background-color: $clr1;
+			color: $clr2;
 			border: none;
 			border-radius: 8px;
 			text-align: center;
-			padding: 8px 12px;
-			width: 100px;
+			padding: rem(8px) rem(12px);
+			width: rem(100px);
 			cursor: pointer;
 		}
 	
@@ -84,18 +85,18 @@
 		}
 	
 		p {
-			margin-bottom: 20px;
+			margin-bottom: rem(20px);
 		}
 	
 		.discover-content {
-			gap: 15px;
+			gap: rem(15px);
 		
 			h3 {
-				font-size: 18px;
+				font-size: rem(18px);
 			}
 		
 			p {
-				font-size: 14px;
+				font-size: rem(14px);
 			}
 		
 			img {
