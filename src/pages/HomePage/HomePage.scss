@@ -1,3 +1,5 @@
+@import '../../assets/styles/setup/variables';
+
 .home-page {
 	.hero {
 		margin-bottom: 40px;
@@ -28,7 +30,7 @@
 
 			button {
 				background-color: black;
-				color: #fff;
+				color: $clr5;
 				border: none;
 				border-radius: 8px;
 				padding: 10px 15px;
