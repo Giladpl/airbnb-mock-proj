@@ -1,13 +1,16 @@
+@import '../../assets/styles/setup/variables';
+@import '../../assets/styles/setup/functions';
+
 .rate-preview {
-    margin-bottom: 8px;
+    margin-bottom: rem(8px);
 
     .right-container {
         align-items: center;
-        gap: 15px;
+        gap: rem(15px);
         
         .bar {
-            width: 100px;
-            height: 5px;
+            width: rem(100px);
+            height: rem(5px);
             background-color:rgb(206, 205, 205);
             border-radius: 50px;
         }

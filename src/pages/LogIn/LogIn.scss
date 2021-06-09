@@ -1,0 +1,15 @@
+@import '../../assets/styles/setup/variables';
+@import '../../assets/styles/setup/functions';
+
+.login {
+    height: 80vh;
+    justify-content: center;
+
+    > * {
+        margin-bottom: rem(7px);
+    }
+
+    input {
+        margin-bottom: rem(20px);
+    }
+}

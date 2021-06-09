@@ -1,7 +1,10 @@
+@import '../../assets/styles/setup/variables';
+@import '../../assets/styles/setup/functions';
+
 .main-header {
-	padding: 0 80px;
-	background-color: #fff;
-	height: 80px;
+	padding: 0 rem(80px);
+	background-color: $clr1;
+	height: rem(80px);
 	position: fixed;
 	width: 100%;
 	animation: fadeInUp 0.1s linear;
@@ -9,12 +12,12 @@
 	z-index: 5;
 
 	.search-form {
-		width: 300px;
+		width: rem(300px);
 		justify-content: space-between;
-		height: 48px;
+		height: rem(48px);
 		box-shadow: 0px 1px 4px 0px #0000002b;
 		border-radius: 50px;
-		padding-left: 25px;
+		padding-left: rem(25px);
 
 		input {
 			border: none;
@@ -22,9 +25,9 @@
 			background-color: inherit;
 
 			&::placeholder {
-				color: black;
+				color: $clr2;
 				font-weight: 500;
-				font-size: 14px;
+				font-size: rem(14px);
 			}
 
 			&:focus {
@@ -34,22 +37,22 @@
 		}
 
 		.search-button {
-			padding: 8px 8px 8px 0;
+			padding: rem(8px) rem(8px) rem(8px) 0;
 
 			button {
-				font-size: 16px;
-				width: 32px;
-				height: 32px;
+				font-size: rem(16px);
+				width: rem(32px);
+				height: rem(32px);
 				border-radius: 30px;
 				border: none;
 				background-color: #ff385c;
-				color: white;
+				color: $clr1;
 				cursor: pointer;
 			}
 
 			svg {
-				height: 16px;
-				width: 16px;
+				height: rem(16px);
+				width: rem(16px);
 			}
 		}
 	}
@@ -68,13 +71,13 @@
 }
 
 .covid-header {
-	padding: 0 80px;
+	padding: 0 rem(80px);
 	background-color: #222222;
 	height: 64px;
 
 	p {
 		color: #a3a3a3;
-		font-size: 14px;
+		font-size: rem(14px);
 		text-decoration: underline;
 		cursor: pointer;
 		width: fit-content;
@@ -82,13 +85,12 @@
 	}
 }
 
-
 .filter-header {
-	height: 200px;
+	height: rem(200px);
 	align-items: center;
-	padding-top: 30px;
+	padding-top: rem(30px);
 
 	> * {
-		margin-bottom: 20px;
+		margin-bottom: rem(20px);
 	}
 }

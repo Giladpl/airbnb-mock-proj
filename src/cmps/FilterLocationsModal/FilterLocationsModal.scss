@@ -1,9 +1,9 @@
-@import '../../assets/styles/setup/functions';
 @import '../../assets/styles/setup/variables';
+@import '../../assets/styles/setup/functions';
 
-ul.options-list {
+.options-list {
 	background-color: $clr1;
-	// width: fit-content;
+	width: fit-content;
 	position: relative;
 	top: 10%;
 	right: 10%;

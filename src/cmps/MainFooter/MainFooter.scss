@@ -1,11 +1,14 @@
+@import '../../assets/styles/setup/variables';
+@import '../../assets/styles/setup/functions';
+
 .footer {
     padding: 10px 0;
     background-color: #f7f7f7;
     color:#524360;
 
     img {
-        width: 16px;
-        margin-left: 15px;
+        width: rem(16px);
+        margin-left: rem(15px);
         cursor: pointer;
     }
 

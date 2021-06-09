@@ -1,5 +1,3 @@
-
-
 export const asyncStorageService = {
     query,
     get,

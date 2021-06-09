@@ -11,6 +11,8 @@ import React from 'react';
 import './App.scss';
 
 import './assets/styles/styles.scss';
+import { SignUp } from './pages/SignUp/SignUp';
+import { LogIn } from './pages/LogIn/LogIn';
 
 export function App() {
 	const [isMainHeader, setIsMainHeader] = useState(false);
@@ -38,6 +40,8 @@ export function App() {
 					<Route path='/stay/explore/:location' component={StayLocation} />
 					<Route path='/stay/:id' component={StayDetails} />
 					<Route path='/stay' component={StayApp} />
+					<Route path='/signup' component={SignUp} />
+					<Route path='/login' component={LogIn} />
 					<Route path='/'>
 						<HomePage isFilter={isMainHeader} />
 					</Route>
