@@ -1,11 +1,11 @@
-import {asyncStorageService} from './asyncStorageService.js'
+import { asyncStorageService } from './asyncStorageService.js'
 // import { httpService } from './httpService.js';
 
 export const userService = {
     login,
     logout,
     signup,
-    getUsers,
+    query,
     getById,
     remove,
     update,
@@ -13,12 +13,9 @@ export const userService = {
 }
 
 // window.userService = userService
-// Note: due to async, must run one by one...
-// userService.signup({fullname: 'Tuki Norma', username: 'user1', password:'123',score: 100, isAdmin: false})
-// userService.signup({fullname: 'Master Adminov', username: 'admin', password:'123', score: 100, isAdmin: true})
-// userService.signup({fullname: 'Muki G', username: 'muki', password:'123', score: 100})
+signup({ fullname: 'Puki Ben David', email: 'puki@gmail.com', password: '1234' })
 
-function getUsers() {
+function query() {
     // return httpService.get(`user`)
     return asyncStorageService.query('user')
 }
@@ -41,13 +38,14 @@ async function update(user) {
 async function login(userCred) {
     // const user = await httpService.post('auth/login', userCred)
     // if (user) return _saveLocalUser(user)
-    
+
     const users = await asyncStorageService.query('user')
-    const user = users.find(user => user.username === userCred.username)
+    const user = users.find(user => user.email === userCred.email)
     return _saveLocalUser(user)
 }
 
 async function signup(userCred) {
+    console.log('hi');
     // const user = await httpService.post('auth/signup', userCred)
     const user = await asyncStorageService.post('user', userCred)
     return _saveLocalUser(user)
