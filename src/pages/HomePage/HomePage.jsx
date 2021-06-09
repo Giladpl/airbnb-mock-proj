@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Filter } from '../../cmps/Filter';
 import { loadStays } from '../../store/actions/stayActions';
@@ -15,14 +15,29 @@ import { useDispatch, useSelector } from 'react-redux';
 export const HomePage = ({ isFilter }) => {
 	const dispatch = useDispatch();
 	const stays = useSelector((state) => state.stayReducer.stays);
+	const [isMenu, setIsMenu] = useState(false)
 
 	useEffect(() => {
 		dispatch(loadStays());
 	}, [dispatch]);
 
+	const toggleMenu = () => {
+		setIsMenu(!isMenu)
+	}
+
 	return (
 		<main className='home-page'>
 			<div className='hero'>
+				<div className='logo-content main-layout'>
+					<div className='flex-between'>
+						<div>Logo.</div>
+						<div className='menu' onClick={toggleMenu}>☰</div>
+					</div>
+					{isMenu && <ul className='login-modal clean-list'>
+						<Link to='/signup'><li>Sign up</li></Link>
+						<Link to='login'><li>Log in</li></Link>
+					</ul>}
+				</div>
 				<Filter
 					stays={stays}
 					className='filter'

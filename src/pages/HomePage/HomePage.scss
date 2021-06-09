@@ -8,9 +8,39 @@
 		background-size: cover;
 		height: 93vh;
 
+		.logo-content {
+			padding-top: rem(15px);
+
+			.menu {
+				padding: rem(5px);
+				background-color: $clr1;
+				border-radius: 50%;
+				cursor: pointer;
+			}
+		}
+
+		.login-modal {
+			background-color: $clr1;
+			width: rem(200px);
+			padding: rem(10px);
+			border-radius: 4px;
+			position: absolute;
+			right: 8%;
+			z-index: 100;
+
+			li {
+				cursor: pointer;
+				padding: rem(8px);
+
+				&:hover {
+					background-color: $clr3;
+				}
+			}
+		}
+
 		.filter {
 			position: absolute;
-			top: 20%;
+			top: 28%;
 			left: 50%;
 			transform: translate(-50%, -50%);
 		}
