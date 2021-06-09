@@ -86,31 +86,31 @@ export const StayPreview = ({ item, isExplore = false }) => {
 	const divider = <div className='divider' key={'divider'}></div>;
 
 	return (
-		<li
-			className={
-				isExplore
-					? 'stay-preview-explore clean-list'
-					: 'stay-preview clean-list'
-			}
-		>
-			{' '}
-			<Link to={'/stay/' + item._id}>
+		<Link to={'/stay/' + item._id}>
+			<li
+				className={
+					isExplore
+						? 'stay-preview-explore clean-list'
+						: 'stay-preview clean-list'
+				}
+			>
+				{' '}
 				<ImageSwiper
 					imgUrls={item.imgUrls}
 					style={isExplore ? { width: 300 + 'px', height: 200 + 'px' } : null}
 				/>
-			</Link>
-			<div className='content-container'>
-				{isExplore
-					? [
+				<div className='content-container'>
+					{isExplore
+						? [
 							nameLikeContainer,
 							divider,
 							properties,
 							amenities,
 							priceRateContainer,
-					  ]
-					: [rate, location, price, summery]}
-			</div>
-		</li>
+						]
+						: [rate, location, price, summery]}
+				</div>
+			</li>
+		</Link>
 	);
 };
