@@ -1,19 +1,19 @@
 import React, { useEffect, useState } from 'react';
-
-// import moment from 'moment';
 import { ReactComponent as MagnifyingGlass } from '../../assets/svgs/magnifying-glass.svg';
 import { GuestModal } from '../GuestModal/GuestModal';
 import { RangeDatePicker } from '../../cmps/RangeDatePicker';
 import { FilterLocationsModal } from '../FilterLocationsModal/FilterLocationsModal';
-import { loadStays } from '../../store/actions/stayActions';
 import { useHistory } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
+import OutsideClickHandler from 'react-outside-click-handler';
+// import moment from 'moment';
+// import { loadStays } from '../../store/actions/stayActions';
+// import { useDispatch } from 'react-redux';
 
 import './Filter.scss';
 
 export const Filter = ({ style, stays }) => {
 	const history = useHistory();
-	const dispatch = useDispatch();
+	// const dispatch = useDispatch();
 
 	const [inputFocus, setInputFocus] = useState('');
 	const [focusedInput, setFocusedInput] = useState(null);
@@ -25,6 +25,7 @@ export const Filter = ({ style, stays }) => {
 		'check-out': null,
 		guests: null,
 	});
+	const [isFilterLocModalOpen, setIsFilterLocModalOpen] = useState(false);
 	let [isGuestModal, setIsGuestModal] = useState(false);
 	let [guestNum, setGuestNum] = useState({
 		Adults: 0,
@@ -59,7 +60,7 @@ export const Filter = ({ style, stays }) => {
 		setFilterBy({
 			...filterBy,
 			'check-in': startDate._d.getTime(),
-			'check-out': endDate._d.getTime(),
+			'check-out': startDate._d.getTime(),
 		});
 	};
 
@@ -78,9 +79,7 @@ export const Filter = ({ style, stays }) => {
 
 	const setLocation = (location) => {
 		setFilterBy({ ...filterBy, location });
-		console.log(filterBy);
 	};
-	// console.log(filterBy);
 	return (
 		<React.Fragment>
 			<RangeDatePicker
@@ -100,7 +99,10 @@ export const Filter = ({ style, stays }) => {
 					opacity: style.opacity,
 				}}
 			>
-				<div className='search-inputs flex-column'>
+				<div
+					className='search-inputs flex-column'
+					onClick={() => setIsFilterLocModalOpen(true)}
+				>
 					<label htmlFor='location'> Location </label>
 					<input
 						list='location-options'
@@ -112,14 +114,19 @@ export const Filter = ({ style, stays }) => {
 						value={filterBy.location}
 						onChange={handleChange}
 					/>
-					{/* <datalist id='location-options'>{getDataOptions()}</datalist> */}
-					{stays && (
-						<FilterLocationsModal
-							stays={stays}
-							location={filterBy.location}
-							setLocation={setLocation}
-						/>
-					)}
+					<OutsideClickHandler
+						onOutsideClick={() => {
+							setIsFilterLocModalOpen(false);
+						}}
+					>
+						{isFilterLocModalOpen && filterBy.location && (
+							<FilterLocationsModal
+								stays={stays}
+								location={filterBy.location}
+								setLocation={setLocation}
+							/>
+						)}{' '}
+					</OutsideClickHandler>
 				</div>
 				<div
 					className='search-inputs flex-column'

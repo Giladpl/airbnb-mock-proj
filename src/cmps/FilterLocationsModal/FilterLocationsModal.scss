@@ -1,16 +1,33 @@
-.options-list {
-	background-color: white;
-	width: fit-content;
+@import '../../assets/styles/setup/functions';
+@import '../../assets/styles/setup/variables';
+
+ul.options-list {
+	background-color: $clr1;
+	// width: fit-content;
 	position: relative;
-	top: 100%;
+	top: 10%;
+	right: 10%;
+	width: rem(500px);
+	border-radius: 10%;
+	padding: rem(30px) 0;
+	
+	img {
+		width: 2.375rem;
+		height: 2.375rem;
+		background-color: #dddddd;
+		padding: 0.7125rem;
+		border-radius: 20%;
+	}
 
 	li {
-		width: max-content;
-		padding: 1em 0.5em;
+		padding: 1rem 0.5rem;
+		padding-left: rem(20px);
+		width: 100%;
+		gap: 10px;
+		transition: background-color 0.2s;
 
 		&:hover {
 			background-color: #ebebeb;
-			width: 100%;
 		}
 	}
 }

@@ -1,21 +1,28 @@
 import { useEffect, useState } from 'react';
+import PinSvg from '../../assets/svgs/pin.svg';
 import './FilterLocationsModal.scss';
 
-
 export const FilterLocationsModal = ({ stays, setLocation, location }) => {
-    const [options, setOptions] = useState([]);
-    
+	const [options, setOptions] = useState([]);
+	const [filteredOptions, setFilteredOptions] = useState([]);
+
 	useEffect(() => {
-        setOptions(getOptions(stays));
+		setOptions(getOptions(stays));
 	}, [stays]);
-    
-    console.log(location);
+
+	useEffect(() => {
+		const regex = new RegExp(location.trim(), 'i');
+		const optionsToReturn = options
+			.filter((option) => regex.test(option))
+			.slice(0, 5);
+		setFilteredOptions(optionsToReturn);
+	}, [location, options]);
 
 	return (
-        <ul className='options-list clean-list'>
-			{options.map((option) => (
-				<li key={option} onClick={() => setLocation(option)}>
-					{option}
+		<ul className='clean-list options-list'>
+			{filteredOptions.map((option) => (
+				<li key={option} onClick={() => setLocation(option)} className='flex'>
+					<img src={PinSvg} alt="pin-svg" /> <p className="flex-center">{option}</p>
 				</li>
 			))}
 		</ul>
@@ -23,16 +30,16 @@ export const FilterLocationsModal = ({ stays, setLocation, location }) => {
 };
 
 function getOptions(stays) {
-    if (!stays) return;
-    const addresses = stays.map((stay) => stay.loc.address);
-    const set = new Set(addresses);
-    return [...set].map((address) => address);
+	if (!stays) return;
+	const addresses = stays.map((stay) => stay.loc.address);
+	const set = new Set(addresses);
+	return [...set].map((address) => address);
 }
 
 // const getDataOptions = () => {
 //     // const addressesMap = stays.reduce((addressesMap, stay, idx) => {
-    //     // 	if (!addressesMap[stay.loc.address]) addressesMap[stay.loc.address] = idx;
-    //     // 	return addressesMap;
+//     // 	if (!addressesMap[stay.loc.address]) addressesMap[stay.loc.address] = idx;
+//     // 	return addressesMap;
 //     // }, {});
 //     // return Object.keys(addressesMap).map((address, idx) => (
 //     // 	<option key={idx} value={address}>
