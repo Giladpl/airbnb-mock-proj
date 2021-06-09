@@ -18,9 +18,9 @@ export const LogIn = (props) => {
     return (
         <form className="login main-layout flex-column" onSubmit={onLogin}>
             <label htmlFor="email">Enter your email:</label>
-            <input type="email" id="email" name="email" value={logInCred.email} onChange={handleChange} />
+            <input type="email" id="email" name="email" value={logInCred.email} onChange={handleChange} required />
             <label htmlFor="password">Enter your password:</label>
-            <input type="text" id="password" name="password" value={logInCred.password} onChange={handleChange} />
+            <input type="text" id="password" name="password" value={logInCred.password} onChange={handleChange} required />
             <button className="btn">Log In</button>
         </form>
     )
