@@ -1,16 +1,19 @@
+@import '../../assets/styles/setup/variables';
+@import '../../assets/styles/setup/functions';
+
 .image-swiper {
 	.swiper-button-prev:after,
 	.swiper-button-next:after {
 		opacity: 0;
 		text-align: center;
-		line-height: 25px;
-		font-size: 9px;
+		line-height: rem(25px);
+		font-size: rem(9px);
 		font-weight: bold;
 		background-color: #f5f5f2;
 		color: #151515;
 		border-radius: 50%;
-		height: 25px;
-		width: 25px;
+		height: rem(25px);
+		width: rem(25px);
 		transition: opacity 0.5s;
 		position: relative;
 	}
@@ -19,7 +22,6 @@
 	.swiper-button-next:hover {
 		& {
 			transform: scale(1.1);
-			// background-color: white;
 		}
 	}
 
@@ -32,8 +34,8 @@
 
 	.swiper-pagination-bullet {
 		background: white;
-		height: 6px;
-		width: 6px;
+		height: rem(6px);
+		width: rem(6px);
 	}
 	.swiper-pagination-bullet:not(.swiper-pagination-bullet-active) {
 		opacity: 0.5;

@@ -1,12 +1,15 @@
+@import '../../assets/styles/setup/variables';
+@import '../../assets/styles/setup/functions';
+
 .container {
 	display: flex;
 	align-items: center;
   
 	.border {
-		border-bottom: 1px solid black;
+		border-bottom: 1px solid $clr2;
 		width: 100%;
 	}
 	.content {
-		padding: 0 10px 0 10px;
+		padding: 0 rem(10px) 0 rem(10px);
 	}
 }

@@ -1,5 +1,8 @@
+@import '../../assets/styles/setup/variables';
+@import '../../assets/styles/setup/functions';
+
 .options-list {
-	background-color: white;
+	background-color: $clr1;
 	width: fit-content;
 	position: relative;
 	top: 100%;

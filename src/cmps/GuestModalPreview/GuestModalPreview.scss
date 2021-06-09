@@ -1,22 +1,25 @@
+@import '../../assets/styles/setup/variables';
+@import '../../assets/styles/setup/functions';
+
 .guest-modal-preview {
-    margin-bottom: 20px;
+    margin-bottom: rem(20px);
 
     P {
-        font-size: 12px;
+        font-size: rem(12px);
     }
 
     .add-guest {
         align-items: center;
 
         > *:not(:last-child) {
-            margin-right: 10px;
+            margin-right: rem(10px);
         }
         .minus, .plus {
             cursor: pointer;
             border: 1px solid gray;
             border-radius: 50%;
-            width: 32px;
-            height: 32px;
+            width: rem(32px);
+            height: rem(32px);
         }
     }
 }

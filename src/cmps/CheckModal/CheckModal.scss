@@ -1,68 +1,71 @@
+@import '../../assets/styles/setup/variables';
+@import '../../assets/styles/setup/functions';
+
 .check-modal {
-    width: 300px;
+    width: rem(300px);
     padding: 24px;
-    border: 1px solid rgb(221, 221, 221);
+    border: 1px solid $clr3;
     border-radius: 12px;
-    box-shadow: #dddddd 0px 6px 16px;
+    box-shadow: $clr3 0px 6px 16px;
     flex-basis: 35%;
     height: fit-content;
     position: sticky;
-    top: 85px;
-    margin-bottom: 32px;
+    top: rem(85px);
+    margin-bottom: rem(32px);
 
     svg {
-        width: 16px;
+        width: rem(16px);
     }
 
     .title {
-        margin-bottom: 24px;
+        margin-bottom: rem(24px);
 
         .price {
             font-weight: bold;
-            font-size: 20px;
+            font-size: rem(20px);
         }
     }
 
     .main-content {
         border: 1px solid rgb(204, 204, 204);
         border-radius: 8px;
-        margin-bottom: 24px;
+        margin-bottom: rem(24px);
 
         > * {
-            height: 56px;
-            font-size: 10px;
-            color: black;
+            height: rem(56px);
+            font-size: rem(10px);
+            color: $clr2;
             font-weight: bold;
             cursor: pointer;
         }
         
         .top-container {
             align-items: center;
-            border-bottom: 1px solid rgb(204, 204, 204);
+            border-bottom: 1px solid $clr4;
 
             > * {
                 flex-basis: 50%;
-                padding-left: 8px;
+                padding-left: rem(8px);
             }
 
             .check-in {
-                border-right: 1px solid rgb(204, 204, 204);
+                border-right: 1px solid $clr4;
             }
 
         }
         
         .low-container {
-            padding: 0 8px;
+            padding: 0 rem(8px);
 
             img {
-                width: 16px;
+                width: rem(16px);
                 object-fit: contain;
             }
         }
 
         p {
             color: gray;
-            font-size: 15px;
+            font-size: rem(15px);
             font-weight: normal;
         }
     }
@@ -71,18 +74,18 @@
         text-align: center;
 
         > * {
-            margin-bottom: 5px;
+            margin-bottom: rem(5px);
         }
 
         .introduction {
-            font-size: 13px;
-            margin-bottom: 10px;
+            font-size: rem(13px);
+            margin-bottom: rem(10px);
         }
 
         .total-price {
-            border-top: 0.5px solid rgb(204, 204, 204);
+            border-top: 0.5px solid $clr4;
             font-weight: bold;
-            padding-top: 8px;
+            padding-top: rem(8px);
         }
 
         .underline {
