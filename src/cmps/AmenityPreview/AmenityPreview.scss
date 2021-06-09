@@ -1,9 +1,12 @@
+@import '../../assets/styles/setup/variables';
+@import '../../assets/styles/setup/functions';
+
 .amenity-preview {
-    margin-bottom: 16px;
+    margin-bottom: rem(16px);
     
     img {
-        width: 22px;
+        width: rem(22px);
         object-fit: contain;
-        margin-right: 16px;
+        margin-right: rem(16px);
     }
 }

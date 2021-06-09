@@ -1,5 +1,8 @@
+@import '../../assets/styles/setup/variables';
+@import '../../assets/styles/setup/functions';
+
 .button-cursor-gradient-tracking {
-	margin-bottom: 10px;
+	margin-bottom: rem(10px);
 	position: relative;
 	background-image: linear-gradient(
 		to right,
@@ -10,16 +13,15 @@
 	cursor: pointer;
 	outline: none;
 	overflow: hidden;
-	color: rgb(255, 255, 255);
+	color: $clr1;
 	transition: opacity 1.25s ease 0s;
 	text-align: center;
 	width: 100%;
-	padding: 14px 0;
+	padding: rem(14px) 0;
 	border: none;
-	border-radius: 10px;
-	font-size: 16px;
+	border-radius: rem(10px);
+	font-size: rem(16px);
 	font-weight: 600;
-	// background-position: calc((100 - var(--x, 0)) * 1%) calc((100 - var(--y, 0)) * 1%);
 }
 .button-cursor-gradient-tracking span {
 	position: relative;
