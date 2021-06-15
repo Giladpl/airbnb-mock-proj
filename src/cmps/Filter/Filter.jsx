@@ -117,6 +117,7 @@ export const Filter = ({ style, stays }) => {
 					<OutsideClickHandler
 						onOutsideClick={() => {
 							setIsFilterLocModalOpen(false);
+							setFilterBy({ ...filterBy, location: ''})
 						}}
 					>
 						{isFilterLocModalOpen && filterBy.location && (

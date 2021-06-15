@@ -3,6 +3,8 @@ import { Link } from 'react-router-dom';
 import { Filter } from '../../cmps/Filter';
 import { loadStays } from '../../store/actions/stayActions';
 import { loadUsers } from '../../store/actions/userAction';
+import { useDispatch, useSelector } from 'react-redux';
+import OutsideClickHandler from 'react-outside-click-handler';
 import './HomePage.scss';
 import entire from '../../assets/img/entire.jpg';
 import unique from '../../assets/img/unique.jpg';
@@ -11,7 +13,6 @@ import outdoor from '../../assets/img/outdoor.jpg';
 import experiences from '../../assets/img/Experiences.jpg';
 import featuredCollection from '../../assets/img/FeaturedCollection.jpg';
 import onlineExperiences from '../../assets/img/OnlineExperiences.jpg';
-import { useDispatch, useSelector } from 'react-redux';
 
 export const HomePage = ({ isFilter }) => {
 	const dispatch = useDispatch();
@@ -36,10 +37,14 @@ export const HomePage = ({ isFilter }) => {
 						<div>Logo.</div>
 						<div className='menu' onClick={toggleMenu}>☰</div>
 					</div>
-					{isMenu && <ul className='login-modal clean-list'>
-						<Link to='/signup'><li>Sign up</li></Link>
-						<Link to='login'><li>Log in</li></Link>
-					</ul>}
+					<OutsideClickHandler
+						onOutsideClick={() => setIsMenu(false)}
+					>
+						{isMenu && <ul className='login-modal clean-list'>
+							<Link to='/signup'><li>Sign up</li></Link>
+							<Link to='login'><li>Log in</li></Link>
+						</ul>}
+					</OutsideClickHandler>
 				</div>
 				<Filter
 					stays={stays}

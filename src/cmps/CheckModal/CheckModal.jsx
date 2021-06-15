@@ -6,6 +6,7 @@ import upArrow from '../../assets/img/up-arrow.svg';
 import { GuestModal } from '../GuestModal/GuestModal';
 import { ButtonGradientTracking } from '../ButtonGradientTracking';
 import { RangeDatePicker } from '../../cmps/RangeDatePicker';
+import OutsideClickHandler from 'react-outside-click-handler';
 
 export const CheckModal = ({ stay, avgRate }) => {
 	let [isGuestModal, setIsGuestModal] = useState(false);
@@ -99,18 +100,22 @@ export const CheckModal = ({ stay, avgRate }) => {
 							<p>{endDate?._d.toDateString().substr(0, 10) || 'Add Date'}</p>
 						</div>
 					</div>
-					<div
-						className='low-container flex-between'
-						onClick={() => setIsGuestModal(!isGuestModal)}
+					<OutsideClickHandler
+						onOutsideClick={() => setIsGuestModal(false)}
 					>
-						<div className='flex-column'>
-							GUESTS
-							<p>
-								{guestNum.Adults + guestNum.Children + guestNum.Infants} guest
-							</p>
+						<div
+							className='low-container flex-between'
+							onClick={() => setIsGuestModal(!isGuestModal)}
+						>
+							<div className='flex-column'>
+								GUESTS
+								<p>
+									{guestNum.Adults + guestNum.Children + guestNum.Infants} guest
+								</p>
+							</div>
+							<img src={isGuestModal ? upArrow : downArrow} alt='' />
 						</div>
-						<img src={isGuestModal ? upArrow : downArrow} alt='' />
-					</div>
+					</OutsideClickHandler>
 				</div>
 				<ButtonGradientTracking isCheck={isCheck} onCheckAvailability={onCheckAvailability} />
 				{isCheck && <div className='check-availability'>
