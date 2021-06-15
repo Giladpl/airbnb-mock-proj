@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Filter } from '../../cmps/Filter';
 import { loadStays } from '../../store/actions/stayActions';
+import { loadUsers } from '../../store/actions/userAction';
 import './HomePage.scss';
 import entire from '../../assets/img/entire.jpg';
 import unique from '../../assets/img/unique.jpg';
@@ -15,10 +16,12 @@ import { useDispatch, useSelector } from 'react-redux';
 export const HomePage = ({ isFilter }) => {
 	const dispatch = useDispatch();
 	const stays = useSelector((state) => state.stayReducer.stays);
+	const users = useSelector((state) => state.userReducer.users);
 	const [isMenu, setIsMenu] = useState(false)
 
 	useEffect(() => {
 		dispatch(loadStays());
+		dispatch(loadUsers());
 	}, [dispatch]);
 
 	const toggleMenu = () => {

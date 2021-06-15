@@ -1,22 +1,19 @@
+import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { useEffect, useState } from 'react';
-import { useDispatch } from 'react-redux';
 import { HomePage } from './pages/HomePage/HomePage';
 import { MainHeader } from './cmps/MainHeader';
 import { MainFooter } from './cmps/MainFooter';
 import { StayApp } from './pages/StayApp';
 import { StayDetails } from './pages/StayDetails';
 import { StayLocation } from './pages/StayLocation';
-import React from 'react';
-import './App.scss';
-
-import './assets/styles/styles.scss';
 import { SignUp } from './pages/SignUp/SignUp';
 import { LogIn } from './pages/LogIn/LogIn';
+import './assets/styles/styles.scss';
+import './App.scss';
 
 export function App() {
 	const [isMainHeader, setIsMainHeader] = useState(false);
-	const dispatch = useDispatch();
 
 	useEffect(() => {
 		const handleScroll = () => {

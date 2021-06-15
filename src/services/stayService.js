@@ -3719,7 +3719,7 @@ export const stayService = {
 	getTotalAvgRate,
 	getListAvgRate,
 };
-
+console.log('stay service');
 _createStays();
 
 async function query(filterBy) {

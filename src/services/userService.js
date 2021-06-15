@@ -1,4 +1,5 @@
 import { asyncStorageService } from './asyncStorageService.js'
+import { storageService } from './storageService.js';
 // import { httpService } from './httpService.js';
 
 export const userService = {
@@ -12,10 +13,12 @@ export const userService = {
     getLoggedInUser
 }
 
-// window.userService = userService
-console.log('user service');
-localStorage.setItem('user', JSON.stringify({ fullname: 'Puki Ben David', email: 'puki@gmail.com', password: '1234' }))
-// signup({ fullname: 'Puki Ben David', email: 'puki@gmail.com', password: '1234' })
+const usersDB = [
+    { fullname: 'Puki Ben David', email: 'puki@gmail.com', password: '1234' },
+    { fullname: 'Muki Ben David', email: 'muki@gmail.com', password: '1234' }
+]
+
+_createUsers()
 
 function query() {
     // return httpService.get(`user`)
@@ -47,7 +50,6 @@ async function login(userCred) {
 }
 
 async function signup(userCred) {
-    console.log('hi');
     // const user = await httpService.post('auth/signup', userCred)
     const user = await asyncStorageService.post('user', userCred)
     return _saveLocalUser(user)
@@ -65,4 +67,13 @@ function _saveLocalUser(user) {
 
 function getLoggedInUser() {
     return JSON.parse(sessionStorage.getItem(('loggedinUser') || 'null'))
+}
+
+function _createUsers() {
+	let users = storageService.load('user');
+	if (!users || !users.length) {
+		users = usersDB;
+		storageService.store('user', users);
+	}
+	return users;
 }

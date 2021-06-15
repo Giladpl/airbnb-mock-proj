@@ -1,7 +1,12 @@
 import { useState } from 'react'
+import { useDispatch } from 'react-redux'
+import { useHistory } from 'react-router-dom'
+import { login } from '../../store/actions/userAction'
 import './LogIn.scss'
 
 export const LogIn = (props) => {
+    const dispatch = useDispatch()
+    const history = useHistory()
     const [logInCred, setLogInCred] = useState({ email: '', password: '' })
 
     const handleChange = ({ target }) => {
@@ -10,9 +15,10 @@ export const LogIn = (props) => {
         setLogInCred({ ...logInCred, [field]: value })
     }
 
-    const onLogin = (ev) => {
+    const onLogin = async (ev) => {
         ev.preventDefault()
-        console.log(logInCred);
+        await dispatch(login(logInCred))
+        history.push('/')
     }
 
     return (
