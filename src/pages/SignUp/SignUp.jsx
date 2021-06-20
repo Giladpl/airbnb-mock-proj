@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import { signup } from '../../store/actions/userAction';
-import {ImageUploader} from '../../cmps/ImageUploader'
+import { ImageUploader } from '../../cmps/ImageUploader';
 import './SignUp.scss';
 
 export const SignUp = (props) => {
@@ -76,7 +76,7 @@ export const SignUp = (props) => {
 				</label>
 			</div>
 			<div className='signup__group'>
-                <ImageUploader/>
+				<ImageUploader />
 				{/* <input
 					className='signup__input'
 					type='text'

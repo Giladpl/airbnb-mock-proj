@@ -1,1 +1,22 @@
-.image-uploader {}
+@import '../../assets/styles/setup/variables';
+@import '../../assets/styles/setup/functions';
+
+.image-uploader {
+	.btns {
+		display: flex;
+		justify-content: space-between;
+	}
+
+	.btn {
+		padding: rem(6px) rem(20px);
+    background-color: rgb(108, 175, 233);
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    font: inherit;
+
+    &:not(:last-child){
+      margin-right: rem(80px);
+    }
+	}
+}
