@@ -12,10 +12,17 @@
 			padding-top: rem(15px);
 
 			.menu {
-				padding: rem(5px);
 				background-color: $clr1;
 				border-radius: 50%;
+				width: rem(30px);
 				cursor: pointer;
+			}
+
+			.user-img {
+				border: 2px solid $clr3;
+				border-radius: 50%;
+				width: rem(35px);
+				margin-right: rem(10px);
 			}
 		}
 

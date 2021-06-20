@@ -18,6 +18,7 @@ export const HomePage = ({ isFilter }) => {
 	const dispatch = useDispatch();
 	const stays = useSelector((state) => state.stayReducer.stays);
 	const users = useSelector((state) => state.userReducer.users);
+	const loggedinUser = useSelector(state => state.userReducer.loggedinUser)
 	const [isMenu, setIsMenu] = useState(false)
 
 	useEffect(() => {
@@ -35,7 +36,10 @@ export const HomePage = ({ isFilter }) => {
 				<div className='logo-content main-layout'>
 					<div className='flex-between'>
 						<div>Logo.</div>
-						<div className='menu' onClick={toggleMenu}>☰</div>
+						<div className='flex'>
+							<img className='user-img' src={loggedinUser ? loggedinUser.imgUrl : 'https://cube.elemecdn.com/9/c2/f0ee8a3c7c9638a54940382568c9dpng.png'} alt="" />
+							<div className='menu flex-center' onClick={toggleMenu}>☰</div>
+						</div>
 					</div>
 					<OutsideClickHandler
 						onOutsideClick={() => setIsMenu(false)}
