@@ -31,7 +31,7 @@ export function App() {
 
 	return (
 		<Router>
-			<div className='App'>
+			<div className='App flex-column'>
 				<MainHeader isMainHeader={isMainHeader} />
 				<Switch>
 					<Route path='/stay/explore/:location' component={StayLocation} />
