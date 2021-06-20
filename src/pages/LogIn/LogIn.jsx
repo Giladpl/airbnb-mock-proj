@@ -32,6 +32,7 @@ export const LogIn = (props) => {
 		<React.Fragment>
 			{!loggedinUser && (
 				<form className='login main-layout flex-column' onSubmit={onLogin}>
+					<h3 className="login__header">Login:</h3>
 					<div className='login__group'>
 						<input
 							className='login__input'
@@ -67,7 +68,9 @@ export const LogIn = (props) => {
 					<div className='login__group'>
 						<button className='login__btn'>Log In</button>
 					</div>
-					<Link className='router-link' to='/signup'>Don't have an account yet?</Link>
+					<Link className='router-link' to='/signup'>
+						Don't have an account yet?
+					</Link>
 				</form>
 			)}
 			{loggedinUser && (

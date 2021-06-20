@@ -5,15 +5,12 @@ import { RangeDatePicker } from '../../cmps/RangeDatePicker';
 import { FilterLocationsModal } from '../FilterLocationsModal/FilterLocationsModal';
 import { useHistory } from 'react-router-dom';
 import OutsideClickHandler from 'react-outside-click-handler';
-// import moment from 'moment';
-// import { loadStays } from '../../store/actions/stayActions';
-// import { useDispatch } from 'react-redux';
+
 
 import './Filter.scss';
 
 export const Filter = ({ style, stays }) => {
 	const history = useHistory();
-	// const dispatch = useDispatch();
 
 	const [inputFocus, setInputFocus] = useState('');
 	const [focusedInput, setFocusedInput] = useState(null);
@@ -117,7 +114,6 @@ export const Filter = ({ style, stays }) => {
 					<OutsideClickHandler
 						onOutsideClick={() => {
 							setIsFilterLocModalOpen(false);
-							setFilterBy({ ...filterBy, location: ''})
 						}}
 					>
 						{isFilterLocModalOpen && filterBy.location && (
