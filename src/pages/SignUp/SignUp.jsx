@@ -7,7 +7,7 @@ import './SignUp.scss'
 export const SignUp = (props) => {
     const dispatch = useDispatch()
     const history = useHistory()
-    const [signUpCred, setSignUpCred] = useState({ fullname: '', email: '', password: '' })
+    const [signUpCred, setSignUpCred] = useState({ fullname: '', email: '@gmail.com', password: '1234', imgUrl: '' })
 
     const handleChange = ({ target }) => {
         const field = target.name
@@ -29,6 +29,8 @@ export const SignUp = (props) => {
             <input type="email" id="email" name="email" value={signUpCred.email} onChange={handleChange} required />
             <label htmlFor="password">Enter your password:</label>
             <input type="text" id="password" name="password" value={signUpCred.password} onChange={handleChange} required />
+            <label htmlFor="imgUrl">Enter your imgUrl:</label>
+            <input type="text" id="imgUrl" name="imgUrl" value={signUpCred.imgUrl} onChange={handleChange} required />
             <button className="btn">Sign Up</button>
         </form>
     )
