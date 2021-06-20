@@ -37,7 +37,9 @@ export const HomePage = ({ isFilter }) => {
 					<div className='flex-between'>
 						<div>Logo.</div>
 						<div className='flex'>
-							<img className='user-img' src={loggedinUser ? loggedinUser.imgUrl : 'https://cube.elemecdn.com/9/c2/f0ee8a3c7c9638a54940382568c9dpng.png'} alt="" />
+							<Link to='/user'>
+								<img className='user-img' src={loggedinUser ? loggedinUser.imgUrl : 'https://cube.elemecdn.com/9/c2/f0ee8a3c7c9638a54940382568c9dpng.png'} alt="" />
+							</Link>
 							<div className='menu flex-center' onClick={toggleMenu}>☰</div>
 						</div>
 					</div>
