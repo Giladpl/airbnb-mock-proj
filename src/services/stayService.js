@@ -7,7 +7,7 @@ const KEY = 'stayDB';
 
 const staysDB = [
 	{
-		_id: utilService.makeId(),
+		_id: '60af9045ae50cf20d2662dba',
 		name: 'Nature Cabin in Klil',
 		imgUrls: [
 			'https://res.cloudinary.com/zinamichailov/image/upload/v1621411351/airbnb-proj/NatureCabinInKlil-1_ne2fh4.jpg',
@@ -35,7 +35,7 @@ const staysDB = [
 			'Heating',
 		],
 		host: {
-			_id: '51399392',
+			_id: '60cf07a84d2880007cb17278',
 			fullname: 'Emma Levi',
 			imgUrl: 'https://randomuser.me/api/portraits/women/20.jpg',
 		},
@@ -158,7 +158,7 @@ const staysDB = [
 		],
 	},
 	{
-		_id: utilService.makeId(),
+		_id: '60af9045ae50cf20d2662dc8',
 		name: 'Kedma, stunning hut in the nature',
 		imgUrls: [
 			'https://res.cloudinary.com/zinamichailov/image/upload/v1621412968/airbnb-proj/Kedma-1_ntcsb2.jpg',
@@ -186,7 +186,7 @@ const staysDB = [
 			'Free parking on premises',
 		],
 		host: {
-			_id: '51399322',
+			_id: '60cf08344d2880007cb17279',
 			fullname: 'Bradyn Dickson',
 			imgUrl: 'https://randomuser.me/api/portraits/men/71.jpg',
 		},
@@ -309,7 +309,7 @@ const staysDB = [
 		],
 	},
 	{
-		_id: utilService.makeId(),
+		_id: '60af9045ae50cf20d2662dd8',
 		name: 'Kedma, stunning hut in the nature',
 		imgUrls: [
 			'https://a0.muscache.com/im/pictures/ecebdfd3-2f24-448c-b13a-040e7fd3f157.jpg',
@@ -338,7 +338,7 @@ const staysDB = [
 			'Pets allowed',
 		],
 		host: {
-			_id: '51399322',
+			_id: '60cf08814d2880007cb1727a',
 			fullname: 'Phillip Freeman',
 			imgUrl: 'https://randomuser.me/api/portraits/men/61.jpg',
 		},
@@ -461,7 +461,7 @@ const staysDB = [
 		],
 	},
 	{
-		_id: utilService.makeId(),
+		_id: '60af9045ae50cf20d2662de8',
 		name: 'THE SEA OF GLILIEE CABINS',
 		imgUrls: [
 			'https://a0.muscache.com/im/pictures/d591897f-e8b1-4b2c-ba7c-7cebead70112.jpg',
@@ -489,7 +489,7 @@ const staysDB = [
 			'Heating',
 		],
 		host: {
-			_id: '51399392',
+			_id: '60cf08c24d2880007cb1727b',
 			fullname: 'Kendall Castaneda',
 			imgUrl: 'https://randomuser.me/api/portraits/women/65.jpg',
 		},
@@ -612,7 +612,7 @@ const staysDB = [
 		],
 	},
 	{
-		_id: utilService.makeId(),
+		_id: '60af9045ae50cf20d2662df4',
 		name: 'The Lovers Cabin - With private pool',
 		imgUrls: [
 			'https://a0.muscache.com/im/pictures/cf2ecd5f-307a-4602-a6a8-1a49780c24da.jpg',
@@ -641,7 +641,7 @@ const staysDB = [
 			'Heating',
 		],
 		host: {
-			_id: '513977392',
+			_id: '60cf09134d2880007cb1727c',
 			fullname: 'Tristan Payne',
 			imgUrl:
 				'https://a0.muscache.com/im/users/19180880/profile_pic/1406751408/original.jpg',
@@ -765,7 +765,7 @@ const staysDB = [
 		],
 	},
 	{
-		_id: utilService.makeId(),
+		_id: '60af9045ae50cf20d2662e05',
 		name: 'The Olive Trees Cabin',
 		imgUrls: [
 			'https://a0.muscache.com/im/pictures/d5b87549-43f8-4d5e-af14-4504d5d1b05c.jpg',
@@ -794,7 +794,7 @@ const staysDB = [
 			'Kitchen',
 		],
 		host: {
-			_id: '512277392',
+			_id: '60cf095d4d2880007cb1727d',
 			fullname: 'Dennis Harvey',
 			imgUrl:
 				'https://a0.muscache.com/im/pictures/user/629fe61a-08e4-4d9b-985a-f2e0d27e2880.jpg',
@@ -918,7 +918,7 @@ const staysDB = [
 		],
 	},
 	{
-		_id: utilService.makeId(),
+		_id: '60af9045ae50cf20d2662e11',
 		name: 'Sea Breeze Studio on the 15 floor',
 		imgUrls: [
 			'https://a0.muscache.com/im/pictures/d56688a7-28a5-4293-b35f-6d2ce81ccf1f.jpg',
@@ -946,7 +946,7 @@ const staysDB = [
 			'Free parking on premises',
 		],
 		host: {
-			_id: '51399322',
+			_id: '60cf09ac4d2880007cb1727e',
 			fullname: 'Krish Hebert',
 			imgUrl: 'https://randomuser.me/api/portraits/women/37.jpg',
 		},
@@ -1069,7 +1069,7 @@ const staysDB = [
 		],
 	},
 	{
-		_id: utilService.makeId(),
+		_id: '60af9045ae50cf20d2662e1c',
 		name: 'Beachfront Studio Sea View',
 		imgUrls: [
 			'https://a0.muscache.com/im/pictures/8122cbab-ece1-438a-bd44-375a501595b3.jpg',
@@ -1097,7 +1097,7 @@ const staysDB = [
 			'Free parking on premises',
 		],
 		host: {
-			_id: '51399322',
+			_id: '60cf0a4d4d2880007cb1727f',
 			fullname: 'Elizabeth Reynolds',
 			imgUrl: 'https://randomuser.me/api/portraits/women/82.jpg',
 		},
@@ -1220,7 +1220,7 @@ const staysDB = [
 		],
 	},
 	{
-		_id: utilService.makeId(),
+		_id: '60af9045ae50cf20d2662e2c',
 		name: 'PORT CITY - DOWNTOWN STUDIO',
 		imgUrls: [
 			'https://a0.muscache.com/im/pictures/b17e01aa-77df-4a30-8529-519aae82f63d.jpg',
@@ -1248,7 +1248,7 @@ const staysDB = [
 			'Free parking on premises',
 		],
 		host: {
-			_id: '51399322',
+			_id: '60cf0a864d2880007cb17280',
 			fullname: 'Jay Lopez',
 			imgUrl:
 				'https://a0.muscache.com/im/pictures/user/4a55d268-f3fc-464f-be5e-daca4925654f.jpg',
@@ -1372,7 +1372,7 @@ const staysDB = [
 		],
 	},
 	{
-		_id: utilService.makeId(),
+		_id: '60af9046ae50cf20d2662e37',
 		name: 'Modern Apartment with Lake View',
 		imgUrls: [
 			'https://a0.muscache.com/im/pictures/75ae5f4f-4ea8-419a-8380-284e5cc2bc9b.jpg',
@@ -1400,7 +1400,7 @@ const staysDB = [
 			'Heating',
 		],
 		host: {
-			_id: '51399392',
+			_id: '60cf0ac04d2880007cb17281',
 			fullname: 'Maximilian Fitzgerald',
 			imgUrl:
 				'https://a0.muscache.com/im/pictures/user/cbd1ea95-3cd8-4edb-a903-cf4a26eb47ab.jpg',
@@ -1524,7 +1524,7 @@ const staysDB = [
 		],
 	},
 	{
-		_id: utilService.makeId(),
+		_id: '60af9046ae50cf20d2662e44',
 		name: 'XXL Studio - City Center',
 		imgUrls: [
 			'https://a0.muscache.com/im/pictures/344d9a0e-c0b9-4112-826a-ef09fe0b283e.jpg',
@@ -1552,7 +1552,7 @@ const staysDB = [
 			'Kitchen',
 		],
 		host: {
-			_id: '51394322',
+			_id: '60cf0b064d2880007cb17282',
 			fullname: 'Lincoln Roth',
 			imgUrl:
 				'https://a0.muscache.com/im/pictures/user/f89d0840-1acb-428e-944f-0811d3c3ad31.jpg',
@@ -1676,7 +1676,7 @@ const staysDB = [
 		],
 	},
 	{
-		_id: utilService.makeId(),
+		_id: '60af9046ae50cf20d2662e5b',
 		name: 'Sea of Galilee Tiberias Lake view 3 ',
 		imgUrls: [
 			'https://a0.muscache.com/im/pictures/98038413-72dc-4e31-92af-98d2ba10b5f0.jpg',
@@ -1704,7 +1704,7 @@ const staysDB = [
 			'Kitchen',
 		],
 		host: {
-			_id: '51394322',
+			_id: '60cf0b594d2880007cb17283',
 			fullname: 'Jordan Coffey',
 			imgUrl: 'https://randomuser.me/api/portraits/men/24.jpg',
 		},
@@ -1827,7 +1827,7 @@ const staysDB = [
 		],
 	},
 	{
-		_id: utilService.makeId(),
+		_id: '60af9046ae50cf20d2662e68',
 		name: 'Cozy apartment in center of Haifa',
 		imgUrls: [
 			'https://a0.muscache.com/im/pictures/272fd108-b8ef-4024-b030-3afe86efcc3b.jpg',
@@ -1855,7 +1855,7 @@ const staysDB = [
 			'Kitchen',
 		],
 		host: {
-			_id: '51394322',
+			_id: '60cf0b994d2880007cb17284',
 			fullname: 'Krystal Khan',
 			imgUrl: 'https://randomuser.me/api/portraits/women/45.jpg',
 		},
@@ -1978,7 +1978,7 @@ const staysDB = [
 		],
 	},
 	{
-		_id: utilService.makeId(),
+		_id: '60af9046ae50cf20d2662e7a',
 		name: 'Rahash Hagalim - Tal Family Cabin',
 		imgUrls: [
 			'https://a0.muscache.com/im/pictures/4ce5004c-f3c6-4787-a117-0afe1e74a1f8.jpg',
@@ -2006,7 +2006,7 @@ const staysDB = [
 			'Smoking allowed',
 		],
 		host: {
-			_id: '51394322',
+			_id: '60cf0bcb4d2880007cb17285',
 			fullname: 'Frankie Walter',
 			imgUrl: 'https://randomuser.me/api/portraits/men/27.jpg',
 		},
@@ -2147,7 +2147,7 @@ const staysDB = [
 		],
 	},
 	{
-		_id: utilService.makeId(),
+		_id: '60af9046ae50cf20d2662e88',
 		name: 'The Cozy Cabin',
 		imgUrls: [
 			'https://a0.muscache.com/im/pictures/25763045/30ce195a_original.jpg',
@@ -2166,7 +2166,7 @@ const staysDB = [
 		},
 		amenities: ['TV', 'Wifi', 'Kitchen', 'Cooking basics', 'Indoor fireplace'],
 		host: {
-			_id: utilService.makeId(),
+			_id: '60cf0c054d2880007cb17286',
 			fullname: 'Billy Joel',
 			imgUrl:
 				'https://a0.muscache.com/im/users/4874888/profile_pic/1359366541/original.jpg?im_w=240',
@@ -2296,7 +2296,7 @@ const staysDB = [
 		],
 	},
 	{
-		_id: utilService.makeId(),
+		_id: '60af9046ae50cf20d2662e94',
 		name: 'Red Sea - Yellow Studio 28',
 		imgUrls: [
 			'https://a0.muscache.com/im/pictures/39ecce63-70fa-4bed-a0ae-0552fa71da51.jpg',
@@ -2324,7 +2324,7 @@ const staysDB = [
 			'Air conditioning',
 		],
 		host: {
-			_id: utilService.makeId(),
+			_id: '60cf0f784d2880007cb17287',
 			fullname: 'Viviane Lamor',
 			imgUrl:
 				'https://a0.muscache.com/im/pictures/user/6848d583-b46b-4bae-9e26-5c37a93f75b6.jpg?im_w=240',
@@ -2454,7 +2454,7 @@ const staysDB = [
 		],
 	},
 	{
-		_id: utilService.makeId(),
+		_id: '60af9046ae50cf20d2662ea0',
 		name: 'CORAL',
 		imgUrls: [
 			'https://a0.muscache.com/im/pictures/287d3662-7aae-4664-8555-33f27f2a2d52.jpg',
@@ -2481,7 +2481,7 @@ const staysDB = [
 			'Hangers',
 		],
 		host: {
-			_id: utilService.makeId(),
+			_id: '60cf0f784d2880007cb17287',
 			fullname: 'Viviane Lamor',
 			imgUrl:
 				'https://a0.muscache.com/im/pictures/user/6848d583-b46b-4bae-9e26-5c37a93f75b6.jpg?im_w=240',
@@ -2611,7 +2611,7 @@ const staysDB = [
 		],
 	},
 	{
-		_id: utilService.makeId(),
+		_id: '60af9046ae50cf20d2662ead',
 		name: 'The five stars',
 		imgUrls: [
 			'https://a0.muscache.com/im/pictures/50b4fc25-5169-4be5-b2b0-f2f28dd83ead.jpg',
@@ -2639,7 +2639,7 @@ const staysDB = [
 			'Free parking on premises',
 		],
 		host: {
-			_id: utilService.makeId(),
+			_id: '60cf102b4d2880007cb17288',
 			fullname: 'Niki Jones',
 			imgUrl:
 				'https://a0.muscache.com/im/pictures/user/5b06e55a-5695-47e8-bbab-c4288a1c6e85.jpg?im_w=240',
@@ -2769,7 +2769,7 @@ const staysDB = [
 		],
 	},
 	{
-		_id: utilService.makeId(),
+		_id: '60af9046ae50cf20d2662ebc',
 		name: 'Hilo - Hawaii Luxury studio suite',
 		imgUrls: [
 			'https://a0.muscache.com/im/pictures/2498bce2-44ec-4289-ad04-2cd516bd822f.jpg',
@@ -2798,7 +2798,7 @@ const staysDB = [
 			'Free parking on premises',
 		],
 		host: {
-			_id: utilService.makeId(),
+			_id: '60cf10604d2880007cb17289',
 			fullname: 'Chaim Graham',
 			imgUrl:
 				'https://a0.muscache.com/im/pictures/user/ac872bcc-1d30-47ed-a259-b3cd1759eb46.jpg?im_w=240',
@@ -2928,7 +2928,7 @@ const staysDB = [
 		],
 	},
 	{
-		_id: utilService.makeId(),
+		_id: '60af9046ae50cf20d2662ec9',
 		name: 'Studio Eilot 89',
 		imgUrls: [
 			'https://a0.muscache.com/im/pictures/90749553/f7179131_original.jpg?im_w=1200',
@@ -2955,7 +2955,7 @@ const staysDB = [
 			'Free parking on premises',
 		],
 		host: {
-			_id: utilService.makeId(),
+			_id: '60cf10b54d2880007cb1728a',
 			fullname: 'Melvin Knox',
 			imgUrl:
 				'https://a0.muscache.com/im/pictures/user/ac815892-d365-4621-87e6-86bb93ffaab7.jpg?im_w=240',
@@ -3085,7 +3085,7 @@ const staysDB = [
 		],
 	},
 	{
-		_id: utilService.makeId(),
+		_id: '60af9047ae50cf20d2662ed7',
 		name: 'Desert View. A House with a Bedouin tent',
 		imgUrls: [
 			'https://a0.muscache.com/im/pictures/f1089c69-906e-46c8-9614-d0e069cd91d4.jpg',
@@ -3105,7 +3105,7 @@ const staysDB = [
 		},
 		amenities: ['TV', 'Kitchen', 'Cooking basics', 'Free parking on premises'],
 		host: {
-			_id: utilService.makeId(),
+			_id: '60cf10f34d2880007cb1728b',
 			fullname: 'Lea Rupin',
 			imgUrl:
 				'https://a0.muscache.com/im/pictures/user/f9feaf02-5903-4703-a49f-db88196a0b42.jpg?im_w=240',
@@ -3226,7 +3226,7 @@ const staysDB = [
 				],
 				createAt: 1620210926111,
 				by: {
-					_id: utilService.makeId(),
+					_id: '60af9047ae50cf20d2662ee4',
 					fullname: 'Theodore Mccarty',
 					imgUrl:
 						'https://a0.muscache.com/im/pictures/user/9726ff3e-0e79-43e5-bda2-3903b1c7e5e1.jpg?im_w=240',
@@ -3235,7 +3235,7 @@ const staysDB = [
 		],
 	},
 	{
-		_id: utilService.makeId(),
+		_id: '60af9047ae50cf20d2662ee4',
 		name: 'Dead Sea Sun Guest House - Double Room',
 		imgUrls: [
 			'https://a0.muscache.com/im/pictures/53deadb6-fd4a-4143-b877-e53bad47ec28.jpg',
@@ -3262,7 +3262,7 @@ const staysDB = [
 			'Air conditioning',
 		],
 		host: {
-			_id: utilService.makeId(),
+			_id: '60cf12034d2880007cb1728c',
 			fullname: 'Lior Shechter',
 			imgUrl:
 				'https://a0.muscache.com/im/pictures/user/4a0b364e-4bd2-4946-b6d1-28fef44ef627.jpg?im_w=240',
@@ -3392,7 +3392,7 @@ const staysDB = [
 		],
 	},
 	{
-		_id: utilService.makeId(),
+		_id: '60af9047ae50cf20d2662ef1',
 		name: 'Perfect apartment - just 20 minutes from Tel Aviv',
 		imgUrls: [
 			'https://a0.muscache.com/im/pictures/d3281d29-b277-4fab-b9cb-c640dca8b73f.jpg',
@@ -3420,7 +3420,7 @@ const staysDB = [
 			'Pets allowed',
 		],
 		host: {
-			_id: utilService.makeId(),
+			_id: '60cf12374d2880007cb1728d',
 			fullname: 'Shimi Tavori',
 			imgUrl:
 				'https://a0.muscache.com/im/pictures/user/b141ecd4-4c35-40e4-a37b-5c4d005f1a9a.jpg?im_w=240',
@@ -3550,7 +3550,7 @@ const staysDB = [
 		],
 	},
 	{
-		_id: utilService.makeId(),
+		_id: '60af9047ae50cf20d2662f07',
 		name: '<-- XXL Studio --- Brand NEW! --- City Center -->',
 		imgUrls: [
 			'https://a0.muscache.com/im/pictures/344d9a0e-c0b9-4112-826a-ef09fe0b283e.jpg',
@@ -3579,7 +3579,7 @@ const staysDB = [
 			'Wifi',
 		],
 		host: {
-			_id: utilService.makeId(),
+			_id: '60cf12374d2880007cb1728d',
 			fullname: 'Shimi Tavori',
 			imgUrl:
 				'https://a0.muscache.com/im/pictures/user/f89d0840-1acb-428e-944f-0811d3c3ad31.jpg?im_w=240',
