@@ -38,6 +38,10 @@ export const StayDetails = ({ match }) => {
         })();
     }, [match.params.id, dispatch]);
 
+    useEffect(() => {
+        if(loggedinUser && currStay) dispatch(saveOrder(order))
+    }, [order])
+
     const propertyFormatted = (property, content) => {
         if (!property) return
         content = property === 1 ? content : content + 's'
@@ -52,8 +56,8 @@ export const StayDetails = ({ match }) => {
 	}
 
     const handleDatesChange = ({ startDate, endDate }) => {
-		setStartDate(startDate._d.getTime());
-		setEndDate(endDate._d.getTime());
+		setStartDate(startDate);
+		setEndDate(endDate);
 		if(!endDate || !startDate) return;
 		setDiffInDays((endDate._d.getTime() - startDate._d.getTime()) / (1000 * 3600 * 24));
 	};
@@ -66,10 +70,10 @@ export const StayDetails = ({ match }) => {
 		return diffInDays * currStay.price + adultsPrice + childrenPrice;
 	}
 
-    const onCheckAvailability = async () => {
+    const onCheckAvailability = () => {
 		setIsCheck(!isCheck)
 		if(isCheck) {
-            await setOrder({ 
+            setOrder({ 
                 ...order,
                 buyer: {
                     _id: loggedinUser._id,
@@ -89,8 +93,6 @@ export const StayDetails = ({ match }) => {
                     hostId: currStay.host._id
                 }
             })
-            console.log(order);
-            // dispatch(saveOrder(order))
         } 
 	}
 
