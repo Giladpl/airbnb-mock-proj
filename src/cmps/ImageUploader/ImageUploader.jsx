@@ -13,7 +13,7 @@ export const ImageUploader = () => {
 	return (
 		<div className='image-uploader'>
 			<div className='btns'>
-				<label className='btn' for='file-upload'>
+				<label className='btn' htmlFor='file-upload'>
 					Choose
 				</label>
 				<input

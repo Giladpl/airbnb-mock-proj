@@ -77,19 +77,6 @@ export const SignUp = (props) => {
 			</div>
 			<div className='signup__group'>
 				<ImageUploader />
-				{/* <input
-					className='signup__input'
-					type='text'
-					id='imgUrl'
-					name='imgUrl'
-					value={signUpCred.imgUrl}
-					onChange={handleChange}
-					required
-					placeholder='Image URL'
-				/>
-				<label className='signup__label' htmlFor='imgUrl'>
-					Image URL:
-				</label> */}
 			</div>
 			<div className='signup__group'>
 				<button className='signup__btn'>Sign Up</button>
