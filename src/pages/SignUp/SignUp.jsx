@@ -29,7 +29,7 @@ export const SignUp = (props) => {
 
 	return (
 		<form className='signup main-layout flex-column' onSubmit={onSignUp}>
-			<h3 className='signup__header'>Sign up:</h3>
+			<h2 className='signup__header'>Sign up:</h2>
 			<div className='signup__group'>
 				<input
 					className='signup__input'

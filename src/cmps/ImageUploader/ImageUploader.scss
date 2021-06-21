@@ -9,14 +9,30 @@
 
 	.btn {
 		padding: rem(6px) rem(20px);
-    background-color: rgb(108, 175, 233);
-    border: none;
-    cursor: pointer;
-    font-size: 16px;
-    font: inherit;
+		background-image: linear-gradient(to bottom right,
+			$color-primary-dark,
+			$color-primary-light
+		);
+		color: white;
+		border: none;
+		cursor: pointer;
+		font-size: 16px;
+		font: inherit;
 
-    &:not(:last-child){
-      margin-right: rem(80px);
-    }
+		&:not(:last-child) {
+			margin-right: rem(80px);
+		}
+
+		&:hover {
+			transform: translateY(-3px);
+			box-shadow: 0 10px 20px rgba(black, 0.2);
+		}
+
+		&:active,
+		&:focus {
+			// outline: none;
+			transform: translateY(1px);
+			box-shadow: 0 5px 10px rgba(black, 0.2);
+		}
 	}
 }

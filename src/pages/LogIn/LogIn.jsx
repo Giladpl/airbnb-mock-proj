@@ -32,7 +32,7 @@ export const LogIn = (props) => {
 		<React.Fragment>
 			{!loggedinUser && (
 				<form className='login main-layout flex-column' onSubmit={onLogin}>
-					<h3 className="login__header">Login:</h3>
+					<h2 className="login__header">Login:</h2>
 					<div className='login__group'>
 						<input
 							className='login__input'

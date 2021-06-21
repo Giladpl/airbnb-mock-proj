@@ -68,9 +68,10 @@ function _createOrder() {
 		"endDate": "2025/10/17",
 		"guests": {
 			"adults": 2,
-			"kids": 1
+			"children": 1,
+			"infants": 0
 		},
-		"order": {
+		"state": {
 			"_id": "h102",
 			"name": "House Of Uncle My",
 			"price": 80.00

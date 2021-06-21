@@ -18,8 +18,8 @@ export const HomePage = ({ isFilter }) => {
 	const dispatch = useDispatch();
 	const stays = useSelector((state) => state.stayReducer.stays);
 	const users = useSelector((state) => state.userReducer.users);
-	const loggedinUser = useSelector(state => state.userReducer.loggedinUser)
-	const [isMenu, setIsMenu] = useState(false)
+	const loggedinUser = useSelector((state) => state.userReducer.loggedinUser);
+	const [isMenu, setIsMenu] = useState(false);
 
 	useEffect(() => {
 		dispatch(loadStays());
@@ -27,8 +27,8 @@ export const HomePage = ({ isFilter }) => {
 	}, [dispatch]);
 
 	const toggleMenu = () => {
-		setIsMenu(!isMenu)
-	}
+		setIsMenu(!isMenu);
+	};
 
 	return (
 		<main className='home-page'>
@@ -38,18 +38,32 @@ export const HomePage = ({ isFilter }) => {
 						<div>Logo.</div>
 						<div className='flex'>
 							<Link to='/user'>
-								<img className='user-img' src={loggedinUser ? loggedinUser.imgUrl : 'https://cube.elemecdn.com/9/c2/f0ee8a3c7c9638a54940382568c9dpng.png'} alt="" />
+								<img
+									className='user-img'
+									src={
+										loggedinUser
+											? loggedinUser.imgUrl
+											: 'https://cube.elemecdn.com/9/c2/f0ee8a3c7c9638a54940382568c9dpng.png'
+									}
+									alt=''
+								/>
 							</Link>
-							<div className='menu flex-center' onClick={toggleMenu}>☰</div>
+							<div className='menu flex-center' onClick={toggleMenu}>
+								☰
+							</div>
 						</div>
 					</div>
-					<OutsideClickHandler
-						onOutsideClick={() => setIsMenu(false)}
-					>
-						{isMenu && <ul className='login-modal clean-list'>
-							<Link to='/signup'><li>Sign up</li></Link>
-							<Link to='login'><li>Log in</li></Link>
-						</ul>}
+					<OutsideClickHandler onOutsideClick={() => setIsMenu(false)}>
+						{isMenu && (
+							<ul className='login-modal clean-list'>
+								<Link to='/signup'>
+									<li>Sign up</li>
+								</Link>
+								<Link to='login'>
+									<li>Log in</li>
+								</Link>
+							</ul>
+						)}
 					</OutsideClickHandler>
 				</div>
 				<Filter
