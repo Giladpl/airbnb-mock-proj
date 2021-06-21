@@ -46,9 +46,9 @@ function _createOrders() {
 	let orders = storageService.load(KEY);
 	if (!orders || !orders.length) {
 		orders = [
-			_createOrder('Ribeira Charming Duplex'),
-			_createOrder('order2'),
-			_createOrder('order3'),
+			_createOrder(),
+			_createOrder(),
+			_createOrder(),
 		];
 		storageService.store(KEY, orders);
 	}
@@ -64,17 +64,17 @@ function _createOrder() {
 			"fullname": "User 1"
 		},
 		"totalPrice": 160,
-		"startDate": "2025/10/15",
-		"endDate": "2025/10/17",
+		"startDate": "1444263347711",
+		"endDate": "1624263347711",
 		"guests": {
 			"adults": 2,
 			"children": 1,
 			"infants": 0
 		},
 		"state": {
-			"_id": "h102",
-			"name": "House Of Uncle My",
-			"price": 80.00
+			"_id": "60af9047ae50cf20d2662ef1",
+			"name": "Perfect apartment - just 20 minutes from Tel Aviv",
+			"price": 45.0
 		},
 		"status": "pending"  
 	}

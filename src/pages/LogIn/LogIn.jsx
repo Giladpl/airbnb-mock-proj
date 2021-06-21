@@ -8,7 +8,7 @@ import './LogIn.scss';
 export const LogIn = (props) => {
 	const dispatch = useDispatch();
 	const history = useHistory();
-	const [logInCred, setLogInCred] = useState({ email: '', password: '' });
+	const [logInCred, setLogInCred] = useState({ email: 'shimi@gmail.com', password: '1234' });
 	const loggedinUser = useSelector((state) => state.userReducer.loggedinUser);
 
 	const handleChange = ({ target }) => {
