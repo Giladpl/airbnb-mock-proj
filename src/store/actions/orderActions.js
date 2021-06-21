@@ -1,19 +1,15 @@
 import { orderService } from '../../services/orderService';
 
-// export function loadOrders(filterBy) {
-// 	return async (dispatch) => {
-// 		const stays = await stayService.query(filterBy);
-// 		const action = {
-// 			type: 'SET_ORDERS',
-// 			stays,
-// 		};
-// 		dispatch(action);
-// 	};
-// }
+export function loadOrders() {
+	return async (dispatch) => {
+		const orders = await orderService.query();
+		dispatch({ type: 'SET_ORDERS', orders });
+	};
+}
 
 // export function getOrderById(stayId) {
 // 	return async (dispatch) => {
-// 		const order = await stayService.getById(stayId);
+// 		const order = await orderService.getById(stayId);
 // 		dispatch({ type: 'SET_ORDER', order });
 // 		return order;
 // 	};
@@ -31,7 +27,7 @@ export function saveOrder(order) {
 
 // export function removeOrder(stayId) {
 // 	return async (dispatch) => {
-// 		await stayService.remove(stayId);
+// 		await orderService.remove(stayId);
 // 		dispatch({ type: 'REMOVE_ORDER', stayId });
 // 	};
 // }

@@ -74,7 +74,8 @@ function _createOrder() {
 		"state": {
 			"_id": "60af9047ae50cf20d2662ef1",
 			"name": "Perfect apartment - just 20 minutes from Tel Aviv",
-			"price": 45.0
+			"price": 45.0,
+			"hostId": "60cf12374d2880007cb1728d"
 		},
 		"status": "pending"  
 	}

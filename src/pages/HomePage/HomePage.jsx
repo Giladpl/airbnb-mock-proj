@@ -13,17 +13,20 @@ import outdoor from '../../assets/img/outdoor.jpg';
 import experiences from '../../assets/img/Experiences.jpg';
 import featuredCollection from '../../assets/img/FeaturedCollection.jpg';
 import onlineExperiences from '../../assets/img/OnlineExperiences.jpg';
+import { loadOrders } from '../../store/actions/orderActions';
 
 export const HomePage = ({ isFilter }) => {
 	const dispatch = useDispatch();
 	const stays = useSelector((state) => state.stayReducer.stays);
 	const users = useSelector((state) => state.userReducer.users);
+	const orders = useSelector((state) => state.orderReducer.orders);
 	const loggedinUser = useSelector((state) => state.userReducer.loggedinUser);
 	const [isMenu, setIsMenu] = useState(false);
 
 	useEffect(() => {
 		dispatch(loadStays());
 		dispatch(loadUsers());
+		dispatch(loadOrders())
 	}, [dispatch]);
 
 	const toggleMenu = () => {
@@ -36,8 +39,8 @@ export const HomePage = ({ isFilter }) => {
 				<div className='logo-content main-layout'>
 					<div className='flex-between'>
 						<div>Logo.</div>
-						<div className='menu flex-between'>
-							<div className='flex-center' onClick={toggleMenu}>☰</div>
+						<div className='menu flex-between' onClick={toggleMenu}>
+							<div className='flex-center'>☰</div>
 							<img className='user-img' src={loggedinUser ? loggedinUser.imgUrl : 'https://cube.elemecdn.com/9/c2/f0ee8a3c7c9638a54940382568c9dpng.png'} alt="" />
 						</div>
 					</div>
