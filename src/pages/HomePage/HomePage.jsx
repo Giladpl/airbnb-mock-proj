@@ -36,6 +36,7 @@ export const HomePage = ({ isFilter }) => {
 				<div className='logo-content main-layout'>
 					<div className='flex-between'>
 						<div>Logo.</div>
+<<<<<<< HEAD
 						<div className='flex'>
 							<Link to='/user'>
 								<img
@@ -64,6 +65,21 @@ export const HomePage = ({ isFilter }) => {
 								</Link>
 							</ul>
 						)}
+=======
+						<div className='menu flex-between'>
+							<div className='flex-center' onClick={toggleMenu}>☰</div>
+							<img className='user-img' src={loggedinUser ? loggedinUser.imgUrl : 'https://cube.elemecdn.com/9/c2/f0ee8a3c7c9638a54940382568c9dpng.png'} alt="" />
+						</div>
+					</div>
+					<OutsideClickHandler
+						onOutsideClick={() => setIsMenu(false)}
+					>
+						{isMenu && <ul className='login-modal clean-list'>
+							<Link to='/signup'><li>Sign up</li></Link>
+							<Link to='login'><li>Log in</li></Link>
+							<Link to='/user'><li>User page</li></Link>
+						</ul>}
+>>>>>>> 3a1fdd46e91133d2b4a3eb9091ee7d4c39301b72
 					</OutsideClickHandler>
 				</div>
 				<Filter
