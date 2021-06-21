@@ -13,17 +13,16 @@
 
 			.menu {
 				background-color: $clr1;
-				border-radius: 50%;
-				width: rem(35px);
-				height: rem(35px);
+				border-radius: 30px;
+				padding: rem(5px) rem(8px);
+				width: rem(75px);
 				cursor: pointer;
-			}
 
-			.user-img {
-				border: 2px solid $clr3;
-				border-radius: 50%;
-				width: rem(35px);
-				margin-right: rem(10px);
+				.user-img {
+					border: 1px solid $clr3;
+					border-radius: 50%;
+					width: rem(32px);
+				}
 			}
 		}
 
