@@ -10,6 +10,7 @@ export const orderService = {
 	getById,
 	remove,
 	save,
+	getEmptyOrder
 };
 
 _createOrders();
@@ -40,6 +41,30 @@ function save(order) {
 		: asyncStorageService.post(KEY, order);
 
 	return savedOrder;
+}
+
+function getEmptyOrder() {
+	return {
+		'createdAt': Date.now(),
+		'buyer': {
+			'_id': '',
+			'fullname': ''
+		},
+		'totalPrice': null,
+		'startDate': '',
+		'endDate': '',
+		'guests': {
+			'adults': null,
+			'children': null,
+			'infants': null
+		},
+		'state': {
+			'_id': '',
+			'name': '',
+			'hostId': ''
+		},
+		'status': 'pending' 
+	}
 }
 
 function _createOrders() {

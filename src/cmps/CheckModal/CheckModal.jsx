@@ -8,19 +8,10 @@ import { ButtonGradientTracking } from '../ButtonGradientTracking';
 import { RangeDatePicker } from '../../cmps/RangeDatePicker';
 import OutsideClickHandler from 'react-outside-click-handler';
 
-export const CheckModal = ({ stay, avgRate }) => {
+export const CheckModal = ({ stay, avgRate, guestNum, updateNumOfGuests, startDate, endDate, handleDatesChange, diffInDays, calcPrice, isCheck, onCheckAvailability }) => {
 	let [isGuestModal, setIsGuestModal] = useState(false);
-	let [isCheck, setIsCheck] = useState(false);
 	let [isGuestModalFixed, setIsGuestModalFixed] = useState(false);
-	let [guestNum, setGuestNum] = useState({
-		Adults: 1,
-		Children: 0,
-		Infants: 0,
-	});
 	let [focusedInput, setFocusedInput] = useState(null);
-	let [startDate, setStartDate] = useState(null);
-	let [endDate, setEndDate] = useState(null);
-	let [diffInDays, setDiffInDays] = useState(null);
 
 	useEffect(() => {
 		const handleScroll = () => {
@@ -46,31 +37,6 @@ export const CheckModal = ({ stay, avgRate }) => {
 	const handleFocusChange = (focusedInput) => {
 		setFocusedInput(focusedInput);
 	};
-
-	const handleDatesChange = ({ startDate, endDate }) => {
-		setStartDate(startDate);
-		setEndDate(endDate);
-		if(!endDate || !startDate) return;
-		setDiffInDays((endDate._d.getTime() - startDate._d.getTime()) / (1000 * 3600 * 24));
-	};
-
-	const onCheckAvailability = () => {
-		setIsCheck(!isCheck)
-	}
-
-	const calcPrice = () => {
-		let adultsPrice = 0;
-		if (guestNum.Adults > 1) adultsPrice = (guestNum.Adults - 1) * 100;
-		const childrenPrice = guestNum.Children ? guestNum.Children * 50 : 0;
-		return diffInDays * stay.price + adultsPrice + childrenPrice;
-	}
-
-	function updateNumOfGuests(operator, type) {
-		if (operator === '-' && !guestNum[type]) return;
-		if (operator === '-' && type === 'Adults' && guestNum.Adults === 1) return;
-		if (operator === '-') setGuestNum({ ...guestNum, [type]: --guestNum[type] });
-		else setGuestNum({ ...guestNum, [type]: ++guestNum[type] });
-	}
 
 	return (
 		<section>
@@ -100,9 +66,9 @@ export const CheckModal = ({ stay, avgRate }) => {
 							<p>{endDate?._d.toDateString().substr(0, 10) || 'Add Date'}</p>
 						</div>
 					</div>
-					<OutsideClickHandler
+					{/* <OutsideClickHandler
 						onOutsideClick={() => setIsGuestModal(false)}
-					>
+					> */}
 						<div
 							className='low-container flex-between'
 							onClick={() => setIsGuestModal(!isGuestModal)}
@@ -115,7 +81,7 @@ export const CheckModal = ({ stay, avgRate }) => {
 							</div>
 							<img src={isGuestModal ? upArrow : downArrow} alt='' />
 						</div>
-					</OutsideClickHandler>
+					{/* </OutsideClickHandler> */}
 				</div>
 				<ButtonGradientTracking isCheck={isCheck} onCheckAvailability={onCheckAvailability} />
 				{isCheck && <div className='check-availability'>
