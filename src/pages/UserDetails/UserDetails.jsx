@@ -53,7 +53,7 @@ export const UserDetails = (props) => {
 					</div>
 					<div className='statistics'>
 						<h2>Statistics</h2>
-						<h4 className='more-btn'>For more</h4>
+						<Link to='/statistics'><h4 className='more-btn'>For more</h4></Link>
 						<ProfitsChart userOrders={userOrders} />
 					</div>
 				</div>
