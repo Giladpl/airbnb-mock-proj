@@ -1,6 +1,7 @@
 import { useSelector } from 'react-redux';
 import { ProfitsChart } from '../../cmps/ProfitsChart'
 import { StatusChart } from '../../cmps/StatusChart'
+import { DateChart } from '../../cmps/DateChart'
 import './UserStatistics.scss'
 
 export const UserStatistics = (props) => {
@@ -11,9 +12,10 @@ export const UserStatistics = (props) => {
 	);
 
     return (
-        <section className='user-statistics'>
-            <ProfitsChart userOrders={userOrders} />
+        <section className='user-statistics main-layout'>
             <StatusChart userOrders={userOrders} />
+            <ProfitsChart userOrders={userOrders} />
+            <DateChart userOrders={userOrders} />
         </section>
     )
 }
