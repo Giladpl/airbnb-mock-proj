@@ -4,26 +4,36 @@
 .user-details {
 	flex-grow: 1;
 
-	.name-pic-box {
-		margin: rem(30px) 0 rem(50px);
-		justify-content: center;
-		align-items: center;
+	h2, h4 {
+		margin-bottom: rem(10px);
+	}
+	.user-details-header {
+		margin: rem(50px) 0;
 
-		.user-img {
-			width: rem(75px);
-			height: rem(75px);
-			border-radius: 50%;
-			margin-right: rem(20px);
+		.name-pic-box {
+			.user-img {
+				width: rem(75px);
+				height: rem(75px);
+				border-radius: 50%;
+				margin-right: rem(20px);
+			}
 		}
 	}
 
-	.orders-stays-box {
-		h2 {
-			text-align: center;
-		}
-
+	.orders-statistics-box {
 		display: grid;
 		grid-template-columns: 2fr 1fr;
 		gap: rem(100px);
+		margin-bottom: rem(20px);
+	}
+
+	.statistics {
+		.more-btn {
+			text-decoration: underline;
+		}
+	}
+
+	.stays-list {
+		margin-bottom: rem(50px);
 	}
 }

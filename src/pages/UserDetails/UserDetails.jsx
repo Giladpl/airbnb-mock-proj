@@ -3,6 +3,8 @@ import { saveOrder } from '../../store/actions/orderActions';
 import { StayPreview } from '../../cmps/StayPreview';
 import { OrderPreview } from '../../cmps/OrderPreview';
 import { GenericList } from '../../cmps/GenericList';
+import { Link } from 'react-router-dom';
+import { ProfitsChart } from '../../cmps/ProfitsChart'
 import './UserDetails.scss';
 
 export const UserDetails = (props) => {
@@ -29,13 +31,16 @@ export const UserDetails = (props) => {
 	return (
 		loggedinUser && (
 			<section className='user-details main-layout flex-column'>
-				<div className='flex-between'>
-					<div className='name-pic-box flex'>
+				<div className='user-details-header flex-between'>
+					<div className='name-pic-box flex-center'>
 						<img className='user-img' src={loggedinUser.imgUrl} alt='' />
 						<div>{loggedinUser.fullname}</div>
 					</div>
+					<div>
+						<Link to='/'>Back</Link>
+					</div>
 				</div>
-				<div className='orders-stays-box'>
+				<div className='orders-statistics-box'>
 					<div className='orders-list'>
 						<h2>Orders</h2>
 						<h4>{pendingOrdersNum} new pending orders</h4>
@@ -43,24 +48,24 @@ export const UserDetails = (props) => {
 							items={userOrders}
 							CmpToRender={OrderPreview}
 							classNames='order-list clean-list'
-							// sectionClassName='main-layout'
 							changeOrderStatus={changeOrderStatus}
 						/>
 					</div>
-					<div className='stays-list'>
-						<h2>Stays</h2>
-						<h4>{userStays.length} total published stays</h4>
-						<GenericList
-							items={userStays}
-							CmpToRender={StayPreview}
-							classNames='stay-list-user clean-list'
-							// sectionClassName='main-layout'
-						/>
+					<div className='statistics'>
+						<h2>Statistics</h2>
+						<h4 className='more-btn'>For more</h4>
+						<ProfitsChart />
 					</div>
 				</div>
-				{/* <div>
-					<h2>Statistics</h2>
-				</div> */}
+				<div className='stays-list'>
+					<h2>Stays</h2>
+					<h4>{userStays.length} total published stays</h4>
+					<GenericList
+						items={userStays}
+						CmpToRender={StayPreview}
+						classNames='stay-list-user clean-list'
+					/>
+				</div>
 			</section>
 		)
 	);
