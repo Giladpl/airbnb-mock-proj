@@ -54,7 +54,7 @@ export const UserDetails = (props) => {
 					<div className='statistics'>
 						<h2>Statistics</h2>
 						<h4 className='more-btn'>For more</h4>
-						<ProfitsChart />
+						<ProfitsChart userOrders={userOrders} />
 					</div>
 				</div>
 				<div className='stays-list'>

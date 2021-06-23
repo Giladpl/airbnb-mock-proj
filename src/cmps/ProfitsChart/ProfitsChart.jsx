@@ -1,13 +1,24 @@
 import { Doughnut } from 'react-chartjs-2'
 import './ProfitsChart.scss'
 
-export const ProfitsChart = (props) => {
+export const ProfitsChart = ({ userOrders }) => {
+    const profitsLabels = []
+    const profitsData = []
+    let totalProfits = 0
+    userOrders.forEach(order => {
+        if(order.status === 'confirmed') {
+            profitsLabels.push(order.buyer.fullname)
+            profitsData.push(order.totalPrice)
+            totalProfits += order.totalPrice
+        }
+    });
+
     const data = {
-        labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+        labels: profitsLabels,
         datasets: [
             {
                 label: '# of Votes',
-                data: [12, 19, 3, 5, 2, 3],
+                data: profitsData,
                 backgroundColor: [
                     'rgba(255, 99, 132, 0.2)',
                     'rgba(54, 162, 235, 0.2)',
@@ -30,8 +41,8 @@ export const ProfitsChart = (props) => {
     }
 
     return (
-        <section className='profits-chart'>
-            <h3>Total Profits</h3>
+        userOrders && <section className='profits-chart'>
+            <h4>Total Profits: ${totalProfits}</h4>
             <Doughnut data={data} />
         </section>
     )

@@ -4,9 +4,14 @@
 .user-details {
 	flex-grow: 1;
 
-	h2, h4 {
-		margin-bottom: rem(10px);
+	h2 {
+		margin-bottom: rem(8px);
 	}
+
+	h4 {
+		margin-bottom: rem(30px);
+	}
+
 	.user-details-header {
 		margin: rem(50px) 0;
 

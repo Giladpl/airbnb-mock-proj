@@ -21,14 +21,17 @@ export const OrderPreview = ({ item: order, changeOrderStatus }) => {
 				</p>
 				<p>Total Price: {totalPrice}</p>
 			</div>
-			<div className='orderPreview__right-side'>
-				<button onClick={() => changeOrderStatus(order._id, 'confirmed')}>
-					Confirm
-				</button>
-				<button onClick={() => changeOrderStatus(order._id, 'declined')}>
-					Decline
-				</button>
-			</div>
+			{order.status === 'pending' ? 
+				<div className='orderPreview__right-side'>
+					<button className='order-btn' onClick={() => changeOrderStatus(order._id, 'confirmed')}>
+						Confirm
+					</button>
+					<button className='order-btn' onClick={() => changeOrderStatus(order._id, 'declined')}>
+						Decline
+					</button>
+				</div> :
+				<div>{order.status}</div>
+			}
 		</li>
 	);
 };
