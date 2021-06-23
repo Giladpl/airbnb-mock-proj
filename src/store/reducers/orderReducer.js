@@ -15,11 +15,11 @@ export function orderReducer(state = INITIAL_STATE, action) {
 				orders: [...state.orders, action.order],
 			};
 		case 'UPDATE_ORDER':
-			const { updateOrder } = action;
+			const { updatedOrder } = action;
 			return {
 				...state,
 				orders: state.orders.map((order) =>
-					order._id === updateOrder._id ? updateOrder : order
+					order._id === updatedOrder._id ? updatedOrder : order
 				),
 			};
 		default:

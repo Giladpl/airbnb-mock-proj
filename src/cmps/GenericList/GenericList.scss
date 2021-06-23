@@ -9,6 +9,12 @@
 	gap: rem(25px) rem(16px);
 }
 
+.stay-list-user{
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+	gap: rem(25px) rem(16px);
+}
+
 .amenity-list {
     padding: rem(32px) 0;
 
@@ -62,6 +68,9 @@
 
 .explore-ul{
 	padding: 0 rem(30px)
+}
+
+.order-list{
 }
 
 

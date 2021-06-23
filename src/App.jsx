@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react';
 import { HomePage } from './pages/HomePage/HomePage';
 import { MainHeader } from './cmps/MainHeader';
 import { MainFooter } from './cmps/MainFooter';
+import { ScrollToTop } from './cmps/ScrollToTop';
 import { StayApp } from './pages/StayApp';
 import { StayDetails } from './pages/StayDetails';
 import { StayLocation } from './pages/StayLocation';
@@ -32,6 +33,7 @@ export function App() {
 
 	return (
 		<Router>
+			<ScrollToTop />
 			<div className='App flex-column'>
 				<MainHeader isMainHeader={isMainHeader} />
 				<Switch>
