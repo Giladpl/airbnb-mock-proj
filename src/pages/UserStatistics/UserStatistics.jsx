@@ -12,7 +12,7 @@ export const UserStatistics = (props) => {
 	);
 
     return (
-        <section className='user-statistics main-layout'>
+        <section className='user-statistics'>
             <StatusChart userOrders={userOrders} />
             <ProfitsChart userOrders={userOrders} />
             <DateChart userOrders={userOrders} />
