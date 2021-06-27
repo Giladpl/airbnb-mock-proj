@@ -19,6 +19,7 @@ export const UserStatistics = (props) => {
 			stayName: order.state.name,
 			stayId: order.state._id,
 		};
+
 		if (order.status === 'confirmed') {
 			if (!acc[order.state._id]) {
 				acc[order.state._id] = [];
@@ -29,24 +30,34 @@ export const UserStatistics = (props) => {
 		return acc;
 	}, {});
 
-	// const getOrdersByStay = () => {
-	// 	return Object.values(ordersByStay).map((ordersStay) => (
-	// 		<ChartMonthlyAvailability ordersByStay={ordersStay} stayName='Bla Bla' />
-	// 	));
-	// };
-
 	return (
-		<section className='user-statistics main-layout'>
-			<StatusChart userOrders={userOrders} />
-			<ProfitsChart userOrders={userOrders} />
-			<DateChart userOrders={userOrders} />
-			{Object.values(ordersByStay).map((ordersStay) => (
-				<ChartMonthlyAvailability
-					ordersByStay={ordersStay}
-					stayName={ordersStay[0].stayName}
-					key={ordersStay[0].stayId}
-				/>
-			))}
+		<section className='user-statistics main-layout grid'>
+			<StatusChart className='status-chart' userOrders={userOrders} />
+			<DateChart className='date-chart card' userOrders={userOrders} />
+			<div className='card flex-column flex-center'>
+				<h3>Number of stays:</h3>
+				<p>{Object.values(ordersByStay).length}</p>
+			</div>
+			<div className='profits-chart card'>
+				<ProfitsChart userOrders={userOrders} />
+			</div>
+			<div className='card flex-column flex-center'>
+				<h3>Number of orders:</h3>
+				<p>{userOrders.length}</p>
+			</div>
+			<div className='monthly-availability-chart'>
+				{Object.values(ordersByStay).map((ordersStay) => (
+					<ChartMonthlyAvailability
+						ordersByStay={ordersStay}
+						stayName={ordersStay[0].stayName}
+						key={ordersStay[0].stayId}
+					/>
+				))}
+			</div>
+			<div className='card flex-column flex-center'>
+				<h3>Number of orders:</h3>
+				<p>{userOrders.length}</p>
+			</div>
 		</section>
 	);
 };

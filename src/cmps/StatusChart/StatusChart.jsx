@@ -49,7 +49,7 @@ export const StatusChart = ({ userOrders }) => {
     };
 
     return (
-        <section>
+        <section className='card'>
             <h4>Status</h4>
             <Bar data={data} options={options} />
         </section>

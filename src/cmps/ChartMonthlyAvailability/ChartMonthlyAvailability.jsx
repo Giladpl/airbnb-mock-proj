@@ -86,7 +86,7 @@ export const ChartMonthlyAvailability = ({ stayName, ordersByStay }) => {
 	};
 
 	return (
-		<section>
+		<section className='card'>
 			<h4>{stayName}</h4>
 			<Bar data={data} options={options} />
 		</section>

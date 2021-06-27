@@ -6,7 +6,7 @@ export const ProfitsChart = ({ userOrders }) => {
     const profitsData = []
     let totalProfits = 0
     userOrders.forEach(order => {
-        if(order.status === 'confirmed') {
+        if (order.status === 'confirmed') {
             profitsLabels.push(order.buyer.fullname)
             profitsData.push(order.totalPrice)
             totalProfits += order.totalPrice
@@ -43,7 +43,7 @@ export const ProfitsChart = ({ userOrders }) => {
     return (
         userOrders && <section className='profits-chart'>
             <h4>Total Profits: ${totalProfits}</h4>
-            <Doughnut data={data} />
+            <Doughnut data={data} width={50} height={50} />
         </section>
     )
 }

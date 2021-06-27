@@ -14,7 +14,7 @@ export const DateChart = ({ userOrders }) => {
         labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
         datasets: [
             {
-                label: 'Number of orders per month',
+                label: 'orders',
                 data: dateOrders,
                 fill: false,
                 backgroundColor: 'rgb(255, 99, 132)',
@@ -36,7 +36,8 @@ export const DateChart = ({ userOrders }) => {
     };
 
     return (
-        <section>
+        <section className='card'>
+            <h3>Number of orders per month</h3>
             <Line data={data} options={options} />
         </section>
     )
