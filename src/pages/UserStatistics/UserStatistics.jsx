@@ -30,6 +30,7 @@ export const UserStatistics = (props) => {
 		return acc;
 	}, {});
 
+	console.log(ordersByStay)
 	return (
 		<section className='user-statistics main-layout grid'>
 			<StatusChart className='status-chart' userOrders={userOrders} />

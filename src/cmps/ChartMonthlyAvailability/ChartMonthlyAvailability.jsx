@@ -74,6 +74,8 @@ export const ChartMonthlyAvailability = ({ stayName, ordersByStay }) => {
 	};
 
 	const options = {
+		responsive: true,
+		maintainAspectRatio: true,
 		scales: {
 			yAxes: [
 				{
@@ -86,7 +88,7 @@ export const ChartMonthlyAvailability = ({ stayName, ordersByStay }) => {
 	};
 
 	return (
-		<section className='card'>
+		<section className='chart-monthly-availability card'>
 			<h4>{stayName}</h4>
 			<Bar data={data} options={options} />
 		</section>
