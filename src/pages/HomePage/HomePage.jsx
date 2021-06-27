@@ -18,10 +18,9 @@ import { loadOrders } from '../../store/actions/orderActions';
 export const HomePage = ({ isFilter }) => {
 	const dispatch = useDispatch();
 	const stays = useSelector((state) => state.stayReducer.stays);
-	const users = useSelector((state) => state.userReducer.users);
-	const orders = useSelector((state) => state.orderReducer.orders);
 	const loggedinUser = useSelector((state) => state.userReducer.loggedinUser);
 	const [isMenu, setIsMenu] = useState(false);
+	const guestImg = 'https://cube.elemecdn.com/9/c2/f0ee8a3c7c9638a54940382568c9dpng.png';
 
 	useEffect(() => {
 		dispatch(loadStays());
@@ -41,7 +40,7 @@ export const HomePage = ({ isFilter }) => {
 						<div>Logo.</div>
 						<div className='menu flex-between' onClick={toggleMenu}>
 							<div className='flex-center'>☰</div>
-							<img className='user-img' src={loggedinUser ? loggedinUser.imgUrl : 'https://cube.elemecdn.com/9/c2/f0ee8a3c7c9638a54940382568c9dpng.png'} alt="" />
+							<img className='user-img' src={loggedinUser ? loggedinUser.imgUrl : guestImg} alt="" />
 						</div>
 					</div>
 					<OutsideClickHandler
@@ -49,8 +48,8 @@ export const HomePage = ({ isFilter }) => {
 					>
 						{isMenu && <ul className='login-modal clean-list'>
 							<Link to='/signup'><li>Sign up</li></Link>
-							<Link to='login'><li>Log in</li></Link>
-							<Link to='/user'><li>User page</li></Link>
+							<Link to='/login'><li>Log in</li></Link>
+							<Link to={loggedinUser ? '/user' : '/login'}><li>Your profile</li></Link>
 						</ul>}
 					</OutsideClickHandler>
 				</div>

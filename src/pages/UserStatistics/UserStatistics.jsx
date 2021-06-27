@@ -12,7 +12,6 @@ export const UserStatistics = (props) => {
 		(order) => order.state.hostId === loggedinUser._id
 	);
 
-<<<<<<< HEAD
 	const ordersByStay = userOrders.reduce((acc, order) => {
 		const currOrderDates = {
 			startDate: order.startDate,
@@ -26,16 +25,6 @@ export const UserStatistics = (props) => {
 				acc[order.state._id].push(currOrderDates);
 			} else acc[order.state._id].push(currOrderDates);
 		}
-=======
-    return (
-        <section className='user-statistics'>
-            <StatusChart userOrders={userOrders} />
-            <ProfitsChart userOrders={userOrders} />
-            <DateChart userOrders={userOrders} />
-        </section>
-    )
-}
->>>>>>> 5df1db988b91d4cb71e9bdd77237b431cf3a7d91
 
 		return acc;
 	}, {});
