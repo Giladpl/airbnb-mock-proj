@@ -2,14 +2,16 @@ import { Link } from 'react-router-dom';
 import { ReactComponent as StarSvg } from '../../assets/svgs/star.svg';
 import { stayService } from '../../services/stayService';
 import { ImageSwiper } from '../../cmps/ImageSwiper';
+import { useHistory } from 'react-router-dom';
 import { Like } from '../../cmps/Like';
 import React from 'react';
 
 import './StayPreview.scss';
 import { useState } from 'react';
 
-export const StayPreview = ({ item, isExplore = false }) => {
+export const StayPreview = ({ item, isExplore = false, removeHandler }) => {
 	const [isLiked, setIsLiked] = useState(false);
+	const history = useHistory();
 
 	function propertyFormatted(property, content) {
 		if (!property) return;
@@ -52,8 +54,7 @@ export const StayPreview = ({ item, isExplore = false }) => {
 	);
 
 	const onClick = (ev) => {
-		ev.stopPropagation();
-		ev.preventDefault()
+		ev.preventDefault();
 		setIsLiked((isLiked) => !isLiked);
 	};
 
@@ -111,6 +112,9 @@ export const StayPreview = ({ item, isExplore = false }) => {
 								priceRateContainer,
 						  ]
 						: [rate, location, price, summery]}
+					{history.location.pathname === '/user' && (
+						<button onClick={(ev) => removeHandler(ev, item._id)}>Delete</button>
+					)}
 				</div>
 			</li>
 		</Link>

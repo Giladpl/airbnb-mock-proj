@@ -1,16 +1,19 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { saveOrder } from '../../store/actions/orderActions';
+import { removeStay } from '../../store/actions/stayActions';
 import { StayPreview } from '../../cmps/StayPreview';
 import { OrderPreview } from '../../cmps/OrderPreview';
 import { GenericList } from '../../cmps/GenericList';
 import { Link } from 'react-router-dom';
-import { ProfitsChart } from '../../cmps/ProfitsChart'
+import { ProfitsChart } from '../../cmps/ProfitsChart';
 import './UserDetails.scss';
+import React from 'react';
 
 export const UserDetails = (props) => {
 	const loggedinUser = useSelector((state) => state.userReducer.loggedinUser);
 	const stays = useSelector((state) => state.stayReducer.stays);
 	const orders = useSelector((state) => state.orderReducer.orders);
+
 	const dispatch = useDispatch();
 
 	const userStays = stays.filter((stay) => stay.host._id === loggedinUser._id);
@@ -27,6 +30,12 @@ export const UserDetails = (props) => {
 	const pendingOrdersNum = orders.filter(
 		(order) => order.status === 'pending'
 	).length;
+
+	const removeHandler = (ev, stayId) => {
+		ev.preventDefault();
+		ev.stopPropagation();
+		dispatch(removeStay(stayId));
+	};
 
 	return (
 		loggedinUser && (
@@ -53,7 +62,9 @@ export const UserDetails = (props) => {
 					</div>
 					<div className='statistics'>
 						<h2>Statistics</h2>
-						<Link to='/statistics'><h4 className='more-btn'>For more</h4></Link>
+						<Link to='/statistics'>
+							<h4 className='more-btn'>For more</h4>
+						</Link>
 						<ProfitsChart userOrders={userOrders} />
 					</div>
 				</div>
@@ -64,7 +75,8 @@ export const UserDetails = (props) => {
 						items={userStays}
 						CmpToRender={StayPreview}
 						classNames='stay-list-user clean-list'
-					/>
+						removeHandler={removeHandler}
+					></GenericList>
 				</div>
 			</section>
 		)
