@@ -5,7 +5,7 @@
 	text-align: center;
     padding: rem(20px) !important;
 	grid-template-columns: 3fr 3fr 1fr;
-	grid-template-rows: repeat(3, rem(300px));
+	grid-template-rows: repeat(3, auto);
     gap: rem(20px);
 
 	.status-chart {

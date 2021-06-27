@@ -43,7 +43,7 @@ export const ProfitsChart = ({ userOrders }) => {
     return (
         userOrders && <section className='profits-chart'>
             <h4>Total Profits: ${totalProfits}</h4>
-            <Doughnut data={data} width={50} height={50} />
+            <Doughnut data={data} />
         </section>
     )
 }
