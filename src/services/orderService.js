@@ -89,8 +89,8 @@ function _createOrder() {
 			"fullname": "User 1"
 		},
 		"totalPrice": 160,
-		"startDate": "1444263347711",
-		"endDate": "1624263347711",
+		"startDate": "1611575551000",
+		"endDate": "1612525951000",
 		"guests": {
 			"adults": 2,
 			"children": 1,

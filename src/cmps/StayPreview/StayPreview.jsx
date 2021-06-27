@@ -51,14 +51,16 @@ export const StayPreview = ({ item, isExplore = false }) => {
 		</p>
 	);
 
-	const onClick = () => {
+	const onClick = (ev) => {
+		ev.stopPropagation();
+		ev.preventDefault()
 		setIsLiked((isLiked) => !isLiked);
 	};
 
 	const nameLikeContainer = (
 		<div key='name-like-container' className='name-like-container'>
 			<p className='name'>{item.name}</p>{' '}
-			<Like isLiked={isLiked} onClick={onClick} />
+			<Like isLiked={isLiked} onClick={(ev) => onClick(ev)} />
 		</div>
 	);
 
@@ -102,12 +104,12 @@ export const StayPreview = ({ item, isExplore = false }) => {
 				<div className='content-container'>
 					{isExplore
 						? [
-							nameLikeContainer,
-							divider,
-							properties,
-							amenities,
-							priceRateContainer,
-						]
+								nameLikeContainer,
+								divider,
+								properties,
+								amenities,
+								priceRateContainer,
+						  ]
 						: [rate, location, price, summery]}
 				</div>
 			</li>
