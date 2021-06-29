@@ -1,1 +1,14 @@
-.stayEdit {}
+@import '../../assets/styles/setup/variables';
+@import '../../assets/styles/setup/functions';
+
+.stay-edit {
+    padding-top: rem(40px) !important;
+
+    form {
+        max-width: rem(600px);
+
+        > * {
+            margin-bottom: rem(15px);
+        }
+    }
+}
