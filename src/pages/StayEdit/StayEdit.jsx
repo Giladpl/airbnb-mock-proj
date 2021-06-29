@@ -78,13 +78,7 @@ export const StayEdit = () => {
 			});
 			return;
 		}
-
-		// if (field === 'country') {
-		// 	const loc = stay.loc;
-		// 	loc.country = value;
-		// 	setStay({ ...stay, loc });
-		// }
-
+		
 		setStay({ ...stay, [field]: value });
 	};
 

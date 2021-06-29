@@ -5,7 +5,6 @@ import React, { useState } from 'react';
 
 export const ImageUploader = ({ isMultiple, urls, setUrls }) => {
 	const [images, setImages] = useState([]);
-	// const [urls, setUrls] = useState([]);
 
 	const uploadImageHandler = async () => {
 		for (let i = 0; i < 5; i++) {
@@ -13,15 +12,15 @@ export const ImageUploader = ({ isMultiple, urls, setUrls }) => {
 			const data = await uploadImg(images[i]);
 			setUrls([...urls, data.url]);
 		}
-		// setUrl(data.url);
 	};
 
 	const setImageHandler = (event) => {
-		const images = [0, 0, 0, 0, 0];
+		if(images.length && images[4]) return;
+		const imagesToSet = [0, 0, 0, 0, 0];
 
 		if (isMultiple) {
-			images.forEach((_, i) => (images[i] = event.target.files[i]));
-			setImages(images);
+			imagesToSet.forEach((_, i) => (imagesToSet[i] = event.target.files[i]));
+			setImages(imagesToSet);
 		} else {
 			images[0] = event.target.files[0];
 			setImages(images);
