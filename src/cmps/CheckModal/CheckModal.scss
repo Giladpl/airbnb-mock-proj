@@ -33,19 +33,19 @@
         border-radius: 8px;
         margin-bottom: rem(24px);
 
-        > * {
+        >* {
             height: rem(56px);
             font-size: rem(10px);
             color: $clr2;
             font-weight: bold;
             cursor: pointer;
         }
-        
+
         .top-container {
             align-items: center;
             border-bottom: 1px solid $clr4;
 
-            > * {
+            >* {
                 flex-basis: 50%;
                 padding-left: rem(8px);
             }
@@ -55,7 +55,7 @@
             }
 
         }
-        
+
         .low-container {
             padding: 0 rem(8px);
 
@@ -75,7 +75,7 @@
     .check-availability {
         text-align: center;
 
-        > * {
+        >* {
             margin-bottom: rem(5px);
         }
 

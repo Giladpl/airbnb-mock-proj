@@ -3788,14 +3788,45 @@ function getListAvgRate(stay) {
 	return avgRate;
 }
 
-function getEmptyTrip() {
+// function getEmptyTrip() {
+// 	return {
+// 		startDate: '',
+// 		endDate: '',
+// 		guests: {
+// 			adults: null,
+// 			kids: null,
+// 		},
+// 		loc: {
+// 			country: '',
+// 			countryCode: '',
+// 			address: '',
+// 			lat: null,
+// 			lng: null,
+// 		},
+// 	};
+// }
+
+function getEmptyStay(title = '', description = '') {
 	return {
-		startDate: '',
-		endDate: '',
-		guests: {
-			adults: null,
-			kids: null,
-		},
+		name: '',
+		// description,
+		summery: '',
+		imgUrls: [],
+		price: null,
+		amenities: [
+			'TV',
+			'Wifi',
+			'Kitchen',
+			'Hangers',
+			'Smoking allowed',
+			'Pets allowed',
+			'Cooking basics',
+			'Free parking on premises',
+			'Indoor fireplace',
+			'Heating',
+			'Air conditioning',
+		],
+		properties: { accommodates: null, type: '', bad: null, bath: null },
 		loc: {
 			country: '',
 			countryCode: '',
@@ -3803,13 +3834,7 @@ function getEmptyTrip() {
 			lat: null,
 			lng: null,
 		},
-	};
-}
-
-function getEmptyStay(title = '', description = '') {
-	return {
-		title,
-		description,
+		review: [],
 		createdAt: Date.now(),
 	};
 }

@@ -13,7 +13,7 @@ export const OrderPreview = ({ item: order, changeOrderStatus }) => {
 		<li className='orderPreview'>
 			<div className='orderPreview__left-side'>
 				<p>By: {order.buyer.fullname}</p>
-				{/* <p>Stay's name: {order.state.name}</p> */}
+				<p>{order.state.name}</p>
 				<p>Status: {order.status}</p>
 				<p className='orderPreview__guests-count'>
 					Total persons: {guestsCount()} &ndash; Adults: {order.guests.adults} •
@@ -21,17 +21,24 @@ export const OrderPreview = ({ item: order, changeOrderStatus }) => {
 				</p>
 				<p>Total Price: {totalPrice}</p>
 			</div>
-			{order.status === 'pending' ? 
+			{order.status === 'pending' ? (
 				<div className='orderPreview__right-side'>
-					<button className='order-btn' onClick={() => changeOrderStatus(order._id, 'confirmed')}>
+					<button
+						className='order-btn'
+						onClick={() => changeOrderStatus(order._id, 'confirmed')}
+					>
 						Confirm
 					</button>
-					<button className='order-btn' onClick={() => changeOrderStatus(order._id, 'declined')}>
+					<button
+						className='order-btn'
+						onClick={() => changeOrderStatus(order._id, 'declined')}
+					>
 						Decline
 					</button>
-				</div> :
+				</div>
+			) : (
 				<div>{order.status}</div>
-			}
+			)}
 		</li>
 	);
 };

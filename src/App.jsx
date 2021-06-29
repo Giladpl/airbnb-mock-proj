@@ -2,6 +2,7 @@ import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { HomePage } from './pages/HomePage/HomePage';
+import { StayEdit } from './pages/StayEdit';
 import { MainHeader } from './cmps/MainHeader';
 import { MainFooter } from './cmps/MainFooter';
 import { ScrollToTop } from './cmps/ScrollToTop';
@@ -39,6 +40,7 @@ export function App() {
 				<MainHeader isMainHeader={isMainHeader} />
 				<Switch>
 					<Route path='/stay/explore/:location' component={StayLocation} />
+					<Route path='/stay/edit/:id?' component={StayEdit} />
 					<Route path='/stay/:id' component={StayDetails} />
 					<Route path='/stay' component={StayApp} />
 					<Route path='/user' component={UserDetails} />

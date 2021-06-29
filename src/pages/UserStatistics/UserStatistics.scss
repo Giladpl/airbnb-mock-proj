@@ -3,10 +3,10 @@
 
 .user-statistics {
 	text-align: center;
-    padding: rem(20px) !important;
+	padding: rem(20px) !important;
 	grid-template-columns: 3fr 3fr 1fr;
 	grid-template-rows: repeat(3, auto);
-    gap: rem(20px);
+	gap: rem(20px);
 
 	.status-chart {
 		grid-column: 1 / 2;
@@ -26,5 +26,14 @@
 	.monthly-availability-chart {
 		grid-column: 1 / 3;
 		grid-row: 3 / 4;
+
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: space-between;
+		gap: rem(20px);
+
+		& > * {
+			flex-grow: 1;
+		}
 	}
 }
