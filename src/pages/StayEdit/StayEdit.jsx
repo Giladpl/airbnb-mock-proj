@@ -5,13 +5,14 @@ import { stayService } from '../../services/stayService';
 import { countryCodes } from '../../services/countryService';
 import { saveStay } from '../../store/actions/stayActions';
 import { ImageUploader } from '../../cmps/ImageUploader';
-import { Input } from '../../cmps/Input';
-// import Input from '@material-ui/core/Input';
-// import InputLabel from '@material-ui/core/InputLabel';
-// import ListItemText from '@material-ui/core/ListItemText';
-// import MenuItem from '@material-ui/core/MenuItem';
-// import Select from '@material-ui/core/Select';
-// import Checkbox from '@material-ui/core/Checkbox';
+import TextField from '@material-ui/core/TextField';
+import Input from '@material-ui/core/Input';
+import InputLabel from '@material-ui/core/InputLabel';
+import ListItemText from '@material-ui/core/ListItemText';
+import MenuItem from '@material-ui/core/MenuItem';
+import Select from '@material-ui/core/Select';
+import Checkbox from '@material-ui/core/Checkbox';
+import InputAdornment from '@material-ui/core/InputAdornment';
 import './StayEdit.scss';
 
 export const StayEdit = () => {
@@ -63,7 +64,10 @@ export const StayEdit = () => {
 	}, []);
 
 	useEffect(() => {
-		if (stay) setUrls(stay.imgUrls);
+		if (stay) {
+			setUrls(stay.imgUrls);
+			setAmenities(stay.amenities)
+		}
 	}, [stay]);
 
 	const handleChange = ({ target }) => {
@@ -72,13 +76,13 @@ export const StayEdit = () => {
 		if (target.type === 'number') value = +value;
 
 		if (field === 'country') {
-			setStay({
-				...stay,
-				loc: { ...stay.loc, country: value },
-			});
+			setStay({...stay, loc: { ...stay.loc, country: value }});
 			return;
+		} else if (field === 'accommodates' || 'bad' || 'bath') {
+			console.log('hi');
+			setStay({...stay, properties: { ...stay.properties, [field]: value }});
 		}
-		
+
 		setStay({ ...stay, [field]: value });
 	};
 
@@ -125,43 +129,51 @@ export const StayEdit = () => {
 					className='flex-column'
 					onSubmit={onSaveStay}
 				>
-					<Input
+					<TextField
 						required
-						labelText='Name: '
+						label='Name'
 						type='text'
 						value={stay.name}
 						onChange={handleChange}
 						name='name'
 					/>
-					<Input
+					<TextField
 						required
-						labelText='Description: '
-						rows='5'
-						type='textarea'
+						label='Description'
+						multiline
+						rowsMax={8}
 						value={stay.summary}
 						onChange={handleChange}
 						name='summary'
+					// variant='outlined'
 					/>
-					<Input
+					<TextField
 						required
-						labelText='Price: '
-						type='number'
+						label='Price per night'
 						value={stay.price}
 						onChange={handleChange}
 						name='price'
+						type='number'
+						InputProps={{
+							startAdornment: <InputAdornment position="start">$</InputAdornment>,
+						}}
 						min='1'
 					/>
-					<Input
-						onBlur={setCountryCode}
+					<TextField
 						required
-						labelText='Country:'
+						label='Country'
 						type='text'
 						value={stay.loc.country}
 						onChange={handleChange}
+						onBlur={setCountryCode}
 						name='country'
 					/>
-					<p>Country Code: {stay.loc.countryCode}</p>
-					{/* <InputLabel id='amenities-select'>Amenities</InputLabel>
+					<TextField
+						disabled
+						label='Country Code'
+						value={stay.loc.countryCode}
+					/>
+					<InputLabel className='input-label' id='amenities-select'>Amenities</InputLabel>
 					<Select
 						labelId='amenities-select'
 						multiple
@@ -177,12 +189,34 @@ export const StayEdit = () => {
 								<ListItemText primary={amenity} />
 							</MenuItem>
 						))}
-					</Select> */}
-
+					</Select>
+					<TextField
+						required
+						label='Accommodates'
+						value={stay.properties.accommodates}
+						onChange={handleChange}
+						name='accommodates'
+						type='number'
+					/>
+					<TextField
+						required
+						label='Number of bads'
+						value={stay.properties.bad}
+						onChange={handleChange}
+						name='bad'
+						type='number'
+					/>
+					<TextField
+						required
+						label='Number of baths'
+						value={stay.properties.bath}
+						onChange={handleChange}
+						name='bath'
+						type='number'
+					/>
 					<ImageUploader isMultiple={true} urls={urls} setUrls={setUrls} />
-
 					<p>{errMsg}</p>
-					<button>Save Stay</button>
+					<button className='btn'>Save Stay</button>
 				</form>
 			)}
 		</section>

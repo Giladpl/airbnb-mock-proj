@@ -1,14 +1,29 @@
-@import '../../assets/styles/setup/variables';
-@import '../../assets/styles/setup/functions';
+@import "../../assets/styles/setup/variables";
+@import "../../assets/styles/setup/functions";
 
 .stay-edit {
-    padding-top: rem(40px) !important;
+	padding-top: rem(40px) !important;
 
-    form {
-        max-width: rem(600px);
+	form {
+		max-width: rem(600px);
 
-        > * {
-            margin-bottom: rem(15px);
-        }
-    }
+		> *:not(.input-label) {
+			margin-bottom: rem(25px);
+		}
+	}
+
+	.btn {
+		padding: 0.375rem 1.25rem;
+		background-image: linear-gradient(to bottom right, #e31c5f, #ff385c);
+		color: white;
+		border: none;
+		cursor: pointer;
+		font-size: 16px;
+		font: inherit;
+
+		&:hover {
+			transform: translateY(-3px);
+			box-shadow: 0 5px 10px rgba(black, 0.2);
+		}
+	}
 }
