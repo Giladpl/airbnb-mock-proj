@@ -6,6 +6,8 @@ import { ImageUploader } from '../../cmps/ImageUploader';
 import './SignUp.scss';
 
 export const SignUp = (props) => {
+	const [urls, setUrls] = useState([]);
+
 	const dispatch = useDispatch();
 	const history = useHistory();
 	const [signUpCred, setSignUpCred] = useState({
@@ -76,7 +78,7 @@ export const SignUp = (props) => {
 				</label>
 			</div>
 			<div className='signup__group'>
-				<ImageUploader />
+				<ImageUploader isMultiple={false} urls={urls} setUrls={setUrls} />
 			</div>
 			<div className='signup__group'>
 				<button className='signup__btn'>Sign Up</button>

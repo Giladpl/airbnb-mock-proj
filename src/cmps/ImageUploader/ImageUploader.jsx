@@ -3,13 +3,31 @@ import './ImageUploader.scss';
 
 import React, { useState } from 'react';
 
-export const ImageUploader = () => {
-	const [image, setImage] = useState('');
-	const [url, setUrl] = useState('');
-	const uploadImage = async () => {
-		const data = await uploadImg(image);
-		setUrl(data.url);
+export const ImageUploader = ({ isMultiple, urls, setUrls }) => {
+	const [images, setImages] = useState([]);
+	// const [urls, setUrls] = useState([]);
+
+	const uploadImageHandler = async () => {
+		for (let i = 0; i < 5; i++) {
+			if (!images[i]) break;
+			const data = await uploadImg(images[i]);
+			setUrls([...urls, data.url]);
+		}
+		// setUrl(data.url);
 	};
+
+	const setImageHandler = (event) => {
+		const images = [0, 0, 0, 0, 0];
+
+		if (isMultiple) {
+			images.forEach((_, i) => (images[i] = event.target.files[i]));
+			setImages(images);
+		} else {
+			images[0] = event.target.files[0];
+			setImages(images);
+		}
+	};
+
 	return (
 		<div className='image-uploader'>
 			<div className='btns'>
@@ -21,15 +39,20 @@ export const ImageUploader = () => {
 					id='file-upload'
 					className='btn'
 					type='file'
-					onChange={(e) => setImage(e.target.files[0])}
+					onChange={setImageHandler}
+					// onChange={(e) => setImage(e.target.files[0])}
 				></input>
-				{image && <button className='btn' onClick={uploadImage}>
-					Upload
-				</button>}
+				{images && (
+					<button className='btn' onClick={uploadImageHandler}>
+						Upload
+					</button>
+				)}
 			</div>
-			{url && (
+			{urls && (
 				<div>
-					<img src={url} alt='user' />
+					{urls.map((url, idx) => (
+						<img key={idx} src={url} alt='user-img' />
+					))}
 				</div>
 			)}
 		</div>

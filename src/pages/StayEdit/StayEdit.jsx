@@ -5,6 +5,8 @@ import { stayService } from '../../services/stayService';
 import { countryCodes } from '../../services/countryService';
 import { saveStay } from '../../store/actions/stayActions';
 
+import { ImageUploader } from '../../cmps/ImageUploader';
+
 import { Input } from '../../cmps/Input';
 
 import './StayEdit.scss';
@@ -12,6 +14,8 @@ import './StayEdit.scss';
 export const StayEdit = () => {
 	const [stay, setStay] = useState(null);
 	const [errMsg, setErrMsg] = useState('');
+
+	const [urls, setUrls] = useState([]);
 
 	const dispatch = useDispatch();
 	const history = useHistory();
@@ -31,6 +35,10 @@ export const StayEdit = () => {
 			}
 		})();
 	}, []);
+
+	useEffect(() => {
+		if (stay) setUrls(stay.imgUrls);
+	}, [stay]);
 
 	const handleChange = ({ target }) => {
 		const field = target.name;
@@ -75,9 +83,12 @@ export const StayEdit = () => {
 	};
 
 	const setCountryCode = () => {
-		const countryCode = countryCodes.find(
-			(country) => country.name.toLowerCase() === stay.loc.country.toLowerCase()
-		).code;
+		const countryCode =
+			countryCodes.find(
+				(country) =>
+					country.name.toLowerCase() === stay.loc.country.toLowerCase()
+			)?.code || 'Invalid Country Name';
+
 		setStay({ ...stay, loc: { ...stay.loc, countryCode } });
 	};
 
@@ -127,6 +138,8 @@ export const StayEdit = () => {
 						name='country'
 					/>
 					<p>Country Code: {stay.loc.countryCode}</p>
+
+					<ImageUploader isMultiple={true} urls={urls} setUrls={setUrls} />
 
 					<p>{errMsg}</p>
 					<button>Save Stay</button>
