@@ -1,7 +1,7 @@
 import './StayDetails.scss';
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { getStayById } from '../../store/actions/stayActions';
+import { getStayById, saveStay } from '../../store/actions/stayActions';
 import { ReactComponent as StarSvg } from '../../assets/svgs/star.svg';
 import { stayService } from '../../services/stayService';
 import { CheckModal } from '../../cmps/CheckModal/CheckModal';
@@ -11,6 +11,7 @@ import { RatePreview } from '../../cmps/RatePreview';
 import { ReviewPreview } from '../../cmps/ReviewPreview';
 import { orderService } from '../../services/orderService';
 import { saveOrder } from '../../store/actions/orderActions';
+import { AddReview } from '../../cmps/AddReview/AddReview';
 
 export const StayDetails = ({ match }) => {
     const dispatch = useDispatch();
@@ -19,15 +20,17 @@ export const StayDetails = ({ match }) => {
     const [order, setOrder] = useState(orderService.getEmptyOrder())
     const [avgRate, setAvgRate] = useState(null);
     const [listAvgRate, setListAvgRate] = useState(null);
+    const [review, setReview] = useState(stayService.getEmptyReview())
     let [guestNum, setGuestNum] = useState({
-		Adults: 1,
-		Children: 0,
-		Infants: 0,
-	});
+        Adults: 1,
+        Children: 0,
+        Infants: 0,
+    });
     let [startDate, setStartDate] = useState(null);
-	let [endDate, setEndDate] = useState(null);
+    let [endDate, setEndDate] = useState(null);
     let [diffInDays, setDiffInDays] = useState(null);
     let [isCheck, setIsCheck] = useState(false);
+    const guestImg = 'https://cube.elemecdn.com/9/c2/f0ee8a3c7c9638a54940382568c9dpng.png';
 
     useEffect(() => {
         (async () => {
@@ -35,11 +38,19 @@ export const StayDetails = ({ match }) => {
             setCurrStay(stay);
             setAvgRate(stayService.getTotalAvgRate(stay).toFixed(2))
             setListAvgRate(stayService.getListAvgRate(stay))
+            if(!loggedinUser) setReview({ ...review, by: { _id: 'guest', fullname: 'Guest', imgUrl: guestImg } });
+            else setReview({ ...review, by: { _id: loggedinUser._id, fullname: loggedinUser.fullname, imgUrl: loggedinUser.imgUrl } });
         })();
     }, [match.params.id, dispatch]);
 
     useEffect(() => {
-        if(loggedinUser && currStay) dispatch(saveOrder(order))
+        if(!currStay) return;
+        setAvgRate(stayService.getTotalAvgRate(currStay).toFixed(2))
+        setListAvgRate(stayService.getListAvgRate(currStay))
+    }, [review])
+
+    useEffect(() => {
+        if (loggedinUser && currStay) dispatch(saveOrder(order))
     }, [order])
 
     const propertyFormatted = (property, content) => {
@@ -49,31 +60,31 @@ export const StayDetails = ({ match }) => {
     }
 
     const updateNumOfGuests = (operator, type) => {
-		if (operator === '-' && !guestNum[type]) return;
-		if (operator === '-' && type === 'Adults' && guestNum.Adults === 1) return;
-		if (operator === '-') setGuestNum({ ...guestNum, [type]: --guestNum[type] });
-		else setGuestNum({ ...guestNum, [type]: ++guestNum[type] });
-	}
+        if (operator === '-' && !guestNum[type]) return;
+        if (operator === '-' && type === 'Adults' && guestNum.Adults === 1) return;
+        if (operator === '-') setGuestNum({ ...guestNum, [type]: --guestNum[type] });
+        else setGuestNum({ ...guestNum, [type]: ++guestNum[type] });
+    }
 
     const handleDatesChange = ({ startDate, endDate }) => {
-		setStartDate(startDate);
-		setEndDate(endDate);
-		if(!endDate || !startDate) return;
-		setDiffInDays((endDate._d.getTime() - startDate._d.getTime()) / (1000 * 3600 * 24));
-	};
+        setStartDate(startDate);
+        setEndDate(endDate);
+        if (!endDate || !startDate) return;
+        setDiffInDays((endDate._d.getTime() - startDate._d.getTime()) / (1000 * 3600 * 24));
+    };
 
     const calcPrice = () => {
-        if(!currStay) return;
-		let adultsPrice = 0;
-		if (guestNum.Adults > 1) adultsPrice = (guestNum.Adults - 1) * 100;
-		const childrenPrice = guestNum.Children ? guestNum.Children * 50 : 0;
-		return diffInDays * currStay.price + adultsPrice + childrenPrice;
-	}
+        if (!currStay) return;
+        let adultsPrice = 0;
+        if (guestNum.Adults > 1) adultsPrice = (guestNum.Adults - 1) * 100;
+        const childrenPrice = guestNum.Children ? guestNum.Children * 50 : 0;
+        return diffInDays * currStay.price + adultsPrice + childrenPrice;
+    }
 
     const onCheckAvailability = () => {
-		setIsCheck(!isCheck)
-		if(isCheck) {
-            setOrder({ 
+        setIsCheck(!isCheck)
+        if (isCheck) {
+            setOrder({
                 ...order,
                 buyer: {
                     _id: loggedinUser._id,
@@ -93,8 +104,14 @@ export const StayDetails = ({ match }) => {
                     hostId: currStay.host._id
                 }
             })
-        } 
-	}
+        }
+    }
+
+    const onAddReview = async (ev) => {
+        ev.preventDefault();
+        await setCurrStay({ ...currStay, reviews: [...currStay.reviews, review] })
+        await dispatch(saveStay(currStay));
+    }
 
     return (
         currStay && (
@@ -132,10 +149,10 @@ export const StayDetails = ({ match }) => {
                             headingLevel="3"
                         />
                     </div>
-                    <CheckModal 
-                        stay={currStay} 
-                        avgRate={avgRate} 
-                        updateNumOfGuests={updateNumOfGuests} 
+                    <CheckModal
+                        stay={currStay}
+                        avgRate={avgRate}
+                        updateNumOfGuests={updateNumOfGuests}
                         guestNum={guestNum}
                         startDate={startDate}
                         endDate={endDate}
@@ -149,7 +166,7 @@ export const StayDetails = ({ match }) => {
                 <div className="reviews">
                     <div className="review-title">
                         <StarSvg fill='#FF385C' /> {avgRate} ({currStay.reviews.length} reviews)
-				    </div>
+                    </div>
                     <div className="rate">
                         <GenericList
                             classNames="rate-list flex clean-list"
@@ -161,6 +178,12 @@ export const StayDetails = ({ match }) => {
                         classNames="review-list flex clean-list"
                         CmpToRender={ReviewPreview}
                         items={currStay.reviews}
+                    />
+                    <AddReview
+                        review={review}
+                        setReview={setReview}
+                        loggedinUser={loggedinUser}
+                        onAddReview={onAddReview}
                     />
                 </div>
             </section>

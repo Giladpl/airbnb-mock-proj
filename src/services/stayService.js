@@ -3718,6 +3718,7 @@ export const stayService = {
 	getEmptyStay,
 	getTotalAvgRate,
 	getListAvgRate,
+	getEmptyReview
 };
 
 _createStays();
@@ -3791,28 +3792,30 @@ function getListAvgRate(stay) {
 	return avgRate;
 }
 
-// function getEmptyTrip() {
-// 	return {
-// 		startDate: '',
-// 		endDate: '',
-// 		guests: {
-// 			adults: null,
-// 			kids: null,
-// 		},
-// 		loc: {
-// 			country: '',
-// 			countryCode: '',
-// 			address: '',
-// 			lat: null,
-// 			lng: null,
-// 		},
-// 	};
-// }
+function getEmptyReview() {
+	return {
+		id: utilService.makeId(),
+		txt: '',
+		rate: [
+			{ property: 'Cleanliness', val: null },
+			{ property: 'Communication', val: null },
+			{ property: 'Check-in', val: null },
+			{ property: 'Accuracy', val: null },
+			{ property: 'Location', val: null },
+			{ property: 'Value', val: null },
+		],
+		createAt: Date.now(),
+		by: {
+			_id: '',
+			fullname: '',
+			imgUrl: '',
+		}
+	}
+}
 
 function getEmptyStay(title = '', description = '') {
 	return {
 		name: '',
-		// description,
 		summary: '',
 		imgUrls: [],
 		price: '',
@@ -3826,7 +3829,7 @@ function getEmptyStay(title = '', description = '') {
 			lng: '',
 		},
 		reviews: [],
-		createdAt: Date.now(),
+		createdAt: Date.now()
 	};
 }
 
