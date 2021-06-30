@@ -4,7 +4,7 @@ import { removeStay } from '../../store/actions/stayActions';
 import { StayPreview } from '../../cmps/StayPreview';
 import { OrderPreview } from '../../cmps/OrderPreview';
 import { GenericList } from '../../cmps/GenericList';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import { ProfitsChart } from '../../cmps/ProfitsChart';
 import './UserDetails.scss';
 import React from 'react';
@@ -14,6 +14,7 @@ export const UserDetails = (props) => {
 	const stays = useSelector((state) => state.stayReducer.stays);
 	const orders = useSelector((state) => state.orderReducer.orders);
 
+	const history = useHistory();
 	const dispatch = useDispatch();
 
 	const userStays = stays.filter((stay) => stay.host._id === loggedinUser._id);
@@ -35,6 +36,11 @@ export const UserDetails = (props) => {
 		ev.preventDefault();
 		ev.stopPropagation();
 		dispatch(removeStay(stayId));
+	};
+	const editHandler = (ev, stayId) => {
+		ev.preventDefault();
+		ev.stopPropagation();
+		history.push('/stay/edit/' + stayId);
 	};
 
 	return (
@@ -76,6 +82,7 @@ export const UserDetails = (props) => {
 						CmpToRender={StayPreview}
 						classNames='stay-list-user clean-list'
 						removeHandler={removeHandler}
+						editHandler={editHandler}
 					></GenericList>
 				</div>
 			</section>

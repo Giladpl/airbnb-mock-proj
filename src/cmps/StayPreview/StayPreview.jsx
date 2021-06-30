@@ -9,7 +9,12 @@ import React from 'react';
 import './StayPreview.scss';
 import { useState } from 'react';
 
-export const StayPreview = ({ item, isExplore = false, removeHandler }) => {
+export const StayPreview = ({
+	item,
+	isExplore = false,
+	removeHandler,
+	editHandler,
+}) => {
 	const [isLiked, setIsLiked] = useState(false);
 	const history = useHistory();
 
@@ -113,7 +118,12 @@ export const StayPreview = ({ item, isExplore = false, removeHandler }) => {
 						  ]
 						: [rate, location, price, summery]}
 					{history.location.pathname === '/user' && (
-						<button onClick={(ev) => removeHandler(ev, item._id)}>Delete</button>
+						<div>
+							<button onClick={(ev) => removeHandler(ev, item._id)}>
+								Delete
+							</button>
+							<button onClick={(ev) => editHandler(ev, item._id)}>Edit</button>
+						</div>
 					)}
 				</div>
 			</li>

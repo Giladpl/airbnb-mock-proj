@@ -15,7 +15,7 @@ import Checkbox from '@material-ui/core/Checkbox';
 import InputAdornment from '@material-ui/core/InputAdornment';
 import './StayEdit.scss';
 
-export const StayEdit = () => {
+export const StayEdit = ({ loggedInUser }) => {
 	const dispatch = useDispatch();
 	const history = useHistory();
 	const params = useParams();
@@ -35,8 +35,8 @@ export const StayEdit = () => {
 		'Free parking on premises',
 		'Indoor fireplace',
 		'Heating',
-		'Air conditioning'
-	]
+		'Air conditioning',
+	];
 
 	const ITEM_HEIGHT = 48;
 	const ITEM_PADDING_TOP = 8;
@@ -66,7 +66,7 @@ export const StayEdit = () => {
 	useEffect(() => {
 		if (stay) {
 			setUrls(stay.imgUrls);
-			setAmenities(stay.amenities)
+			setAmenities(stay.amenities);
 		}
 	}, [stay]);
 
@@ -76,18 +76,18 @@ export const StayEdit = () => {
 		if (target.type === 'number') value = +value;
 
 		if (field === 'country') {
-			setStay({...stay, loc: { ...stay.loc, country: value }});
-			return;
-		} else if (field === 'accommodates' || 'bad' || 'bath') {
-			console.log('hi');
-			setStay({...stay, properties: { ...stay.properties, [field]: value }});
-		}
-
-		setStay({ ...stay, [field]: value });
-	};
-
-	const handleChangeSelect = (event) => {
-		setAmenities(event.target.value);
+			setStay({ ...stay, loc: { ...stay.loc, country: value } });
+		} else if (
+			field === 'accommodates' ||
+			field === 'bad' ||
+			field === 'bath' ||
+			field === 'type'
+		) {
+			setStay({ ...stay, properties: { ...stay.properties, [field]: value } });
+		} else if (field === 'amenities') {
+			setStay({ ...stay, amenities: [...value] });
+			setAmenities(value);
+		} else setStay({ ...stay, [field]: value });
 	};
 
 	const onClearHandler = async () => {
@@ -98,8 +98,8 @@ export const StayEdit = () => {
 	const onSaveStay = async (ev) => {
 		ev.preventDefault();
 		try {
-			const res = await dispatch(saveStay(stay));
-			if (res) history.push('/stay');
+			await dispatch(saveStay(stay));
+			history.push('/');
 		} catch (err) {
 			console.log(err);
 		}
@@ -125,10 +125,7 @@ export const StayEdit = () => {
 			<h1>{getTitle()}</h1>
 			{!stay && <div>{errMsg || 'Loading'}</div>}
 			{stay && (
-				<form
-					className='flex-column'
-					onSubmit={onSaveStay}
-				>
+				<form className='flex-column' onSubmit={onSaveStay}>
 					<TextField
 						required
 						label='Name'
@@ -145,19 +142,21 @@ export const StayEdit = () => {
 						value={stay.summary}
 						onChange={handleChange}
 						name='summary'
-					// variant='outlined'
+						// variant='outlined'
 					/>
 					<TextField
 						required
+						inputProps={{ min: 0 }}
 						label='Price per night'
 						value={stay.price}
 						onChange={handleChange}
 						name='price'
 						type='number'
 						InputProps={{
-							startAdornment: <InputAdornment position="start">$</InputAdornment>,
+							startAdornment: (
+								<InputAdornment position='start'>$</InputAdornment>
+							),
 						}}
-						min='1'
 					/>
 					<TextField
 						required
@@ -173,12 +172,15 @@ export const StayEdit = () => {
 						label='Country Code'
 						value={stay.loc.countryCode}
 					/>
-					<InputLabel className='input-label' id='amenities-select'>Amenities</InputLabel>
+					<InputLabel className='input-label' id='amenities-select'>
+						Amenities
+					</InputLabel>
 					<Select
 						labelId='amenities-select'
 						multiple
 						value={amenities}
-						onChange={handleChangeSelect}
+						onChange={handleChange}
+						name='amenities'
 						input={<Input />}
 						renderValue={(selected) => selected.join(', ')}
 						MenuProps={MenuProps}
@@ -192,6 +194,7 @@ export const StayEdit = () => {
 					</Select>
 					<TextField
 						required
+						inputProps={{ min: 0 }}
 						label='Accommodates'
 						value={stay.properties.accommodates}
 						onChange={handleChange}
@@ -200,6 +203,7 @@ export const StayEdit = () => {
 					/>
 					<TextField
 						required
+						inputProps={{ min: 0 }}
 						label='Number of bads'
 						value={stay.properties.bad}
 						onChange={handleChange}
@@ -208,12 +212,24 @@ export const StayEdit = () => {
 					/>
 					<TextField
 						required
+						inputProps={{ min: 0 }}
 						label='Number of baths'
 						value={stay.properties.bath}
 						onChange={handleChange}
 						name='bath'
 						type='number'
 					/>
+					<TextField
+						required
+						label="Apartment's type:"
+						value={stay.properties.type}
+						onChange={handleChange}
+						name='type'
+						type='text'
+					/>
+					<button onClick={onClearHandler} className='btn'>
+						Clear Form
+					</button>
 					<ImageUploader isMultiple={true} urls={urls} setUrls={setUrls} />
 					<p>{errMsg}</p>
 					<button className='btn'>Save Stay</button>

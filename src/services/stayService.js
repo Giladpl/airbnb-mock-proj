@@ -3758,6 +3758,8 @@ function save(stay) {
 }
 
 function getTotalAvgRate(stay) {
+	if (!stay.reviews && !stay.reviews.length) return null;
+
 	return stay.reviews.reduce((acc, review) => {
 		let rate = review.rate.reduce((acc, rate) => {
 			return (acc += rate.val / review.rate.length);
@@ -3767,6 +3769,7 @@ function getTotalAvgRate(stay) {
 }
 
 function getListAvgRate(stay) {
+	if (!stay.reviews && !stay.reviews.length) return null;
 	let avgRate = [
 		{ property: 'Cleanliness', val: null },
 		{ property: 'Communication', val: null },
@@ -3810,19 +3813,19 @@ function getEmptyStay(title = '', description = '') {
 	return {
 		name: '',
 		// description,
-		summery: '',
+		summary: '',
 		imgUrls: [],
-		price: null,
+		price: '',
 		amenities: [],
-		properties: { accommodates: null, type: '', bad: null, bath: null },
+		properties: { accommodates: '', type: '', bad: '', bath: '' },
 		loc: {
 			country: '',
 			countryCode: '',
 			address: '',
-			lat: null,
-			lng: null,
+			lat: '',
+			lng: '',
 		},
-		review: [],
+		reviews: [],
 		createdAt: Date.now(),
 	};
 }
