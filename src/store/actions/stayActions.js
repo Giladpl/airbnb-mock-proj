@@ -23,7 +23,7 @@ export function saveStay(stay) {
 	return async (dispatch) => {
 		const isAdd = !stay._id;
 		const updatedStay = await stayService.save(stay);
-
+		console.log(updatedStay);
 		if (isAdd) dispatch({ type: 'ADD_STAY', stay: updatedStay });
 		else dispatch({ type: 'UPDATE_STAY', updatedStay });
 	};

@@ -36,12 +36,17 @@ export const StayDetails = ({ match }) => {
         (async () => {
             const stay = await dispatch(getStayById(match.params.id));
             setCurrStay(stay);
-            setAvgRate(stayService.getTotalAvgRate(stay).toFixed(2))
-            setListAvgRate(stayService.getListAvgRate(stay))
+            setAvgRate(stayService.getTotalAvgRate(stay).toFixed(2));
+            setListAvgRate(stayService.getListAvgRate(stay));
             if(!loggedinUser) setReview({ ...review, by: { _id: 'guest', fullname: 'Guest', imgUrl: guestImg } });
             else setReview({ ...review, by: { _id: loggedinUser._id, fullname: loggedinUser.fullname, imgUrl: loggedinUser.imgUrl } });
         })();
     }, [match.params.id, dispatch]);
+
+    useEffect(() => {
+        if(!currStay) return;
+        dispatch(saveStay(currStay));
+    }, [currStay])
 
     useEffect(() => {
         if(!currStay) return;
@@ -109,8 +114,7 @@ export const StayDetails = ({ match }) => {
 
     const onAddReview = async (ev) => {
         ev.preventDefault();
-        await setCurrStay({ ...currStay, reviews: [...currStay.reviews, review] })
-        await dispatch(saveStay(currStay));
+        setCurrStay({ ...currStay, reviews: [...currStay.reviews, review] });
     }
 
     return (
@@ -182,7 +186,6 @@ export const StayDetails = ({ match }) => {
                     <AddReview
                         review={review}
                         setReview={setReview}
-                        loggedinUser={loggedinUser}
                         onAddReview={onAddReview}
                     />
                 </div>
