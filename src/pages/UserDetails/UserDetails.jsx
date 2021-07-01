@@ -37,7 +37,8 @@ export const UserDetails = (props) => {
 		ev.stopPropagation();
 		dispatch(removeStay(stayId));
 	};
-	const editHandler = (ev, stayId) => {
+
+	const editHandler = (ev, stayId = '') => {
 		ev.preventDefault();
 		ev.stopPropagation();
 		history.push('/stay/edit/' + stayId);
@@ -84,6 +85,7 @@ export const UserDetails = (props) => {
 						removeHandler={removeHandler}
 						editHandler={editHandler}
 					></GenericList>
+					<button onClick={(ev) => editHandler(ev)}>Add New</button>
 				</div>
 			</section>
 		)

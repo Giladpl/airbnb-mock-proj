@@ -5,6 +5,7 @@ import { stayService } from '../../services/stayService';
 import { countryCodes } from '../../services/countryService';
 import { saveStay } from '../../store/actions/stayActions';
 import { ImageUploader } from '../../cmps/ImageUploader';
+import { StayMap } from '../../cmps/StayMap';
 import TextField from '@material-ui/core/TextField';
 import Input from '@material-ui/core/Input';
 import InputLabel from '@material-ui/core/InputLabel';
@@ -13,6 +14,7 @@ import MenuItem from '@material-ui/core/MenuItem';
 import Select from '@material-ui/core/Select';
 import Checkbox from '@material-ui/core/Checkbox';
 import InputAdornment from '@material-ui/core/InputAdornment';
+import axios from 'axios';
 import './StayEdit.scss';
 
 export const StayEdit = ({ loggedInUser }) => {
@@ -23,6 +25,7 @@ export const StayEdit = ({ loggedInUser }) => {
 	const [stay, setStay] = useState(null);
 	const [errMsg, setErrMsg] = useState('');
 	const [urls, setUrls] = useState([]);
+	const [coords, setCoords] = useState(null);
 	const [amenities, setAmenities] = useState([]);
 	const allAmenities = [
 		'TV',
@@ -70,6 +73,29 @@ export const StayEdit = ({ loggedInUser }) => {
 		}
 	}, [stay]);
 
+	useEffect(() => {
+		if (stay) {
+			(async () => {
+				try {
+					const city = stay.loc.address.split(',')[0];
+
+					const { data } = await axios.get(
+						`https://nominatim.openstreetmap.org/search?city=${city}&country=${stay.loc.country}&format=json`
+					);
+					setCoords([
+						{
+							lat: +data[0].lat,
+							lng: +data[0].lon,
+							price: null,
+						},
+					]);
+				} catch (error) {
+					console.log(error);
+				}
+			})();
+		}
+	}, [stay]);
+
 	const handleChange = ({ target }) => {
 		const field = target.name;
 		let value = target.type === 'checkbox' ? target.checked : target.value;
@@ -110,6 +136,25 @@ export const StayEdit = ({ loggedInUser }) => {
 		return id ? 'Edit Stay' : 'Add New Stay';
 	};
 
+	// const getStayCoordsFromAddress = async (stay) => {
+	// 	try {
+	// 		const city = stay.loc.address.split(',')[0];
+
+	// 		const { data } = await axios.get(
+	// 			`https://nominatim.openstreetmap.org/search?city=${city}&country=${stay.loc.country}&format=json`
+	// 		);
+	// 		setCoords([
+	// 			{
+	// 				lat: data[0].lat,
+	// 				lng: data[0].lon,
+	// 				price: null,
+	// 			},
+	// 		]);
+	// 	} catch (error) {
+	// 		console.log(error);
+	// 	}
+	// };
+
 	const setCountryCode = () => {
 		const countryCode =
 			countryCodes.find(
@@ -119,7 +164,6 @@ export const StayEdit = ({ loggedInUser }) => {
 
 		setStay({ ...stay, loc: { ...stay.loc, countryCode } });
 	};
-
 	return (
 		<section className='stay-edit main-layout'>
 			<h1>{getTitle()}</h1>
@@ -227,6 +271,7 @@ export const StayEdit = ({ loggedInUser }) => {
 						name='type'
 						type='text'
 					/>
+					{coords && <StayMap staysForMap={coords} isEdit={true} />}
 					<button onClick={onClearHandler} className='btn'>
 						Clear Form
 					</button>

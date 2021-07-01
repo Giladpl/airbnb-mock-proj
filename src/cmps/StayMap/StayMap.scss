@@ -6,7 +6,7 @@
 	width: 100%;
 	position: sticky;
 	top: 10%;
-	
+
 	.map-pointer {
 		font-size: rem(20px);
 		height: rem(28px);
@@ -18,5 +18,33 @@
 		background-color: $clr1;
 		box-shadow: #00000014 0px 0px 0px 1px, #0000002e 0px 1px 2px;
 		color: rgb(34, 34, 34);
+
+		&:hover {
+			background-color: darken($clr1, 10%);
+		}
+	}
+}
+
+.stay-map-edit {
+	height: 50vh;
+	width: 100%;
+	position: relative;
+	top: 10%;
+
+	.map-pointer {
+		font-size: rem(20px);
+		height: rem(28px);
+		width: rem(38px);
+		font-weight: 800;
+		font-size: rem(14px);
+		border-radius: 28px;
+		padding: 0px rem(24px);
+		background-color: $clr1;
+		box-shadow: #00000014 0px 0px 0px 1px, #0000002e 0px 1px 2px;
+		color: rgb(34, 34, 34);
+
+		&:hover {
+			background-color: darken($clr1, 10%);
+		}
 	}
 }
