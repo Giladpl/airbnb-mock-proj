@@ -74,27 +74,46 @@ export const StayEdit = ({ loggedInUser }) => {
 	}, [stay]);
 
 	useEffect(() => {
-		if (stay) {
-			(async () => {
-				try {
-					const city = stay.loc.address.split(',')[0];
-
-					const { data } = await axios.get(
-						`https://nominatim.openstreetmap.org/search?city=${city}&country=${stay.loc.country}&format=json`
-					);
-					setCoords([
-						{
-							lat: +data[0].lat,
-							lng: +data[0].lon,
-							price: null,
-						},
-					]);
-				} catch (error) {
-					console.log(error);
-				}
-			})();
+		const { id } = params;
+		if (id) {
+			setCoords([
+				{
+					lat: stay.loc.lat,
+					lng: stay.loc.lng,
+					price: null,
+				},
+			]);
+		} else {
+			setCoords([
+				{
+					lat: 32.0852997,
+					lng: 34.7818064,
+					price: null,
+				},
+			]);
 		}
-	}, [stay]);
+	}, []);
+
+	useEffect(() => {
+		if (!stay) return;
+		(async () => {
+			try {
+				const { data } = await axios.get(
+					`https://nominatim.openstreetmap.org/reverse.php?lat=${stay.loc.lat}&lon=${stay.loc.lng}&zoom=18&format=jsonv2`
+				);
+				const city =
+					data.address.city || data.address.village || data.address.town;
+				const subdistrict = data.address.state_district || data.address.county;
+				const address = `${data.address.country}, ${subdistrict}, ${city}`;
+				setStay({
+					...stay,
+					loc: { ...stay.loc, address, country: data.address.country },
+				});
+			} catch (error) {
+				console.log(error);
+			}
+		})();
+	}, [coords]);
 
 	const handleChange = ({ target }) => {
 		const field = target.name;
@@ -136,25 +155,6 @@ export const StayEdit = ({ loggedInUser }) => {
 		return id ? 'Edit Stay' : 'Add New Stay';
 	};
 
-	// const getStayCoordsFromAddress = async (stay) => {
-	// 	try {
-	// 		const city = stay.loc.address.split(',')[0];
-
-	// 		const { data } = await axios.get(
-	// 			`https://nominatim.openstreetmap.org/search?city=${city}&country=${stay.loc.country}&format=json`
-	// 		);
-	// 		setCoords([
-	// 			{
-	// 				lat: data[0].lat,
-	// 				lng: data[0].lon,
-	// 				price: null,
-	// 			},
-	// 		]);
-	// 	} catch (error) {
-	// 		console.log(error);
-	// 	}
-	// };
-
 	const setCountryCode = () => {
 		const countryCode =
 			countryCodes.find(
@@ -164,6 +164,18 @@ export const StayEdit = ({ loggedInUser }) => {
 
 		setStay({ ...stay, loc: { ...stay.loc, countryCode } });
 	};
+
+	const setStayCoords = ({ lat, lng }) => {
+		setCoords([
+			{
+				lat,
+				lng,
+				price: null,
+			},
+		]);
+		setStay({ ...stay, loc: { ...stay.loc, lat, lng } });
+	};
+
 	return (
 		<section className='stay-edit main-layout'>
 			<h1>{getTitle()}</h1>
@@ -202,20 +214,7 @@ export const StayEdit = ({ loggedInUser }) => {
 							),
 						}}
 					/>
-					<TextField
-						required
-						label='Country'
-						type='text'
-						value={stay.loc.country}
-						onChange={handleChange}
-						onBlur={setCountryCode}
-						name='country'
-					/>
-					<TextField
-						disabled
-						label='Country Code'
-						value={stay.loc.countryCode}
-					/>
+
 					<InputLabel className='input-label' id='amenities-select'>
 						Amenities
 					</InputLabel>
@@ -271,7 +270,30 @@ export const StayEdit = ({ loggedInUser }) => {
 						name='type'
 						type='text'
 					/>
-					{coords && <StayMap staysForMap={coords} isEdit={true} />}
+					<TextField
+						required
+						label='Country'
+						type='text'
+						value={stay.loc.country}
+						onChange={handleChange}
+						onBlur={setCountryCode}
+						name='country'
+					/>
+					<TextField
+						disabled
+						label='Country Code'
+						value={stay.loc.countryCode}
+					/>
+					<TextField disabled label='Address' value={stay.loc.address} />
+
+					{coords && (
+						<StayMap
+							staysForMap={coords}
+							isEdit={true}
+							setStayCoords={setStayCoords}
+						/>
+					)}
+
 					<button onClick={onClearHandler} className='btn'>
 						Clear Form
 					</button>

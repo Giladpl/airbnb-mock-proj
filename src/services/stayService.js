@@ -3825,11 +3825,11 @@ function getEmptyStay(title = '', description = '') {
 			country: '',
 			countryCode: '',
 			address: '',
-			lat: '',
-			lng: '',
+			lat: 32.0852997,
+			lng: 34.7818064,
 		},
 		reviews: [],
-		createdAt: Date.now()
+		createdAt: Date.now(),
 	};
 }
 

@@ -2,12 +2,12 @@ import React from 'react';
 import GoogleMapReact from 'google-map-react';
 import './StayMap.scss';
 
-export const StayMap = ({ staysForMap, isEdit }) => {
+export const StayMap = ({ staysForMap, isEdit, setStayCoords }) => {
 	const MapPointer = ({ text }) => (
 		<div className='map-pointer flex-center'>{isEdit ? '🏡' : text + '$'}</div>
 	);
 
-	const onClickHandler = ({ lat, lng }) => console.log(lat, lng);
+	// const setStayCoords = ({ lat, lng }) => setStayCoords(lat, lng);
 
 	return (
 		<div className={isEdit ? 'stay-map-edit' : 'stay-map'}>
@@ -20,7 +20,7 @@ export const StayMap = ({ staysForMap, isEdit }) => {
 				// yesIWantToUseGoogleMapApiInternals={true}
 				defaultCenter={{ lat: staysForMap[0].lat, lng: staysForMap[0].lng }}
 				defaultZoom={12}
-				onClick={onClickHandler}
+				onClick={setStayCoords}
 			>
 				{staysForMap.map((stay, idx) => (
 					<MapPointer
