@@ -24,7 +24,7 @@ export const Filter = ({ style, stays }) => {
 	const [isFilterLocModalOpen, setIsFilterLocModalOpen] = useState(false);
 	let [isGuestModal, setIsGuestModal] = useState(false);
 	let [guestNum, setGuestNum] = useState({
-		Adults: 0,
+		Adults: 1,
 		Children: 0,
 		Infants: 0,
 	});
@@ -40,11 +40,13 @@ export const Filter = ({ style, stays }) => {
 		setInputFocus('');
 	};
 
-	function updateNumOfGuests(operator, type) {
-		if (operator === '-' && guestNum[type] === 0) return;
-		if (operator === '-') setGuestNum(--guestNum[type]);
-		else setGuestNum(++guestNum[type]);
-	}
+	const updateNumOfGuests = (operator, type) => {
+		if (operator === '-' && !guestNum[type]) return;
+		if (operator === '-' && type === 'Adults' && guestNum.Adults === 1) return;
+		if (operator === '-')
+			setGuestNum({ ...guestNum, [type]: --guestNum[type] });
+		else setGuestNum({ ...guestNum, [type]: ++guestNum[type] });
+	};
 
 	const handleFocusChange = (focusedInput) => {
 		setFocusedInput(focusedInput);
@@ -164,7 +166,12 @@ export const Filter = ({ style, stays }) => {
 							onClick={() => setIsGuestModal(!isGuestModal)}
 							name='guests'
 							id='guests'
-							placeholder='Add guests'
+							placeholder={
+								guestNum.Children +
+								guestNum.Infants +
+								guestNum.Adults +
+								' guests'
+							}
 						/>
 					</div>
 					<div className='search-button'>
@@ -176,15 +183,15 @@ export const Filter = ({ style, stays }) => {
 							{inputFocus.name ? 'Search' : ''}
 						</button>
 					</div>
-				<OutsideClickHandler onOutsideClick={() => setIsGuestModal(false)}>
-					{isGuestModal && (
-						<GuestModal
-							className='guest-modal pos-filter'
-							guestNum={guestNum}
-							updateNumOfGuests={updateNumOfGuests}
-						/>
-					)}
-				</OutsideClickHandler>
+					<OutsideClickHandler onOutsideClick={() => setIsGuestModal(false)}>
+						{isGuestModal && (
+							<GuestModal
+								className='guest-modal pos-filter'
+								guestNum={guestNum}
+								updateNumOfGuests={updateNumOfGuests}
+							/>
+						)}
+					</OutsideClickHandler>
 				</div>
 			</form>
 		</React.Fragment>

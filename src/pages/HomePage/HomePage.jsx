@@ -20,18 +20,19 @@ export const HomePage = ({ isFilter }) => {
 	const stays = useSelector((state) => state.stayReducer.stays);
 	const loggedinUser = useSelector((state) => state.userReducer.loggedinUser);
 	const [isMenu, setIsMenu] = useState(false);
-	const guestImg = 'https://cube.elemecdn.com/9/c2/f0ee8a3c7c9638a54940382568c9dpng.png';
+	const guestImg =
+		'https://cube.elemecdn.com/9/c2/f0ee8a3c7c9638a54940382568c9dpng.png';
 
 	useEffect(() => {
 		dispatch(loadStays());
 		dispatch(loadUsers());
-		dispatch(loadOrders())
+		dispatch(loadOrders());
 	}, [dispatch]);
 
 	const toggleMenu = () => {
 		setIsMenu(!isMenu);
 	};
-
+	console.log('refresh');
 	return (
 		<main className='home-page'>
 			<div className='hero'>
@@ -40,19 +41,29 @@ export const HomePage = ({ isFilter }) => {
 						<div>Logo.</div>
 						<div className='menu flex-between' onClick={toggleMenu}>
 							<div className='flex-center'>☰</div>
-							<img className='user-img' src={loggedinUser ? loggedinUser.imgUrl : guestImg} alt="" />
+							<img
+								className='user-img'
+								src={loggedinUser ? loggedinUser.imgUrl : guestImg}
+								alt=''
+							/>
 						</div>
 					</div>
 					<div className='login-modal-container'>
-					<OutsideClickHandler
-						onOutsideClick={() => setIsMenu(false)}
-					>
-						{isMenu && <ul className='login-modal clean-list'>
-							<Link to='/signup'><li>Sign up</li></Link>
-							<Link to='/login'><li>Log in</li></Link>
-							<Link to={loggedinUser ? '/user' : '/login'}><li>Your profile</li></Link>
-						</ul>}
-					</OutsideClickHandler>
+						<OutsideClickHandler onOutsideClick={() => setIsMenu(false)}>
+							{isMenu && (
+								<ul className='login-modal clean-list'>
+									<Link to='/signup'>
+										<li>Sign up</li>
+									</Link>
+									<Link to='/login'>
+										<li>Log in</li>
+									</Link>
+									<Link to={loggedinUser ? '/user' : '/login'}>
+										<li>Your profile</li>
+									</Link>
+								</ul>
+							)}
+						</OutsideClickHandler>
 					</div>
 				</div>
 				<Filter

@@ -61,7 +61,7 @@
 @keyframes fadeInUp {
 	from {
 		opacity: 0;
-		transform: translate(0, 50px) scale(0.5, 1);
+		transform: scale(0.5, 1) translate(0, 50px);
 	}
 
 	to {

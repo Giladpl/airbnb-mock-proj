@@ -26,11 +26,11 @@
 			}
 		}
 
-.login-modal-container{
-	&>*{
-	position: relative;
-	}
-}
+		.login-modal-container {
+			& > * {
+				position: relative;
+			}
+		}
 
 		.login-modal {
 			background-color: $clr1;
@@ -69,7 +69,7 @@
 			}
 
 			p {
-				margin-bottom: rem(10px);	
+				margin-bottom: rem(10px);
 			}
 
 			button {
@@ -87,13 +87,13 @@
 	.live-anywhere {
 		gap: rem(15px);
 		margin-bottom: rem(40px);
-	
+
 		img {
 			border-radius: 8px;
 			cursor: pointer;
 		}
 	}
-	
+
 	.become-host {
 		height: rem(360px);
 		border-radius: 8px;
@@ -103,12 +103,12 @@
 		justify-content: center;
 		padding-left: rem(30px);
 		margin-bottom: rem(40px);
-	
+
 		p {
 			width: 30ch;
 			margin-bottom: rem(20px);
 		}
-	
+
 		button {
 			background-color: $clr1;
 			color: $clr2;
@@ -119,29 +119,28 @@
 			width: rem(100px);
 			cursor: pointer;
 		}
-	
 	}
-	
+
 	.discover-container {
 		h1 {
 			margin-bottom: 0;
 		}
-	
+
 		p {
 			margin-bottom: rem(20px);
 		}
-	
+
 		.discover-content {
 			gap: rem(15px);
-		
+
 			h3 {
 				font-size: rem(18px);
 			}
-		
+
 			p {
 				font-size: rem(14px);
 			}
-		
+
 			img {
 				border-radius: 8px;
 				cursor: pointer;
@@ -149,5 +148,3 @@
 		}
 	}
 }
-
-
