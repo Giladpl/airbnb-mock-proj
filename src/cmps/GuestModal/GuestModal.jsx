@@ -1,15 +1,9 @@
 import { GuestModalPreview } from '../GuestModalPreview/GuestModalPreview';
 import './GuestModal.scss';
 
-export const GuestModal = ({ guestNum, updateNumOfGuests, isFixed }) => {
+export const GuestModal = ({ guestNum, updateNumOfGuests, className }) => {
 	return (
-		<section
-			className='guest-modal'
-			style={{
-				position: isFixed ? 'fixed' : 'relative',
-				top: isFixed ? '29%' : '-19%',
-			}}
-		>
+		<section className={className}>
 			<GuestModalPreview
 				title='Adults'
 				desc='Ages 13 or above'

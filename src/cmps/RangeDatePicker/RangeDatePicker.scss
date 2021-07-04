@@ -3,8 +3,8 @@
 
 .date-picker-filter {
 	position: absolute;
-	top: 15%;
-	left: 43%;
+	top: -20%;
+	left: 20%;
 }
 
 .DateRangePicker_picker,
@@ -15,7 +15,9 @@
 }
 
 .date-picker-modal {
-	position: relative;
+	position: absolute;
+	top: 25%;
+	left: -41%;
 }
 
 .DateRangePickerInput_arrow_svg,

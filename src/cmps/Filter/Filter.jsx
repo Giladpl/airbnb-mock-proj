@@ -6,7 +6,6 @@ import { FilterLocationsModal } from '../FilterLocationsModal/FilterLocationsMod
 import { useHistory } from 'react-router-dom';
 import OutsideClickHandler from 'react-outside-click-handler';
 
-
 import './Filter.scss';
 
 export const Filter = ({ style, stays }) => {
@@ -79,15 +78,6 @@ export const Filter = ({ style, stays }) => {
 	};
 	return (
 		<React.Fragment>
-			<RangeDatePicker
-				classNames='date-picker-filter'
-				handleFocusChange={handleFocusChange}
-				focusedInput={focusedInput}
-				handleDatesChange={handleDatesChange}
-				endDate={endDate}
-				startDate={startDate}
-				small={true}
-			/>
 			<form
 				onSubmit={onSubmit}
 				className='filter'
@@ -153,7 +143,15 @@ export const Filter = ({ style, stays }) => {
 						defaultValue={endDate?._d.toDateString().substr(0, 10) || ''}
 					/>
 				</div>
-
+				<RangeDatePicker
+					classNames='date-picker-filter'
+					handleFocusChange={handleFocusChange}
+					focusedInput={focusedInput}
+					handleDatesChange={handleDatesChange}
+					endDate={endDate}
+					startDate={startDate}
+					small={true}
+				/>
 				<div
 					className='search-inputs flex-between'
 					style={{ width: inputFocus.name ? '270px' : '220px' }}
@@ -178,15 +176,17 @@ export const Filter = ({ style, stays }) => {
 							{inputFocus.name ? 'Search' : ''}
 						</button>
 					</div>
+				<OutsideClickHandler onOutsideClick={() => setIsGuestModal(false)}>
+					{isGuestModal && (
+						<GuestModal
+							className='guest-modal pos-filter'
+							guestNum={guestNum}
+							updateNumOfGuests={updateNumOfGuests}
+						/>
+					)}
+				</OutsideClickHandler>
 				</div>
 			</form>
-			{isGuestModal && (
-				<GuestModal
-					className='guests-modal'
-					guestNum={guestNum}
-					updateNumOfGuests={updateNumOfGuests}
-				/>
-			)}
 		</React.Fragment>
 	);
 };

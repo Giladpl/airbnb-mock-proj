@@ -43,6 +43,7 @@ export const HomePage = ({ isFilter }) => {
 							<img className='user-img' src={loggedinUser ? loggedinUser.imgUrl : guestImg} alt="" />
 						</div>
 					</div>
+					<div className='login-modal-container'>
 					<OutsideClickHandler
 						onOutsideClick={() => setIsMenu(false)}
 					>
@@ -52,6 +53,7 @@ export const HomePage = ({ isFilter }) => {
 							<Link to={loggedinUser ? '/user' : '/login'}><li>Your profile</li></Link>
 						</ul>}
 					</OutsideClickHandler>
+					</div>
 				</div>
 				<Filter
 					stays={stays}

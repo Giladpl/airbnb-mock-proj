@@ -2,14 +2,20 @@
 @import '../../assets/styles/setup/functions';
 
 .guest-modal {
-    width: rem(252px);
-    padding: rem(12px);
-    margin-left: rem(24px);
-    background-color: $clr1;
-    border-radius: 4px;
-    border: 1px solid $clr3;
-    box-shadow: $clr3 0px 2px 6px;
-    position: relative;
-    top: -19%;
+	width: rem(252px);
+	padding: rem(12px);
+	margin-left: rem(24px);
+	background-color: $clr1;
+	border-radius: 4px;
+	border: 1px solid $clr3;
+	box-shadow: $clr3 0px 2px 6px;
+	position: absolute;
 }
-
+.pos-filter {
+	top: 100%;
+	left: 67%;
+}
+.pos-details {
+	top: 63%;
+	left: 1%;
+}

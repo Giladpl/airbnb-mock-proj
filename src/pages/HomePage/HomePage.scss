@@ -26,13 +26,19 @@
 			}
 		}
 
+.login-modal-container{
+	&>*{
+	position: relative;
+	}
+}
+
 		.login-modal {
 			background-color: $clr1;
 			width: rem(200px);
 			padding: rem(10px);
 			border-radius: 4px;
 			position: absolute;
-			right: 8%;
+			right: 0%;
 			z-index: 100;
 
 			li {
