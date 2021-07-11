@@ -20,7 +20,6 @@ export const MainHeader = ({ isMainHeader }) => {
 			</div>
 		</form>
 	);
-
 	return (
 		<header>
 			{!isFilter && (

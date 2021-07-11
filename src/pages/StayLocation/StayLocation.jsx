@@ -11,16 +11,15 @@ export const StayLocation = ({ match }) => {
 	const [heroPic, setHeroPic] = useState('');
 	const dispatch = useDispatch();
 	const stays = useSelector((state) => state.stayReducer.stays);
-	
+
 	useEffect(() => {
 		picService.getPicture(match.params.location).then((url) => setHeroPic(url));
 		const filterBy = { location: match.params.location };
 		// console.log(filterBy);
-		
+
 		(async () => await dispatch(loadStays(filterBy)))();
 	}, [match.params, dispatch]);
 
-	
 	const headerTitle = () => {
 		const locName = match.params.location;
 		return locName.charAt(0).toUpperCase() + locName.slice(1);
@@ -32,10 +31,12 @@ export const StayLocation = ({ match }) => {
 
 	return (
 		<section className='stay-location'>
-			{heroPic && <img src={heroPic} alt='' />}
+			{heroPic && (
+				<img src={heroPic} alt='' className='cover-img main-layout' />
+			)}
 			<h1 className='flex-center'>Explore {headerTitle()}</h1>
 			{stays.length ? (
-				<div className='list-map-container flex'>
+				<div className='list-map-container grid'>
 					<GenericList
 						items={stays}
 						CmpToRender={StayPreview}
@@ -44,7 +45,9 @@ export const StayLocation = ({ match }) => {
 					></GenericList>
 					<StayMap staysForMap={staysForMap}></StayMap>
 				</div>
-			) : <div>There are no stays at this location</div>}
+			) : (
+				<div>There are no stays at this location</div>
+			)}
 		</section>
 	);
 };

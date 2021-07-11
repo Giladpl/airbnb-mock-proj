@@ -2,12 +2,15 @@
 @import '../../assets/styles/setup/functions';
 
 .stay-location {
-	flex-grow: 1;
-	img {
-		max-width: 100%;
+	.cover-img {
+		max-width: 50%;
 		object-fit: cover;
 		border-radius: 8px;
 		display: block;
-		margin: 0 auto;
+		margin: rem(30px) auto;
+	}
+
+	.list-map-container {
+		grid-template-columns: repeat(2, 1fr);
 	}
 }

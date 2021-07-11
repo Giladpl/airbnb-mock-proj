@@ -32,7 +32,7 @@ export const HomePage = ({ isFilter }) => {
 	const toggleMenu = () => {
 		setIsMenu(!isMenu);
 	};
-	console.log('refresh');
+	// console.log('refresh');
 	return (
 		<main className='home-page'>
 			<div className='hero'>

@@ -3,22 +3,22 @@
 
 .login {
 	// height: 80vh;
-    flex-grow: 1;
+	flex-grow: 1;
 	justify-content: center;
 
-    &__header {
-        margin-bottom: rem(30px);
-    }
+	&__header {
+		margin-bottom: rem(30px);
+	}
 
 	&__group {
 		display: flex;
 		flex-direction: column;
 		margin-bottom: rem(30px);
-        width: rem(400px);
+		min-width: 20rem;
 	}
 
 	&__input {
-        width: 100%;
+		width: 100%;
 		padding: rem(10px) rem(20px);
 		background-color: rgb(218, 212, 212);
 		border: none;
@@ -35,10 +35,10 @@
 
 	&__label {
 		font-weight: 700;
-        font-size: rem(13px);
-        margin-left: rem(16px);
+		font-size: rem(13px);
+		margin-left: rem(16px);
 		transition: all 0.3s;
-        transform: translateY(rem(-70px));
+		transform: translateY(rem(-70px));
 	}
 
 	&__input:placeholder-shown + &__label {
@@ -47,34 +47,35 @@
 		transform: translateY(rem(-25px));
 	}
 
-    &__btn{
-        padding: rem(10px) rem(20px);
-        border-radius: 5px;
-        background-color: rgb(108, 140, 226);
-        border: none;
+	&__btn {
+		padding: rem(10px) rem(20px);
+		border-radius: 5px;
+		background-color: rgb(108, 140, 226);
+		border: none;
 		cursor: pointer;
-        color: white;
-        font-size: 18px;
+		color: white;
+		font-size: 18px;
 
-        &:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(black, 0.2);
-        }
-    
-        &:active, &:focus {
-            // outline: none;
-            transform: translateY(1px);
-            box-shadow: 0 5px 10px rgba(black, 0.2);
-        }
-    }
+		&:hover {
+			transform: translateY(-3px);
+			box-shadow: 0 10px 20px rgba(black, 0.2);
+		}
 
-    .router-link{
-        width: fit-content;
+		&:active,
+		&:focus {
+			// outline: none;
+			transform: translateY(1px);
+			box-shadow: 0 5px 10px rgba(black, 0.2);
+		}
+	}
 
-        &:hover {
-            color: lighten(black, 40%)
-        }
-    }
+	.router-link {
+		width: fit-content;
+
+		&:hover {
+			color: lighten(black, 40%);
+		}
+	}
 
 	.logout {
 		height: 80vh;

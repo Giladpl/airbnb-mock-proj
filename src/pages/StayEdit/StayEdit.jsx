@@ -75,7 +75,7 @@ export const StayEdit = ({ loggedInUser }) => {
 
 	useEffect(() => {
 		const { id } = params;
-		if (id) {
+		if (id && stay) {
 			setCoords([
 				{
 					lat: stay.loc.lat,

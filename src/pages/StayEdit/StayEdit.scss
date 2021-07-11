@@ -1,11 +1,12 @@
-@import "../../assets/styles/setup/variables";
-@import "../../assets/styles/setup/functions";
+@import '../../assets/styles/setup/variables';
+@import '../../assets/styles/setup/functions';
+@import '../../assets/styles/setup/mixins';
 
 .stay-edit {
 	padding-top: rem(40px) !important;
 
 	form {
-		max-width: rem(600px);
+		width: rem(700px);
 
 		> *:not(.input-label) {
 			margin-bottom: rem(25px);
@@ -24,6 +25,12 @@
 		&:hover {
 			transform: translateY(-3px);
 			box-shadow: 0 5px 10px rgba(black, 0.2);
+		}
+	}
+
+	@include for-mobile-layout {
+		form {
+			width: 300px;
 		}
 	}
 }
