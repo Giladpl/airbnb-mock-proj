@@ -131,6 +131,8 @@
     }
 
     @include for-mobile-layout { 
+        padding-top: rem(20px) !important;
+        
         .main {
             gap: 0;
             flex-direction: column;
@@ -149,7 +151,7 @@
         }
         
         .summary {
-            width: 90%;
+            width: 100%;
         }
     }
 }
