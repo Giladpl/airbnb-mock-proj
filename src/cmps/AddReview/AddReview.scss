@@ -3,28 +3,37 @@
 @import '../../assets/styles/setup/mixins';
 
 .add-review {
-    // max-width: rem(700px);
-    // margin: 0 auto;
-
-    .rate {
-        flex-wrap: wrap;
-
+    .content {
+        align-items: stretch;
+        height: rem(200px);
         > * {
             flex-basis: 48%;
-        } 
+        }
+
+        .user-rate {
+            > * {
+                margin-bottom: 3px;
+            }
+        }
     }
     
-
     button {
-        margin-top: rem(25px);
+        margin-top: rem(10px);
+        padding: rem(6px) rem(12px);
+        background-color: inherit;
+        color: $color-primary-light;
+        border: 2px solid $color-primary-light;
+
+        &:hover {
+            background-color: $color-primary-light;
+            color: $clr1;
+        }
     }
 
     @include for-normal-layout {
-        .rate {
-            flex-direction: column;
-            flex-wrap: nowrap;
-            width: rem(300px);
-            align-items: stretch;
+        .content {
+            flex-direction: column-reverse;
+            height: auto;
     
             > * {
                 flex-basis: 100%;

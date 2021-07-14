@@ -1,5 +1,6 @@
 @import '../../assets/styles/setup/variables';
 @import '../../assets/styles/setup/functions';
+@import '../../assets/styles/setup/mixins';
 
 .stay-details {
     padding-top: rem(50px) !important;
@@ -14,8 +15,8 @@
     }
     
 	.img-container {
-		grid-template-columns: 1fr 1fr 1fr 1fr;
-		grid-template-rows: 1fr 1fr;
+		grid-template-columns: repeat(4, 1fr);
+		grid-template-rows: repeat(2, 1fr);
 		gap: rem(8px);
         margin-bottom: rem(48px);
 
@@ -47,6 +48,10 @@
             grid-column: 4 / 5;
             border-bottom-right-radius: rem(10px);
         } 
+
+        @include for-mobile-layout {
+
+        }
 	}
 
     .main {
