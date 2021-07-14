@@ -1,5 +1,6 @@
 @import '../../assets/styles/setup/variables';
 @import '../../assets/styles/setup/functions';
+@import '../../assets/styles/setup/mixins';
 
 .user-details {
 	flex-grow: 1;
@@ -23,10 +24,15 @@
 				margin-right: rem(20px);
 			}
 		}
+
+		.back-link {
+			a {
+				text-decoration: underline;
+			}
+		}
 	}
 
 	.orders-statistics-box {
-		display: grid;
 		grid-template-columns: 2fr 1fr;
 		gap: rem(100px);
 		margin-bottom: rem(20px);
@@ -40,5 +46,12 @@
 
 	.stays-list {
 		margin-bottom: rem(50px);
+	}
+
+	@include for-mobile-layout {
+		.orders-statistics-box {
+			grid-template-columns: 1fr;
+			gap: rem(20px);
+		}
 	}
 }

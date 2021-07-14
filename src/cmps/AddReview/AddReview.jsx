@@ -45,7 +45,7 @@ export const AddReview = ({ review, setReview, onAddReview }) => {
                         ))}
                     </div>
                 </div>
-				<button>Add Review</button>
+				<button className='main-btn'>Add Review</button>
 			</form>
 		)
 	);

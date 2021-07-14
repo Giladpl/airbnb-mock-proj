@@ -10,7 +10,7 @@ export const OrderPreview = ({ item: order, changeOrderStatus }) => {
 		currency: 'USD',
 	});
 	return (
-		<li className='orderPreview'>
+		<li className='order-preview flex-between'>
 			<div className='orderPreview__left-side'>
 				<p>By: {order.buyer.fullname}</p>
 				<p>{order.state.name}</p>
@@ -24,13 +24,13 @@ export const OrderPreview = ({ item: order, changeOrderStatus }) => {
 			{order.status === 'pending' ? (
 				<div className='orderPreview__right-side'>
 					<button
-						className='order-btn'
+						className='main-btn order-btn'
 						onClick={() => changeOrderStatus(order._id, 'confirmed')}
 					>
 						Confirm
 					</button>
 					<button
-						className='order-btn'
+						className='main-btn order-btn'
 						onClick={() => changeOrderStatus(order._id, 'declined')}
 					>
 						Decline

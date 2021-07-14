@@ -52,11 +52,11 @@ export const UserDetails = (props) => {
 						<img className='user-img' src={loggedinUser.imgUrl} alt='' />
 						<div>{loggedinUser.fullname}</div>
 					</div>
-					<div>
+					<div className='back-link'>
 						<Link to='/'>Back</Link>
 					</div>
 				</div>
-				<div className='orders-statistics-box'>
+				<div className='orders-statistics-box grid'>
 					<div className='orders-list'>
 						<h2>Orders</h2>
 						<h4>{pendingOrdersNum} new pending orders</h4>
@@ -85,7 +85,7 @@ export const UserDetails = (props) => {
 						removeHandler={removeHandler}
 						editHandler={editHandler}
 					></GenericList>
-					<button onClick={(ev) => editHandler(ev)}>Add New</button>
+					<button className='main-btn' onClick={(ev) => editHandler(ev)}>Add New</button>
 				</div>
 			</section>
 		)

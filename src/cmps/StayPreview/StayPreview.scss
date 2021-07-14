@@ -50,6 +50,26 @@
 		overflow: hidden;
 		text-overflow: ellipsis;
 	}
+
+	button {
+		padding: rem(20px) 0 0;
+		background-color: inherit;
+		border: none;
+
+		> * {
+			width: rem(26px);
+			height: rem(26px);
+			cursor: pointer;
+
+			&:last-child {
+				margin-right: rem(10px);
+			}
+
+			&:hover {
+				opacity: 0.8;
+			}
+		}
+	}
 }
 
 .stay-preview-explore {

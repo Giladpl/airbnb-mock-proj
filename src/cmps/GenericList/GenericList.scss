@@ -7,10 +7,13 @@
 	display: grid;
 	grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
 	gap: rem(25px) rem(16px);
+
+	@include for-normal-layout {
+		padding: rem(20px) 0 !important;
+	}
 }
 
 .stay-list-user {
-
 	display: flex;
 	flex-wrap: wrap;
 	gap: rem(25px) rem(16px);

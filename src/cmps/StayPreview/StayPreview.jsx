@@ -1,13 +1,14 @@
+import React from 'react';
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { ReactComponent as StarSvg } from '../../assets/svgs/star.svg';
 import { stayService } from '../../services/stayService';
 import { ImageSwiper } from '../../cmps/ImageSwiper';
 import { useHistory } from 'react-router-dom';
 import { Like } from '../../cmps/Like';
-import React from 'react';
-
+import trashSvg from '../../assets/img/trash.svg'
+import editSvg from '../../assets/img/edit.svg'
 import './StayPreview.scss';
-import { useState } from 'react';
 
 export const StayPreview = ({
 	item,
@@ -120,9 +121,11 @@ export const StayPreview = ({
 					{history.location.pathname === '/user' && (
 						<div>
 							<button onClick={(ev) => removeHandler(ev, item._id)}>
-								Delete
+									<img src={trashSvg} alt='remove' />
 							</button>
-							<button onClick={(ev) => editHandler(ev, item._id)}>Edit</button>
+							<button onClick={(ev) => editHandler(ev, item._id)}>
+							<img src={editSvg} alt='edit' />
+							</button>
 						</div>
 					)}
 				</div>

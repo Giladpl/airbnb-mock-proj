@@ -1,10 +1,9 @@
 @import '../../assets/styles/setup/variables';
 @import '../../assets/styles/setup/functions';
+@import '../../assets/styles/setup/mixins';
 
-.orderPreview {
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
+.order-preview {
+	gap: rem(10px);
 	margin-bottom: rem(20px);
 	border: 1px solid $clr4;
 	border-radius: 5px;
@@ -20,11 +19,10 @@
 	}
 
 	.order-btn {
-		color: rgba(54, 162, 235, 1);
-		background-color: rgba(54, 162, 235, 0.2);
-		border: 1px solid rgba(54, 162, 235, 1);
-		border-radius: 3px;
-		padding: rem(5px) rem(8px);
-		margin: rem(5px);
+		margin-left: rem(5px);
+	}
+
+	@include for-wide-layout {
+		flex-direction: column;
 	}
 }
