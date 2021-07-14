@@ -1,7 +1,6 @@
 @import '../../assets/styles/setup/variables';
 @import '../../assets/styles/setup/functions';
-
-
+@import '../../assets/styles/setup/mixins';
 
 .check-modal {
     width: rem(300px);
@@ -93,5 +92,9 @@
         .underline {
             text-decoration: underline;
         }
+    }
+
+    @include for-mobile-layout {
+        width: 100%;
     }
 }

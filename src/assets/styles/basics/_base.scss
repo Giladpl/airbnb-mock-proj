@@ -42,3 +42,13 @@ a {
 	text-decoration: none;
 	color: inherit;
 }
+
+@include for-mobile-layout {
+	h1 {
+		font-size: rem(20px);
+	}
+
+	p {
+		max-width: none;
+	}
+}
