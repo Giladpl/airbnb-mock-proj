@@ -1,8 +1,8 @@
 @import '../../assets/styles/setup/variables';
 @import '../../assets/styles/setup/functions';
+@import '../../assets/styles/setup/mixins';
 
 .login {
-	// height: 80vh;
 	flex-grow: 1;
 	justify-content: center;
 
@@ -14,7 +14,11 @@
 		display: flex;
 		flex-direction: column;
 		margin-bottom: rem(30px);
-		min-width: 20rem;
+		min-width: 22rem;
+		
+		@include for-mobile-layout {
+			min-width: 16rem;
+		}
 	}
 
 	&__input {
