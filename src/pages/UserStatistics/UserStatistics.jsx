@@ -1,9 +1,9 @@
-import { useSelector } from 'react-redux';
-import { ProfitsChart } from '../../cmps/ProfitsChart';
-import { StatusChart } from '../../cmps/StatusChart';
-import { DateChart } from '../../cmps/DateChart';
-import { ChartMonthlyAvailability } from '../../cmps/ChartMonthlyAvailability';
-import './UserStatistics.scss';
+import { useSelector } from "react-redux";
+import { ProfitsChart } from "../../cmps/ProfitsChart";
+import { StatusChart } from "../../cmps/StatusChart";
+import { DateChart } from "../../cmps/DateChart";
+import { ChartMonthlyAvailability } from "../../cmps/ChartMonthlyAvailability";
+import "./UserStatistics.scss";
 
 export const UserStatistics = (props) => {
 	const loggedinUser = useSelector((state) => state.userReducer.loggedinUser);
@@ -20,7 +20,7 @@ export const UserStatistics = (props) => {
 			stayId: order.state._id,
 		};
 
-		if (order.status === 'confirmed') {
+		if (order.status === "confirmed") {
 			if (!acc[order.state._id]) {
 				acc[order.state._id] = [];
 				acc[order.state._id].push(currOrderDates);
@@ -30,19 +30,23 @@ export const UserStatistics = (props) => {
 		return acc;
 	}, {});
 
-	console.log(ordersByStay)
+	console.log(ordersByStay);
 	return (
 		<section className='user-statistics main-layout grid'>
-			<StatusChart className='status-chart' userOrders={userOrders} />
-			<DateChart className='date-chart card' userOrders={userOrders} />
-			<div className='card flex-column flex-center'>
+			<div className='status-chart'>
+				<StatusChart userOrders={userOrders} />
+			</div>
+			<div className='date-chart'>
+				<DateChart userOrders={userOrders} />
+			</div>
+			<div className='num-stays card flex-column flex-center'>
 				<h3>Number of stays:</h3>
 				<p>{Object.values(ordersByStay).length}</p>
 			</div>
 			<div className='profits-chart card'>
 				<ProfitsChart userOrders={userOrders} />
 			</div>
-			<div className='card flex-column flex-center'>
+			<div className='num-orders card flex-column flex-center'>
 				<h3>Number of orders:</h3>
 				<p>{userOrders.length}</p>
 			</div>
@@ -55,7 +59,7 @@ export const UserStatistics = (props) => {
 					/>
 				))}
 			</div>
-			<div className='card flex-column flex-center'>
+			<div className='num card flex-column flex-center'>
 				<h3>Number of orders:</h3>
 				<p>{userOrders.length}</p>
 			</div>

@@ -1,5 +1,6 @@
-@import '../../assets/styles/setup/variables';
-@import '../../assets/styles/setup/functions';
+@import "../../assets/styles/setup/variables";
+@import "../../assets/styles/setup/functions";
+@import "../../assets/styles/setup/mixins";
 
 .user-statistics {
 	text-align: center;
@@ -34,6 +35,52 @@
 
 		& > * {
 			flex-grow: 1;
+		}
+	}
+
+	@include for-mobile-layout {
+		grid-template-columns: repeat(3, 1fr);
+		grid-template-rows: auto;
+		gap: rem(10px);
+
+		.num-stays {
+			grid-column: 1 / 2;
+			grid-row: 1 / 2;
+			font-size: rem(12px);
+		}
+
+		.num-orders {
+			grid-column: 2 / 3;
+			grid-row: 1 / 2;
+			font-size: rem(12px);
+		}
+
+		.num {
+			grid-column: 3 / 4;
+			grid-row: 1 / 2;
+			font-size: rem(12px);
+		}
+
+		.status-chart {
+			grid-column: 1 / 4;
+			grid-row: 2 / 3;
+		}
+	
+		.date-chart {
+			grid-column: 1 / 4;
+			grid-row: 3 / 4;
+		}
+	
+		.profits-chart {
+			grid-column: 1 / 4;
+			grid-row: 4 / 5;
+			width: 100%;
+		}
+	
+		.monthly-availability-chart {
+			grid-column: 1 / 4;
+			grid-row: 5 / 6;
+			width: 100%;
 		}
 	}
 }

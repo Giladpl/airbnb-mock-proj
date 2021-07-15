@@ -1,8 +1,15 @@
-.chart-monthly-availability {
+@import '../../assets/styles/setup/variables';
+@import '../../assets/styles/setup/functions';
+@import '../../assets/styles/setup/mixins';
 
-  canvas{
-    margin:0 auto;
-    // width: 500px !important;
-    // height: 300px !important;
-}
+.chart-monthly-availability {
+	canvas {
+		margin: 0 auto;
+	}
+
+	@include for-mobile-layout {
+		canvas {
+			width: 250px;
+		}
+	}
 }
