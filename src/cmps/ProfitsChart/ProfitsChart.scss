@@ -3,14 +3,14 @@
 @import '../../assets/styles/setup/mixins';
 
 .profits-chart {
-    text-align: center;
-    
-    canvas{
-        margin:0 auto;
-    }
+	text-align: center;
 
-    @include for-mobile-layout {
-        width: rem(250px);
-        // margin: 0 auto;
-    }
+	canvas {
+		margin: 0 auto;
+	}
+
+	@include for-mobile-layout {
+		width: rem(250px);
+		margin-inline: auto;
+	}
 }

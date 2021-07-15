@@ -14,10 +14,15 @@
 }
 
 .stay-list-user {
-	display: flex;
-	flex-wrap: wrap;
+	// display: flex;
+	// flex-wrap: wrap;
+	display: grid;
+	grid-template-columns: repeat(auto-fit, 250px);
 	gap: rem(25px) rem(16px);
 
+	@include for-mobile-layout {
+		grid-template-columns: 1fr;
+	}
 	& > * {
 		min-width: 250px;
 		max-width: 400px;
