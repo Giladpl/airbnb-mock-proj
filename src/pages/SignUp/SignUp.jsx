@@ -12,8 +12,8 @@ export const SignUp = (props) => {
 	const history = useHistory();
 	const [signUpCred, setSignUpCred] = useState({
 		fullname: '',
-		email: '@gmail.com',
-		password: '1234',
+		email: '',
+		password: '',
 		imgUrl: '',
 	});
 
