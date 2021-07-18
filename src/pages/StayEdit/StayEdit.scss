@@ -3,10 +3,11 @@
 @import '../../assets/styles/setup/mixins';
 
 .stay-edit {
-	padding-top: rem(40px) !important;
+	padding-top: rem(70px) !important;
 
 	form {
 		width: rem(700px);
+		padding-top: rem(30px);
 
 		> *:not(.input-label) {
 			margin-bottom: rem(25px);
@@ -30,7 +31,7 @@
 
 	@include for-mobile-layout {
 		form {
-			width: 300px;
+			width: 100%;
 		}
 	}
 }

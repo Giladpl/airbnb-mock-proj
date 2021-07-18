@@ -22,6 +22,7 @@ export const StayEdit = ({ loggedInUser }) => {
 	const history = useHistory();
 	const params = useParams();
 
+	const loggedinUser = useSelector((state) => state.userReducer.loggedinUser);
 	const [stay, setStay] = useState(null);
 	const [errMsg, setErrMsg] = useState('');
 	const [urls, setUrls] = useState([]);
@@ -56,9 +57,13 @@ export const StayEdit = ({ loggedInUser }) => {
 		const { id } = params;
 		(async () => {
 			try {
-				const stay = id
-					? await stayService.getById(id)
-					: stayService.getEmptyStay();
+				let stay;
+				if (id) {
+					stay = await stayService.getById(id);
+				} else {
+					stay = stayService.getEmptyStay();
+					stay.host = {_id: loggedinUser._id , fullname: loggedinUser.fullname, imgUrl: loggedinUser.imgUrl}
+				}
 				setStay(stay);
 			} catch (err) {
 				setErrMsg('Stay Not Found');
