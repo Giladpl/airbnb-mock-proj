@@ -4,8 +4,8 @@ import { Filter } from '../../cmps/Filter';
 import { loadStays } from '../../store/actions/stayActions';
 import { loadUsers } from '../../store/actions/userAction';
 import { useDispatch, useSelector } from 'react-redux';
+import { loadOrders } from '../../store/actions/orderActions';
 import OutsideClickHandler from 'react-outside-click-handler';
-import './HomePage.scss';
 import entire from '../../assets/img/entire.jpg';
 import unique from '../../assets/img/unique.jpg';
 import pets from '../../assets/img/pets.jpg';
@@ -13,7 +13,8 @@ import outdoor from '../../assets/img/outdoor.jpg';
 import experiences from '../../assets/img/Experiences.jpg';
 import featuredCollection from '../../assets/img/FeaturedCollection.jpg';
 import onlineExperiences from '../../assets/img/OnlineExperiences.jpg';
-import { loadOrders } from '../../store/actions/orderActions';
+import homeLogo from '../../assets/img/home.svg';
+import './HomePage.scss';
 
 export const HomePage = ({ isFilter }) => {
 	const dispatch = useDispatch();
@@ -38,7 +39,10 @@ export const HomePage = ({ isFilter }) => {
 			<div className='hero'>
 				<div className='logo-content main-layout'>
 					<div className='flex-between'>
-						<div>Logo.</div>
+						<div className='logo-container flex'>
+							<img src={homeLogo} alt='logo' />
+							<div>Everywhere</div>
+						</div>
 						<div className='menu flex-between' onClick={toggleMenu}>
 							<div className='flex-center'>☰</div>
 							<img
