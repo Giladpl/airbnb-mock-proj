@@ -10,11 +10,29 @@
 		height: 93vh;
 
 		@include for-mobile-layout {
-			background-image: url(../../assets/img/main-hero-mpbile.jpg);
+			background-image: url(../../assets/img/main-hero-mobile.jpg);
 		}
 
 		.logo-content {
 			padding-top: rem(15px);
+
+			.logo-container {
+				font-size: rem(20px);
+				font-weight: bold;
+
+				img {
+					width: rem(25px);
+					margin-right: rem(8px);
+				}
+
+				@include for-mobile-layout {
+					font-size: rem(15px);
+					
+					img {
+						width: rem(20px);
+					}
+				}
+			}
 
 			.menu {
 				background-color: $clr1;
