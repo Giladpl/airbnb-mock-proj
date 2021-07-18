@@ -32,7 +32,7 @@ export const HomePage = ({ isFilter }) => {
 	const toggleMenu = () => {
 		setIsMenu(!isMenu);
 	};
-	// console.log('refresh');
+
 	return (
 		<main className='home-page'>
 			<div className='hero'>
@@ -74,7 +74,7 @@ export const HomePage = ({ isFilter }) => {
 				<div className='hero-content main-layout'>
 					<h1>The Greatest Outdoors</h1>
 					<p>Wishlists curated by Airbnb.</p>
-					<button>Get inspired</button>
+					<Link to='/stay'><button>Get inspired</button></Link>
 				</div>
 			</div>
 			<div className='main-layout'>
@@ -113,7 +113,7 @@ export const HomePage = ({ isFilter }) => {
 						Earn extra income and unlock new opportunities by sharing your
 						space.
 					</p>
-					<button>Learn more</button>
+					<Link to='/signup'><button>Learn more</button></Link>
 				</div>
 				<div className='discover-container'>
 					<h1>Discover Experience</h1>
