@@ -78,4 +78,13 @@
 
 .explore-ul {
 	padding: 0 rem(30px);
+
+	@include for-normal-layout {
+		font-size: rem(12px);
+		padding: 0;
+
+		.stay-preview-explore {
+			padding: 0 5px;
+		}
+	}
 }

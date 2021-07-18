@@ -1,5 +1,6 @@
 @import '../../assets/styles/setup/variables';
 @import '../../assets/styles/setup/functions';
+@import '../../assets/styles/setup/mixins';
 
 .stay-map {
 	height: 100vh;
@@ -7,6 +8,11 @@
 	position: sticky;
 	top: 10%;
 	padding: 0 rem(30px);
+
+	@include for-mobile-layout {
+		height: 50vh;
+		margin-bottom: rem(20px);
+	}
 
 	.map-pointer {
 		font-size: rem(20px);

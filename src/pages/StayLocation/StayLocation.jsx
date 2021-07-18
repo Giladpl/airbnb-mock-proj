@@ -36,7 +36,7 @@ export const StayLocation = ({ match }) => {
 			)}
 			<h1 className='flex-center'>Explore {headerTitle()}</h1>
 			{stays.length ? (
-				<div className='list-map-container grid'>
+				<div className='list-map-container'>
 					<GenericList
 						items={stays}
 						CmpToRender={StayPreview}
