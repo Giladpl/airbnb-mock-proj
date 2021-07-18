@@ -1,6 +1,6 @@
-@import '../../assets/styles/setup/variables';
-@import '../../assets/styles/setup/functions';
-@import '../../assets/styles/setup/mixins';
+@import "../../assets/styles/setup/variables";
+@import "../../assets/styles/setup/functions";
+@import "../../assets/styles/setup/mixins";
 
 .stay-location {
 	.cover-img {
@@ -14,8 +14,13 @@
 	.list-map-container {
 		display: grid;
 		grid-template-columns: repeat(2, 1fr);
+	}
 
-		@include for-wide-layout {
+	@include for-wide-layout {
+		h1 {
+			font-size: rem(15px);
+		}
+		.list-map-container {
 			display: flex;
 			flex-direction: column;
 		}
