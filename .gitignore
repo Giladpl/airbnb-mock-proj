@@ -2,7 +2,7 @@
 
 # dependencies
 /node_modules
-/src/components/StayMap/StayMap.jsx
+/src/cmps/StayMap/StayMap.jsx
 /.pnp
 .pnp.js
 
