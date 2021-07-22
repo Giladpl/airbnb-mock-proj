@@ -1,5 +1,6 @@
 @import '../../assets/styles/setup/variables';
 @import '../../assets/styles/setup/functions';
+@import '../../assets/styles/setup/mixins';
 
 .filter {
 	display: flex;
@@ -8,6 +9,10 @@
 	border-radius: 32px;
 	height: rem(66px);
 	position: relative;
+
+	@include for-mobile-layout {
+		display: none;
+	}
 
 	> * {
 		padding: rem(14px) rem(24px);
@@ -65,7 +70,7 @@
 
 		&:nth-child(-n + 3)::after {
 			background-color: $clr3;
-			content: "";
+			content: '';
 			display: block;
 			height: 50%;
 			top: 25%;

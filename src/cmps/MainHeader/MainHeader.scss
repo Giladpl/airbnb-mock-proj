@@ -14,8 +14,12 @@
 	-moz-transition: all 0.5s;
 	-ms-transition: all 0.5s;
 	-o-transition: all 0.5s;
-	transition: all 0.5s; 
+	transition: all 0.5s;
 	z-index: 5;
+
+	// @include for-mobile-layout {
+	// 	display: none;
+	// }
 
 	.search-form {
 		width: rem(300px);
@@ -99,6 +103,10 @@
 	height: rem(200px);
 	align-items: center;
 	padding-top: rem(30px);
+
+	@include for-mobile-layout {
+		height: fit-content;
+	}
 
 	> * {
 		margin-bottom: rem(20px);
