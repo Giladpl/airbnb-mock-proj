@@ -50,11 +50,16 @@ export function App() {
 				<MainHeader isMainHeader={isMainHeader} />
 				<Switch>
 					<Route path='/stay/explore/:location' component={StayLocation} />
-					<PrivateRoute
-						path='/stay/edit/:id?'
-						component={StayEdit}
-						loggedinUser={loggedinUser}
-					/>
+					{React.useMemo(
+						() => (
+							<PrivateRoute
+								path='/stay/edit/:id?'
+								component={StayEdit}
+								loggedinUser={loggedinUser}
+							/>
+						),
+						[loggedinUser]
+					)}
 					<Route path='/stay/:id' component={StayDetails} />
 					<Route path='/stay' component={StayApp} />
 					<Route path='/user' component={UserDetails} />
