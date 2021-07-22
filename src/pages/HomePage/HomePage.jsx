@@ -16,7 +16,7 @@ import onlineExperiences from '../../assets/img/OnlineExperiences.jpg';
 import homeLogo from '../../assets/img/home.svg';
 import './HomePage.scss';
 
-export const HomePage = ({ isFilter }) => {
+export const HomePage = () => {
 	const dispatch = useDispatch();
 	const stays = useSelector((state) => state.stayReducer.stays);
 	const loggedinUser = useSelector((state) => state.userReducer.loggedinUser);
@@ -73,12 +73,14 @@ export const HomePage = ({ isFilter }) => {
 				<Filter
 					stays={stays}
 					className='filter'
-					style={{ opacity: !isFilter ? 100 : 0 }}
+					// style={{ opacity: !isFilter ? 100 : 0 }}
 				/>
 				<div className='hero-content main-layout'>
 					<h1>The Greatest Outdoors</h1>
 					<p>Wishlists curated by Airbnb.</p>
-					<Link to='/stay'><button>Get inspired</button></Link>
+					<Link to='/stay'>
+						<button>Get inspired</button>
+					</Link>
 				</div>
 			</div>
 			<div className='main-layout'>
@@ -117,7 +119,9 @@ export const HomePage = ({ isFilter }) => {
 						Earn extra income and unlock new opportunities by sharing your
 						space.
 					</p>
-					<Link to='/signup'><button>Learn more</button></Link>
+					<Link to='/signup'>
+						<button>Learn more</button>
+					</Link>
 				</div>
 				<div className='discover-container'>
 					<h1>Discover Experience</h1>

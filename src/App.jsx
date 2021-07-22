@@ -23,43 +23,25 @@ import './App.scss';
 import { useSelector } from 'react-redux';
 
 export function App() {
-	const [isMainHeader, setIsMainHeader] = useState(false);
+	// const [isMainHeader, setIsMainHeader] = useState(false);
 	const loggedinUser = useSelector((state) => state.userReducer.loggedinUser);
 	const PrivateRoute = (props) => {
 		return loggedinUser ? <Route {...props} /> : <Redirect to='/login' />;
 	};
 
-	useEffect(() => {
-		const handleScroll = () => {
-			if (window.pageYOffset >= 64 && !isMainHeader) {
-				setIsMainHeader(true);
-			} else if (window.pageYOffset < 64 && isMainHeader) {
-				setIsMainHeader(false);
-			}
-		};
-		window.addEventListener('scroll', handleScroll);
-		return () => {
-			window.removeEventListener('scroll', handleScroll);
-		};
-	}, [isMainHeader]);
-
 	return (
 		<Router>
 			<ScrollToTop />
 			<div className='App flex-column'>
-				<MainHeader isMainHeader={isMainHeader} />
+				<MainHeader />
 				<Switch>
 					<Route path='/stay/explore/:location' component={StayLocation} />
-					{React.useMemo(
-						() => (
-							<PrivateRoute
-								path='/stay/edit/:id?'
-								component={StayEdit}
-								loggedinUser={loggedinUser}
-							/>
-						),
-						[loggedinUser]
-					)}
+					<PrivateRoute
+						path='/stay/edit/:id?'
+						component={StayEdit}
+						loggedinUser={loggedinUser}
+					/>
+					)
 					<Route path='/stay/:id' component={StayDetails} />
 					<Route path='/stay' component={StayApp} />
 					<Route path='/user' component={UserDetails} />
@@ -67,7 +49,7 @@ export function App() {
 					<Route path='/signup' component={SignUp} />
 					<Route path='/login' component={LogIn} />
 					<Route path='/'>
-						<HomePage isFilter={isMainHeader} />
+						<HomePage />
 					</Route>
 				</Switch>
 				<MainFooter />

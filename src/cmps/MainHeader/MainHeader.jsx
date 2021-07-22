@@ -1,12 +1,27 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { ReactComponent as MagnifyingGlass } from '../../assets/svgs/magnifying-glass.svg';
 import { Filter } from '../Filter';
 import OutsideClickHandler from 'react-outside-click-handler';
 import './MainHeader.scss';
 import { useSelector } from 'react-redux';
 
-export const MainHeader = ({ isMainHeader }) => {
+export const MainHeader = () => {
 	let [isFilter, setIsFilter] = useState(false);
+	const [isMainHeader, setIsMainHeader] = useState(false);
+	useEffect(() => {
+		const handleScroll = () => {
+			if (window.pageYOffset >= 64 && !isMainHeader) {
+				setIsMainHeader(true);
+			} else if (window.pageYOffset < 64 && isMainHeader) {
+				setIsMainHeader(false);
+			}
+		};
+		window.addEventListener('scroll', handleScroll);
+		return () => {
+			window.removeEventListener('scroll', handleScroll);
+		};
+	}, [isMainHeader]);
+
 	const stays = useSelector((state) => state.stayReducer.stays);
 
 	const covidHeader = <p>Get the latest on our COVID-19 response</p>;

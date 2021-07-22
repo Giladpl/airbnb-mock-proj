@@ -85,7 +85,7 @@ export const Filter = ({ style, stays }) => {
 				className='filter'
 				style={{
 					width: inputFocus.name ? ' 900px' : '',
-					opacity: style.opacity,
+					// opacity: style.opacity,
 				}}
 			>
 				<div
