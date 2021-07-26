@@ -62,7 +62,11 @@ export const StayEdit = ({ loggedInUser }) => {
 					stay = await stayService.getById(id);
 				} else {
 					stay = stayService.getEmptyStay();
-					stay.host = {_id: loggedinUser._id , fullname: loggedinUser.fullname, imgUrl: loggedinUser.imgUrl}
+					stay.host = {
+						_id: loggedinUser._id,
+						fullname: loggedinUser.fullname,
+						imgUrl: loggedinUser.imgUrl,
+					};
 				}
 				setStay(stay);
 			} catch (err) {

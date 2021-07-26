@@ -22,7 +22,8 @@ export const FilterLocationsModal = ({ stays, setLocation, location }) => {
 		<ul className='clean-list options-list'>
 			{filteredOptions.map((option) => (
 				<li key={option} onClick={() => setLocation(option)} className='flex'>
-					<img src={PinSvg} alt="pin-svg" /> <p className="flex-center">{option}</p>
+					<img src={PinSvg} alt='pin-svg' />{' '}
+					<p className='flex-center'>{option}</p>
 				</li>
 			))}
 		</ul>
@@ -33,17 +34,6 @@ function getOptions(stays) {
 	if (!stays) return;
 	const addresses = stays.map((stay) => stay.loc.address);
 	const set = new Set(addresses);
-	return [...set].map((address) => address);
+	return [...set];
+	// return [...set].map((address) => address);
 }
-
-// const getDataOptions = () => {
-//     // const addressesMap = stays.reduce((addressesMap, stay, idx) => {
-//     // 	if (!addressesMap[stay.loc.address]) addressesMap[stay.loc.address] = idx;
-//     // 	return addressesMap;
-//     // }, {});
-//     // return Object.keys(addressesMap).map((address, idx) => (
-//     // 	<option key={idx} value={address}>
-//     // 		{' '}
-//     // 	</option>
-//     // ));
-// };
