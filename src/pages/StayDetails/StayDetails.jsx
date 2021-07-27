@@ -1,17 +1,17 @@
-import "./StayDetails.scss";
-import { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { getStayById, saveStay } from "../../store/actions/stayActions";
-import { ReactComponent as StarSvg } from "../../assets/svgs/star.svg";
-import { stayService } from "../../services/stayService";
-import { CheckModal } from "../../cmps/CheckModal/CheckModal";
-import { GenericList } from "../../cmps/GenericList/GenericList";
-import { AmenityPreview } from "../../cmps/AmenityPreview/AmenityPreview";
-import { RatePreview } from "../../cmps/RatePreview";
-import { ReviewPreview } from "../../cmps/ReviewPreview";
-import { orderService } from "../../services/orderService";
-import { saveOrder } from "../../store/actions/orderActions";
-import { AddReview } from "../../cmps/AddReview/AddReview";
+import './StayDetails.scss';
+import { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { getStayById, saveStay } from '../../store/actions/stayActions';
+import { ReactComponent as StarSvg } from '../../assets/svgs/star.svg';
+import { stayService } from '../../services/stayService';
+import { CheckModal } from '../../cmps/CheckModal/CheckModal';
+import { GenericList } from '../../cmps/GenericList/GenericList';
+import { AmenityPreview } from '../../cmps/AmenityPreview/AmenityPreview';
+import { RatePreview } from '../../cmps/RatePreview';
+import { ReviewPreview } from '../../cmps/ReviewPreview';
+import { orderService } from '../../services/orderService';
+import { saveOrder } from '../../store/actions/orderActions';
+import { AddReview } from '../../cmps/AddReview/AddReview';
 // import { StayMap } from "../../cmps/StayMap/StayMap";
 
 export const StayDetails = ({ match }) => {
@@ -36,7 +36,7 @@ export const StayDetails = ({ match }) => {
 		(async () => {
 			const stay = await dispatch(getStayById(match.params.id));
 			setCurrStay(stay);
-			setAvgRate(stayService.getTotalAvgRate(stay).toFixed(2));
+			setAvgRate(stayService.getTotalAvgRate(stay)?.toFixed(2) || 0);
 			setListAvgRate(stayService.getListAvgRate(stay));
 			if (!loggedinUser) return;
 			setReview({
@@ -67,14 +67,14 @@ export const StayDetails = ({ match }) => {
 
 	const propertyFormatted = (property, content) => {
 		if (!property) return;
-		content = property === 1 ? content : content + "s";
-		return property + " " + content;
+		content = property === 1 ? content : content + 's';
+		return property + ' ' + content;
 	};
 
 	const updateNumOfGuests = (operator, type) => {
-		if (operator === "-" && !guestNum[type]) return;
-		if (operator === "-" && type === "Adults" && guestNum.Adults === 1) return;
-		if (operator === "-")
+		if (operator === '-' && !guestNum[type]) return;
+		if (operator === '-' && type === 'Adults' && guestNum.Adults === 1) return;
+		if (operator === '-')
 			setGuestNum({ ...guestNum, [type]: --guestNum[type] });
 		else setGuestNum({ ...guestNum, [type]: ++guestNum[type] });
 	};
@@ -133,12 +133,12 @@ export const StayDetails = ({ match }) => {
 			<section className='stay-details main-layout'>
 				<h1>{currStay.name}</h1>
 				<div className='desc'>
-					<StarSvg fill='#FF385C' /> {avgRate} ({currStay.reviews.length}{" "}
+					<StarSvg fill='#FF385C' /> {avgRate} ({currStay.reviews.length}{' '}
 					reviews) ∙ {currStay.loc.address}
 				</div>
 				<div className='img-container grid'>
 					{currStay.imgUrls.map((imgUrl, idx) => (
-						<img className={"img" + idx} key={idx} src={imgUrl} alt='' />
+						<img className={'img' + idx} key={idx} src={imgUrl} alt='' />
 					))}
 				</div>
 				<div className='main flex'>
@@ -150,16 +150,16 @@ export const StayDetails = ({ match }) => {
 									<div>
 										{propertyFormatted(
 											currStay.properties.accommodates,
-											"guest"
-										)}{" "}
+											'guest'
+										)}{' '}
 										∙
 									</div>
 									<div>{currStay.properties.type} ∙</div>
 									<div>
-										{propertyFormatted(currStay.properties.bad, "bad")} ∙
+										{propertyFormatted(currStay.properties.bad, 'bad')} ∙
 									</div>
 									<div>
-										{propertyFormatted(currStay.properties.bath, "bath")}
+										{propertyFormatted(currStay.properties.bath, 'bath')}
 									</div>
 								</div>
 							</div>
@@ -191,7 +191,7 @@ export const StayDetails = ({ match }) => {
 				</div>
 				<div className='reviews'>
 					<div className='review-title'>
-						<StarSvg fill='#FF385C' /> {avgRate} ({currStay.reviews.length}{" "}
+						<StarSvg fill='#FF385C' /> {avgRate} ({currStay.reviews.length}{' '}
 						reviews)
 					</div>
 					<div className='rate'>
@@ -212,7 +212,7 @@ export const StayDetails = ({ match }) => {
 						onAddReview={onAddReview}
 					/>
 				</div>
-                {/* <StayMap staysForMap={[currStay]} /> */}
+				{/* <StayMap staysForMap={[currStay]} /> */}
 			</section>
 		)
 	);

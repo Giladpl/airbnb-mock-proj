@@ -6,8 +6,8 @@ import { stayService } from '../../services/stayService';
 import { ImageSwiper } from '../../cmps/ImageSwiper';
 import { useHistory } from 'react-router-dom';
 import { Like } from '../../cmps/Like';
-import trashSvg from '../../assets/img/trash.svg'
-import editSvg from '../../assets/img/edit.svg'
+import trashSvg from '../../assets/img/trash.svg';
+import editSvg from '../../assets/img/edit.svg';
 import './StayPreview.scss';
 
 export const StayPreview = ({
@@ -25,7 +25,7 @@ export const StayPreview = ({
 		return property + ' ' + content;
 	}
 
-	const avrgRate = stayService.getTotalAvgRate(item).toFixed(2);
+	const avrgRate = (stayService.getTotalAvgRate(item) || 0).toFixed(2);
 
 	const location = <p key='location'>{item.loc.address}</p>;
 
@@ -121,10 +121,10 @@ export const StayPreview = ({
 					{history.location.pathname === '/user' && (
 						<div>
 							<button onClick={(ev) => removeHandler(ev, item._id)}>
-									<img src={trashSvg} alt='remove' />
+								<img src={trashSvg} alt='remove' />
 							</button>
 							<button onClick={(ev) => editHandler(ev, item._id)}>
-							<img src={editSvg} alt='edit' />
+								<img src={editSvg} alt='edit' />
 							</button>
 						</div>
 					)}

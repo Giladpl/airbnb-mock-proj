@@ -3718,7 +3718,7 @@ export const stayService = {
 	getEmptyStay,
 	getTotalAvgRate,
 	getListAvgRate,
-	getEmptyReview
+	getEmptyReview,
 };
 
 // _createStays();
@@ -3807,9 +3807,10 @@ function getEmptyReview() {
 		by: {
 			_id: 'guest',
 			fullname: 'Guest',
-			imgUrl: 'https://cube.elemecdn.com/9/c2/f0ee8a3c7c9638a54940382568c9dpng.png',
-		}
-	}
+			imgUrl:
+				'https://cube.elemecdn.com/9/c2/f0ee8a3c7c9638a54940382568c9dpng.png',
+		},
+	};
 }
 
 function getEmptyStay(title = '', description = '') {
